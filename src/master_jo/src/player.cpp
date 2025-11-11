@@ -129,11 +129,6 @@ bool Player::udpPublish() {
   master->master2udp.ballcoory = static_cast<int>(master->local.ball_y);
   master->master2udp.myteam = static_cast<int>(master->gameControlData.myteam);
 
-  if (static_cast<int>(master->vision.ball_d) == 0) {
-    master->master2udp.ballcoorx = 0;
-    master->master2udp.ballcoory = 0;
-  }
-
   return true;
 }
 

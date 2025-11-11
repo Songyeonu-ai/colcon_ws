@@ -39,7 +39,7 @@ class MasterJoNode : public rclcpp_lifecycle::LifecycleNode {
 
   void imuCallback(const humanoid_interfaces::msg::ImuMsg::SharedPtr msg);
   void visionCallback(
-      const humanoid_interfaces::msg::Robocupvision25::SharedPtr msg);
+      const humanoid_interfaces::msg::HumanPjVision::SharedPtr msg);
   void ikCallback(const humanoid_interfaces::msg::IkEndMsg::SharedPtr msg);
   void gamecontrolCallback(
       const humanoid_interfaces::msg::Gamecontroldata::SharedPtr msg);
@@ -65,7 +65,7 @@ class MasterJoNode : public rclcpp_lifecycle::LifecycleNode {
   rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::MotionOperator>::SharedPtr motionPub;
 
   rclcpp::Subscription<humanoid_interfaces::msg::ImuMsg>::SharedPtr imu_sub;
-  rclcpp::Subscription<humanoid_interfaces::msg::Robocupvision25>::SharedPtr vision_sub;
+  rclcpp::Subscription<humanoid_interfaces::msg::HumanPjVision>::SharedPtr vision_sub;
   rclcpp::Subscription<humanoid_interfaces::msg::IkEndMsg>::SharedPtr ik_sub;
   rclcpp::Subscription<humanoid_interfaces::msg::Gamecontroldata>::SharedPtr gamecontrol_sub;
   rclcpp::Subscription<humanoid_interfaces::msg::Robocuplocalization25>::SharedPtr local_sub;
@@ -94,8 +94,9 @@ class MasterJoNode : public rclcpp_lifecycle::LifecycleNode {
 
   bool isPenalty;
   bool testFlag = false;
+  bool vision_movement_allowed_ = true;
 
-  int position = POSITION_FW;
+  int position = 2;
   int state = STATE_PLAYING;
 };
 

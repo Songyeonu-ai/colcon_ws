@@ -135,17 +135,21 @@ private:
 
       // --- FLAG 계산 ---
       int flag = 0;
-      int half_row = frame.rows * 0.75;
+      int lower_region_boundary = frame.rows * 0.75;
+      const int min_red_pixels_in_region = 10000; // Minimum number of red pixels in the target region
+      int red_pixels_in_lower_region = 0;
+
       for (const auto& pt : locations)
       {
-        if (pt.y > half_row)   //화면 나누기 4 이하(아래쪽)에 빨간 픽셀이 있으면
+        if (pt.y > lower_region_boundary)
         {
-          flag = 1;
+          red_pixels_in_lower_region++;
         }
-        else 
-        {
-          flag = 0;
-        }
+      }
+
+      if (red_pixels_in_lower_region > min_red_pixels_in_region)
+      {
+        flag = 1;
       }
 
       // --- 퍼블리시 ---
@@ -155,7 +159,7 @@ private:
 
       coords_pub_->publish(std::move(msg_out));
 
-      RCLCPP_INFO(this->get_logger(), "Published flag: %d", flag);
+      RCLCPP_INFO(this->get_logger(), "Published flag: %d cnt : %d", flag,red_pixels_in_lower_region);
     }
     
     catch (cv_bridge::Exception& e)

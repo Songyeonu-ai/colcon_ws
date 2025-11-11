@@ -34,7 +34,7 @@ class Player {
   bool publish_motion_flag = false;
   bool publish_motion_complete = true;
 
- protected:
+  bool walkStop();
 
   virtual void stateInitial() = 0;
   virtual void stateReady() = 0;
@@ -48,7 +48,7 @@ class Player {
   Point opponent_goal;
 
   bool walkStart(int x, int y, int yaw);
-  bool walkStop();
+
   bool walkPublish();
   bool visionPublish(int scan_mode, int pan = 0, int tilt = 0);
   bool udpPublish();

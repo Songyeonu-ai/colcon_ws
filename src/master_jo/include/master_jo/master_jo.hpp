@@ -8,6 +8,7 @@
 #include "humanoid_interfaces/msg/motion_operator.hpp"
 #include "humanoid_interfaces/msg/imu_msg.hpp"
 #include "humanoid_interfaces/msg/robocupvision25.hpp"
+#include "humanoid_interfaces/msg/human_pj_vision.hpp"
 #include "humanoid_interfaces/msg/ik_end_msg.hpp"
 #include "humanoid_interfaces/msg/gamecontroldata.hpp"
 #include "humanoid_interfaces/msg/robocuplocalization25.hpp"
@@ -40,7 +41,7 @@ class MasterRcko {
 
     // 센서 / 비전 / 로컬라이제이션
     humanoid_interfaces::msg::ImuMsg imu; //ㅇㅋ
-    humanoid_interfaces::msg::Robocupvision25 vision; //ㅇㅋ
+    humanoid_interfaces::msg::HumanPjVision vision; //ㅇㅋ
     humanoid_interfaces::msg::Robocuplocalization25 local; //ㅇㅋ
 
     // 마스터 → 서브시스템 메시지

@@ -32,11 +32,10 @@ MasterJoNode::on_configure(
       "Imu", rclcpp::QoS(rclcpp::KeepLast(10)).reliable().best_effort(),
       std::bind(&MasterJoNode::imuCallback, this,
                 std::placeholders::_1));
-  vision_sub = create_subscription<humanoid_interfaces::msg::Robocupvision25>(
-      "vision", 10,
-      std::bind(&MasterJoNode::visionCallback, this,
-                std::placeholders::_1));
-  ik_sub = create_subscription<humanoid_interfaces::msg::IkEndMsg>(
+      vision_sub = create_subscription<humanoid_interfaces::msg::HumanPjVision>(
+          "/robit_mj/red_pixel_flag", 10,
+          std::bind(&MasterJoNode::visionCallback, this,
+                    std::placeholders::_1));  ik_sub = create_subscription<humanoid_interfaces::msg::IkEndMsg>(
       "ik", 10,
       std::bind(&MasterJoNode::ikCallback, this, std::placeholders::_1));
   gamecontrol_sub =
@@ -57,6 +56,8 @@ MasterJoNode::on_configure(
       "pid", 10,
       std::bind(&MasterJoNode::pidCallback, this,
                 std::placeholders::_1));
+
+  
 
   try {
     master = std::make_shared<master_jo::MasterRcko>();
@@ -98,6 +99,8 @@ MasterJoNode::on_activate(
   local_pub->on_activate();
   udp_pub->on_activate();
   motionPub->on_activate();
+
+
 
   try {
     timer = create_wall_timer(
@@ -230,13 +233,15 @@ void MasterJoNode::imuCallback(
 }
 
 void MasterJoNode::visionCallback(
-    const humanoid_interfaces::msg::Robocupvision25::SharedPtr msg) {
-  master->vision.ball_2d_x = msg->ball_2d_x; //ㅇㅋ
-  master->vision.ball_2d_y = msg->ball_2d_y;
-  master->vision.ball_cam_x = msg->ball_cam_x;
-  master->vision.ball_cam_y = msg->ball_cam_y;
-  master->vision.ball_d = msg->ball_d;
-  master->vision.ball_speed_level = msg->ball_speed_level;
+    const humanoid_interfaces::msg::HumanPjVision::SharedPtr msg) {
+  master->vision.flag = msg->flag;
+
+  if (msg->flag == 1)
+   {
+    vision_movement_allowed_ = false;
+  } else {
+    vision_movement_allowed_ = true;
+  }
 }
 
 void MasterJoNode::ikCallback(
@@ -307,7 +312,7 @@ void MasterJoNode::pidCallback(
 
 void MasterJoNode::robocup_master() {
   if (!testFlag) {
-    position =  2;//master->gameControlData.position;
+    position = POSITION_FW;//master->gameControlData.position;
     state = master->gameControlData.state;
   }
 
@@ -326,11 +331,16 @@ void MasterJoNode::robocup_master() {
   }
 
   if (player) {
-    if (!player->falldownExeption()) {
-      player->selectGoalPost();
-      player->penaltyControl(isPenalty);
-      player->selectRobotState(isPenalty);
-      player->gameStateControl(!isPenalty, state);
+    if (!vision_movement_allowed_) {
+      player->walkStop();
+
+    } else {
+      if (!player->falldownExeption()) {
+        player->selectGoalPost();
+        player->penaltyControl(isPenalty);
+        player->selectRobotState(isPenalty);
+        player->gameStateControl(!isPenalty, state);
+      }
     }
     player->publishMsg();
 

@@ -2685,7 +2685,7 @@ void MainWindow::on_Reset_Button_clicked()
 
 void MainWindow::on_Open_Button_clicked()
 {
-  QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), "/home/kmj/colcon_ws/src/tune_walk/work");
+  QString fileName = QFileDialog::getOpenFileName(this, tr("Open file"), "/home/robit/colcon_ws/src/tune_walk/work");
 
   if (fileName.isEmpty() == true)
   {
