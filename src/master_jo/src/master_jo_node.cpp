@@ -307,7 +307,7 @@ void MasterJoNode::pidCallback(
 
 void MasterJoNode::robocup_master() {
   if (!testFlag) {
-    position = master->gameControlData.position;
+    position =  2;//master->gameControlData.position;
     state = master->gameControlData.state;
   }
 

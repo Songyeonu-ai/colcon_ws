@@ -95,7 +95,7 @@ class MasterJoNode : public rclcpp_lifecycle::LifecycleNode {
   bool isPenalty;
   bool testFlag = false;
 
-  int position = POSITION_GK;
+  int position = POSITION_FW;
   int state = STATE_PLAYING;
 };
 
