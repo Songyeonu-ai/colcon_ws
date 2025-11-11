@@ -1,0 +1,14 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/MotionOperator.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct MotionOperator {
+      int32 motion_num;
+
+      int32 motion_end;
+    };
+  };
+};

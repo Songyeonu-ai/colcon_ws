@@ -1,0 +1,6 @@
+Invoking command in '/home/kmj/colcon_ws/build/ocam_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/ocam_ros2 -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/ocam_ros2
+Invoked command in '/home/kmj/colcon_ws/build/ocam_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/ocam_ros2 -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/ocam_ros2
+Invoking command in '/home/kmj/colcon_ws/build/ocam_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/ocam_ros2 -- -j16 -l16
+Invoked command in '/home/kmj/colcon_ws/build/ocam_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/ocam_ros2 -- -j16 -l16
+Invoking command in '/home/kmj/colcon_ws/build/ocam_ros2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/ocam_ros2
+Invoked command in '/home/kmj/colcon_ws/build/ocam_ros2' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/ocam_ros2

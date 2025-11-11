@@ -1,0 +1,108 @@
+[0.011s] Invoking command in '/home/kmj/colcon_ws/build/ebimu': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/ebimu -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/ebimu
+[0.057s] -- The C compiler identification is GNU 11.4.0
+[0.109s] -- The CXX compiler identification is GNU 11.4.0
+[0.115s] -- Detecting C compiler ABI info
+[0.180s] -- Detecting C compiler ABI info - done
+[0.184s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.185s] -- Detecting C compile features
+[0.185s] -- Detecting C compile features - done
+[0.187s] -- Detecting CXX compiler ABI info
+[0.258s] -- Detecting CXX compiler ABI info - done
+[0.263s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.263s] -- Detecting CXX compile features
+[0.263s] -- Detecting CXX compile features - done
+[0.266s] -- Found ament_cmake_auto: 1.3.12 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.392s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.559s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.564s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.571s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.580s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.593s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.632s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.665s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.668s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.753s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.777s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.815s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.824s] -- Looking for pthread.h
+[0.887s] -- Looking for pthread.h - found
+[0.887s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.960s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.961s] -- Found Threads: TRUE  
+[1.007s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.71.0") found components: thread 
+[1.021s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.037s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.059s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.060s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.060s] -- Configured cppcheck include dirs: /home/kmj/colcon_ws/src/ebimu/include
+[1.060s] -- Configured cppcheck exclude dirs and/or files: 
+[1.061s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.061s] -- Configured cpplint exclude dirs and/or files: 
+[1.062s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.062s] -- Added test 'lint_cmake' to check CMake code style
+[1.063s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.064s] -- Added test 'uncrustify' to check C / C++ code style
+[1.064s] -- Configured uncrustify additional arguments: 
+[1.065s] -- Added test 'xmllint' to check XML markup files
+[1.066s] -- Configuring done
+[1.085s] -- Generating done
+[1.089s] -- Build files have been written to: /home/kmj/colcon_ws/build/ebimu
+[1.109s] Invoked command in '/home/kmj/colcon_ws/build/ebimu' returned '0': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/ebimu -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/ebimu
+[1.109s] Invoking command in '/home/kmj/colcon_ws/build/ebimu': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/ebimu -- -j16 -l16
+[1.145s] [ 13%] [34m[1mGenerating include/ebimu/moc_e2box_imu_node.cpp[0m
+[1.145s] [ 13%] [34m[1mGenerating ui_mainwindow.h[0m
+[1.145s] [ 20%] [34m[1mGenerating include/ebimu/moc_main_window.cpp[0m
+[1.145s] [ 26%] [34m[1mGenerating include/ebimu/moc_serial_manager.cpp[0m
+[1.146s] [ 33%] [34m[1mGenerating include/ebimu/moc_qnode.cpp[0m
+[1.148s] /home/kmj/colcon_ws/src/ebimu/include/ebimu/e2box_imu_node.hpp:0: Note: No relevant classes found. No output generated.
+[1.148s] /home/kmj/colcon_ws/src/ebimu/include/ebimu/serial_manager.hpp:0: Note: No relevant classes found. No output generated.
+[1.168s] [ 60%] [32mBuilding CXX object CMakeFiles/ebimu.dir/src/qnode.cpp.o[0m
+[1.168s] [ 60%] [32mBuilding CXX object CMakeFiles/ebimu.dir/src/e2box_imu_node.cpp.o[0m
+[1.168s] [ 60%] [32mBuilding CXX object CMakeFiles/ebimu.dir/src/main_window.cpp.o[0m
+[1.168s] [ 60%] [32mBuilding CXX object CMakeFiles/ebimu.dir/src/main.cpp.o[0m
+[1.168s] [ 66%] [32mBuilding CXX object CMakeFiles/ebimu.dir/include/ebimu/moc_main_window.cpp.o[0m
+[1.168s] [ 80%] [32mBuilding CXX object CMakeFiles/ebimu.dir/include/ebimu/moc_e2box_imu_node.cpp.o[0m
+[1.169s] [ 80%] [32mBuilding CXX object CMakeFiles/ebimu.dir/src/serial_manager.cpp.o[0m
+[1.169s] [ 86%] [32mBuilding CXX object CMakeFiles/ebimu.dir/include/ebimu/moc_qnode.cpp.o[0m
+[1.170s] [ 93%] [32mBuilding CXX object CMakeFiles/ebimu.dir/include/ebimu/moc_serial_manager.cpp.o[0m
+[1.625s] In file included from [01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:17[m[K:
+[1.626s] [01m[K/home/kmj/colcon_ws/src/ebimu/src/../include/ebimu/serial_manager.hpp:[m[K In constructor ‘[01m[Ke2box_imu::SerialManager::SerialManager()[m[K’:
+[1.626s] [01m[K/home/kmj/colcon_ws/src/ebimu/src/../include/ebimu/serial_manager.hpp:52:8:[m[K [01;35m[Kwarning: [m[K‘[01m[Ke2box_imu::SerialManager::isConnected[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[1.626s]    52 |   bool [01;35m[KisConnected[m[K;
+[1.626s]       |        [01;35m[K^~~~~~~~~~~[m[K
+[1.626s] [01m[K/home/kmj/colcon_ws/src/ebimu/src/../include/ebimu/serial_manager.hpp:51:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint e2box_imu::SerialManager::n_length[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[1.626s]    51 |   int [01;35m[Kn_length[m[K;
+[1.626s]       |       [01;35m[K^~~~~~~~[m[K
+[1.626s] [01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:22:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+[1.626s]    22 | [01;35m[KSerialManager[m[K::SerialManager()
+[1.626s]       | [01;35m[K^~~~~~~~~~~~~[m[K
+[1.626s] [01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:[m[K In member function ‘[01m[Kvoid e2box_imu::SerialManager::readSerial()[m[K’:
+[1.626s] [01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:137:18:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Ktimeout[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[1.626s]   137 |   struct timeval [01;35m[Ktimeout[m[K;
+[1.626s]       |                  [01;35m[K^~~~~~~[m[K
+[8.684s] [100%] [32m[1mLinking CXX executable ebimu[0m
+[9.674s] [100%] Built target ebimu
+[9.685s] Invoked command in '/home/kmj/colcon_ws/build/ebimu' returned '0': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/ebimu -- -j16 -l16
+[9.687s] Invoking command in '/home/kmj/colcon_ws/build/ebimu': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/ebimu
+[9.694s] -- Install configuration: ""
+[9.694s] -- Installing: /home/kmj/colcon_ws/install/ebimu/lib/ebimu/ebimu
+[9.697s] -- Set runtime path of "/home/kmj/colcon_ws/install/ebimu/lib/ebimu/ebimu" to ""
+[9.697s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu//launch
+[9.697s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu//launch/e2box_imu_9dofv4.launch.py
+[9.697s] -- Up-to-date: /home/kmj/colcon_ws/install/ebimu/lib/ebimu/ebimu
+[9.697s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ament_index/resource_index/package_run_dependencies/ebimu
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ament_index/resource_index/parent_prefix_path/ebimu
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/ament_prefix_path.sh
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/ament_prefix_path.dsv
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/path.sh
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/path.dsv
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.bash
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.sh
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.zsh
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.dsv
+[9.698s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/package.dsv
+[9.699s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ament_index/resource_index/packages/ebimu
+[9.699s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/cmake/ebimuConfig.cmake
+[9.699s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/cmake/ebimuConfig-version.cmake
+[9.699s] -- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/package.xml
+[9.701s] Invoked command in '/home/kmj/colcon_ws/build/ebimu' returned '0': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/ebimu

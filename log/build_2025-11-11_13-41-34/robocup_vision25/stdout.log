@@ -1,0 +1,21 @@
+[35m[1mConsolidate compiler generated dependencies of target robocup_vision25[0m
+[100%] Built target robocup_vision25
+-- Install configuration: ""
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/lib/robocup_vision25/robocup_vision25
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/launch
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/launch/robocup_vision25_launch.py
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/package_run_dependencies/robocup_vision25
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/parent_prefix_path/robocup_vision25
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/ament_prefix_path.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/path.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/path.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.bash
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.zsh
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.dsv
+-- Installing: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/package.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/packages/robocup_vision25
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/cmake/robocup_vision25Config.cmake
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/cmake/robocup_vision25Config-version.cmake
+-- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/package.xml

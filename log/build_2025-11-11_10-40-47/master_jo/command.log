@@ -1,0 +1,4 @@
+Invoking command in '/home/kmj/colcon_ws/build/master_jo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/master_jo -- -j16 -l16
+Invoked command in '/home/kmj/colcon_ws/build/master_jo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/master_jo -- -j16 -l16
+Invoking command in '/home/kmj/colcon_ws/build/master_jo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/master_jo
+Invoked command in '/home/kmj/colcon_ws/build/master_jo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/master_jo

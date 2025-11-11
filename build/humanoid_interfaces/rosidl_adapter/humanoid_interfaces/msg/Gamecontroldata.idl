@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/Gamecontroldata.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct Gamecontroldata {
+      int64 robotnum;
+
+      int64 position;
+
+      int64 myteam;
+
+      int64 state;
+
+      int64 myside;
+
+      int64 iskickoff;
+
+      int64 readytime;
+
+      int64 penalty;
+
+      int64 secondstate;
+
+      sequence<int64> secondinfo;
+    };
+  };
+};

@@ -1,0 +1,22 @@
+[100%] Built target dynamixel_rdk_node
+-- Install configuration: ""
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//config
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//config/dynamixel.yaml
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//launch
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//launch/dynamixel_rdk.launch.py
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/lib/dynamixel_rdk_ros/dynamixel_rdk_node
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/package_run_dependencies/dynamixel_rdk_ros
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/parent_prefix_path/dynamixel_rdk_ros
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/ament_prefix_path.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/path.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/path.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.bash
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.zsh
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.dsv
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/package.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/packages/dynamixel_rdk_ros
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/cmake/dynamixel_rdk_rosConfig.cmake
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/cmake/dynamixel_rdk_rosConfig-version.cmake
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/package.xml

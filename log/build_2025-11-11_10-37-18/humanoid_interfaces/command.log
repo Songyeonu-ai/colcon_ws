@@ -1,0 +1,6 @@
+Invoking command in '/home/kmj/colcon_ws/build/humanoid_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/humanoid_interfaces -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/humanoid_interfaces
+Invoked command in '/home/kmj/colcon_ws/build/humanoid_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/humanoid_interfaces -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/humanoid_interfaces
+Invoking command in '/home/kmj/colcon_ws/build/humanoid_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/humanoid_interfaces -- -j16 -l16
+Invoked command in '/home/kmj/colcon_ws/build/humanoid_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/humanoid_interfaces -- -j16 -l16
+Invoking command in '/home/kmj/colcon_ws/build/humanoid_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/humanoid_interfaces
+Invoked command in '/home/kmj/colcon_ws/build/humanoid_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/humanoid_interfaces

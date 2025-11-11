@@ -1,0 +1,80 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+-- Found FastRTPS: /opt/ros/humble/include  
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found humanoid_interfaces: 0.0.0 (/home/kmj/colcon_ws/install/humanoid_interfaces/share/humanoid_interfaces/cmake)
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.71.0") found components: thread 
+-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: /home/kmj/colcon_ws/src/tune_walk/include/tune_walk
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kmj/colcon_ws/build/tune_walk
+[ 35%] [34m[1mGenerating include/tune_walk/moc_qcustomplot.cpp[0m
+[ 35%] [34m[1mGenerating qrc_images.cpp[0m
+[ 35%] [34m[1mGenerating include/tune_walk/moc_qnode.cpp[0m
+[ 35%] [34m[1mGenerating ui_mainwindow.h[0m
+[ 35%] [34m[1mGenerating include/tune_walk/moc_main_window.cpp[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/src/main_window.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/include/tune_walk/moc_qnode.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/src/qcustomplot.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/src/main.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/include/tune_walk/moc_qcustomplot.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/src/qnode.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/include/tune_walk/moc_main_window.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/tune_walk.dir/qrc_images.cpp.o[0m
+[100%] [32m[1mLinking CXX executable tune_walk[0m
+[100%] Built target tune_walk
+-- Install configuration: ""
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/lib/tune_walk/tune_walk
+-- Set runtime path of "/home/kmj/colcon_ws/install/tune_walk/lib/tune_walk/tune_walk" to ""
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/ament_index/resource_index/package_run_dependencies/tune_walk
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/ament_index/resource_index/parent_prefix_path/tune_walk
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/environment/ament_prefix_path.sh
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/environment/ament_prefix_path.dsv
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/environment/path.sh
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/environment/path.dsv
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/local_setup.bash
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/local_setup.sh
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/local_setup.zsh
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/local_setup.dsv
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/package.dsv
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/ament_index/resource_index/packages/tune_walk
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/cmake/tune_walkConfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/cmake/tune_walkConfig-version.cmake
+-- Installing: /home/kmj/colcon_ws/install/tune_walk/share/tune_walk/package.xml

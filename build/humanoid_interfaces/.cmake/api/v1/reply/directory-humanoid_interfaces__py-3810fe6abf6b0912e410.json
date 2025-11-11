@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "humanoid_interfaces__py",
+		"source" : "/home/kmj/colcon_ws/build/humanoid_interfaces/humanoid_interfaces__py"
+	}
+}

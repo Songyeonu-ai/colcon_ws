@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/IkPatternMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct IkPatternMsg {
+      double xlpattern;
+
+      double ylpattern;
+
+      double zlpattern;
+
+      double slpattern;
+
+      double tlpattern;
+
+      double xrpattern;
+
+      double yrpattern;
+
+      double zrpattern;
+
+      double srpattern;
+
+      double trpattern;
+    };
+  };
+};

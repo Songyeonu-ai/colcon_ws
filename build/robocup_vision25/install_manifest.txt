@@ -1,0 +1,17 @@
+/home/kmj/colcon_ws/install/robocup_vision25/lib/robocup_vision25/robocup_vision25
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/launch/robocup_vision25_launch.py
+/home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/package_run_dependencies/robocup_vision25
+/home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/parent_prefix_path/robocup_vision25
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/ament_prefix_path.sh
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/ament_prefix_path.dsv
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/path.sh
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/path.dsv
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.bash
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.sh
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.zsh
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.dsv
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/package.dsv
+/home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/packages/robocup_vision25
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/cmake/robocup_vision25Config.cmake
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/cmake/robocup_vision25Config-version.cmake
+/home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/package.xml

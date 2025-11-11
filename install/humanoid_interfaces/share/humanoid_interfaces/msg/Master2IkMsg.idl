@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/Master2IkMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct Master2IkMsg {
+      double x_length;
+
+      double y_length;
+
+      double yaw;
+
+      double flag;
+
+      int32 one_x_length;
+
+      int32 one_y_length;
+
+      int32 one_yaw;
+
+      int32 one_step_flag;
+    };
+  };
+};

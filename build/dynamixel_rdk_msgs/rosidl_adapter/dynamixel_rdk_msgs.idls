@@ -1,0 +1,4 @@
+/home/kmj/colcon_ws/build/dynamixel_rdk_msgs/rosidl_adapter/dynamixel_rdk_msgs:msg/DynamixelMsgs.idl
+/home/kmj/colcon_ws/build/dynamixel_rdk_msgs/rosidl_adapter/dynamixel_rdk_msgs:msg/DynamixelControlMsgs.idl
+/home/kmj/colcon_ws/build/dynamixel_rdk_msgs/rosidl_adapter/dynamixel_rdk_msgs:msg/DynamixelStatusMsgs.idl
+/home/kmj/colcon_ws/build/dynamixel_rdk_msgs/rosidl_adapter/dynamixel_rdk_msgs:msg/DynamixelBulkReadMsgs.idl

@@ -1,0 +1,8 @@
+source;share/ik_walk/hook/cmake_prefix_path.ps1
+source;share/ik_walk/hook/cmake_prefix_path.dsv
+source;share/ik_walk/hook/cmake_prefix_path.sh
+source;share/ik_walk/local_setup.bash
+source;share/ik_walk/local_setup.dsv
+source;share/ik_walk/local_setup.ps1
+source;share/ik_walk/local_setup.sh
+source;share/ik_walk/local_setup.zsh

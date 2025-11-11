@@ -1,0 +1,32 @@
+{
+  "package_name": "humanoid_interfaces",
+  "non_idl_tuples": [
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/IkAngleSimMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/IkComMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/IkCoordMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/IkEndMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/IkLTCMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/IkPatternMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/CPWalk.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/LCMsgs.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/ImuMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Master2IkMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/MotorMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Tune2IkMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/ZmpMsg.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Robocupvision25.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Robocupvision25feature.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Master2vision25.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Robocuplocalization25.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Master2localization25.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Motionnum.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Motionend.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Master2udp.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Udp2master.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Gamecontroldata.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Gamecontrolreturndata.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Robocupcontroller.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/MotionOperator.msg",
+    "/home/kmj/colcon_ws/src/humanoid_interfaces:msg/Pidtuning.msg"
+  ]
+}

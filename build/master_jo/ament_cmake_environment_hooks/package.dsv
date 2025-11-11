@@ -1,0 +1,4 @@
+source;share/master_jo/local_setup.bash
+source;share/master_jo/local_setup.dsv
+source;share/master_jo/local_setup.sh
+source;share/master_jo/local_setup.zsh

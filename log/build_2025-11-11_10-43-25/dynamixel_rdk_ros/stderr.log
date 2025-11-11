@@ -1,0 +1,8 @@
+[01m[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel.cpp:[m[K In member function ‘[01m[Kbool dynamixel_rdk_ros::Dynamixel::get_dynamixel_status(dynamixel::GroupSyncRead&)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel.cpp:133:7:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kerror_status_int[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  133 |   int [01;35m[Kerror_status_int[m[K = static_cast<int>(error_status);
+      |       [01;35m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel_ctrl.cpp:[m[K In member function ‘[01m[Kbool dynamixel_rdk_ros::DynamixelCtrl::read_dynamixel_status()[m[K’:
+[01m[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel_ctrl.cpp:337:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kdynamixel[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  337 |     for (auto & [01;35m[Kdynamixel[m[K : dynamixels) {
+      |                 [01;35m[K^~~~~~~~~[m[K

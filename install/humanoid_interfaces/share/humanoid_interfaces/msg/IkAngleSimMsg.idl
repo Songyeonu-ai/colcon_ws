@@ -1,0 +1,46 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/IkAngleSimMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct IkAngleSimMsg {
+      double ang_l_0;
+
+      double ang_l_1;
+
+      double ang_l_2;
+
+      double ang_l_3;
+
+      double ang_l_4;
+
+      double ang_l_5;
+
+      double ang_l_6;
+
+      double ang_l_7;
+
+      double ang_l_8;
+
+      double ang_r_0;
+
+      double ang_r_1;
+
+      double ang_r_2;
+
+      double ang_r_3;
+
+      double ang_r_4;
+
+      double ang_r_5;
+
+      double ang_r_6;
+
+      double ang_r_7;
+
+      double ang_r_8;
+    };
+  };
+};

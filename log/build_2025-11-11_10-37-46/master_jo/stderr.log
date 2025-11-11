@@ -1,0 +1,31 @@
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/player.cpp:[m[K In member function ‘[01m[Kvirtual void master_jo::Player::selectRobotState(bool)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/player.cpp:48:36:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KisPenalty[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   48 | void Player::selectRobotState([01;35m[Kbool isPenalty[m[K) {
+      |                               [01;35m[K~~~~~^~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/player.cpp:[m[K In member function ‘[01m[Kbool master_jo::Player::visionPublish(int, int, int)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/player.cpp:113:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kpan[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  113 | bool Player::visionPublish(int scan_mode, [01;35m[Kint pan[m[K, int tilt) {
+      |                                           [01;35m[K~~~~^~~[m[K
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/player.cpp:113:56:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktilt[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  113 | bool Player::visionPublish(int scan_mode, int pan, [01;35m[Kint tilt[m[K) {
+      |                                                    [01;35m[K~~~~^~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:[m[K In member function ‘[01m[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn master_jo::MasterJoNode::on_configure(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:16:36:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   16 |     [01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:[m[K In member function ‘[01m[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn master_jo::MasterJoNode::on_activate(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:93:36:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   93 |     [01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:[m[K In member function ‘[01m[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn master_jo::MasterJoNode::on_deactivate(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:119:36:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  119 |     [01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:[m[K In member function ‘[01m[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn master_jo::MasterJoNode::on_cleanup(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:138:57:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  138 | MasterJoNode::on_cleanup([01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+      |                          [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:[m[K In member function ‘[01m[Kvirtual rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn master_jo::MasterJoNode::on_shutdown(const rclcpp_lifecycle::State&)[m[K’:
+[01m[K/home/kmj/colcon_ws/src/master_jo/src/master_jo_node.cpp:146:36:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kprevious_state[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  146 |     [01;35m[Kconst rclcpp_lifecycle::State &previous_state[m[K) {
+      |     [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~[m[K

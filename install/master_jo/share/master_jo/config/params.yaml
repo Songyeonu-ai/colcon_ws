@@ -1,0 +1,19 @@
+/**:
+    ros__parameters:
+        Kp: 3.0
+        Ki: 0.0001
+        Kd: 0.0
+        FRONT_MAX: 25
+        REAR_MAX: -19
+        RIGHT_MAX: 17
+        LEFT_MAX: -12
+        R_YAW_MAX: 5
+        L_YAW_MAX: -5
+        X_MIN: 25
+        Y_MIN: 10
+        ROUND_YAW_MIN: 15
+        ROUND_Y: 14
+        In: 30
+        Out: 180
+        Back: 30
+        Front: 150

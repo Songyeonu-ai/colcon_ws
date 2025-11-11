@@ -1,0 +1,22 @@
+[35m[1mConsolidate compiler generated dependencies of target ebimu[0m
+[100%] Built target ebimu
+-- Install configuration: ""
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/lib/ebimu/ebimu
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu//launch
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu//launch/e2box_imu_9dofv4.launch.py
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/lib/ebimu/ebimu
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ament_index/resource_index/package_run_dependencies/ebimu
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ament_index/resource_index/parent_prefix_path/ebimu
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/ament_prefix_path.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/path.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/environment/path.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.bash
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.sh
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.zsh
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/local_setup.dsv
+-- Installing: /home/kmj/colcon_ws/install/ebimu/share/ebimu/package.dsv
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ament_index/resource_index/packages/ebimu
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/cmake/ebimuConfig.cmake
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/cmake/ebimuConfig-version.cmake
+-- Up-to-date: /home/kmj/colcon_ws/install/ebimu/share/ebimu/package.xml

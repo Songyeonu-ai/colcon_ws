@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/Master2localization25.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct Master2localization25 {
+      int64 goalx;
+
+      int64 goaly;
+
+      int64 targetx;
+
+      int64 targety;
+
+      int64 robotallowanceerror;
+
+      int64 robotcaliradius;
+    };
+  };
+};

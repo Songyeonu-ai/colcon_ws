@@ -1,0 +1,14 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/IkCoordMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct IkCoordMsg {
+      int32 x;
+
+      int32 y;
+    };
+  };
+};

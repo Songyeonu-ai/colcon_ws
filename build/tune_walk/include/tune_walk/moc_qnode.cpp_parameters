@@ -1,0 +1,5 @@
+-I/home/kmj/colcon_ws/src/tune_walk
+-I/home/kmj/colcon_ws/build/tune_walk
+-o
+/home/kmj/colcon_ws/build/tune_walk/include/tune_walk/moc_qnode.cpp
+/home/kmj/colcon_ws/src/tune_walk/include/tune_walk/qnode.hpp

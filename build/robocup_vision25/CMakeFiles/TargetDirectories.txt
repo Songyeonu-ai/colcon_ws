@@ -1,0 +1,10 @@
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/uninstall.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/robocup_vision25_uninstall.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/robocup_vision25.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/test.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/edit_cache.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/rebuild_cache.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/list_install_components.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/install.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/install/local.dir
+/home/kmj/colcon_ws/build/robocup_vision25/CMakeFiles/install/strip.dir

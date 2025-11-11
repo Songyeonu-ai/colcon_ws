@@ -1,0 +1,26 @@
+[0.028s] Invoking command in '/home/kmj/colcon_ws/build/dynamixel_rdk_ros': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble LD_LIBRARY_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib:/home/kmj/colcon_ws/install/humanoid_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kmj/colcon_ws/build/dynamixel_rdk_ros -- -j16 -l16
+[0.085s] [100%] Built target dynamixel_rdk_node
+[0.096s] Invoked command in '/home/kmj/colcon_ws/build/dynamixel_rdk_ros' returned '0': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble LD_LIBRARY_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib:/home/kmj/colcon_ws/install/humanoid_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/kmj/colcon_ws/build/dynamixel_rdk_ros -- -j16 -l16
+[0.098s] Invoking command in '/home/kmj/colcon_ws/build/dynamixel_rdk_ros': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble LD_LIBRARY_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib:/home/kmj/colcon_ws/install/humanoid_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kmj/colcon_ws/build/dynamixel_rdk_ros
+[0.109s] -- Install configuration: ""
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//config
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//config/dynamixel.yaml
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//launch
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//launch/dynamixel_rdk.launch.py
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/lib/dynamixel_rdk_ros/dynamixel_rdk_node
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/package_run_dependencies/dynamixel_rdk_ros
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/parent_prefix_path/dynamixel_rdk_ros
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/ament_prefix_path.sh
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/ament_prefix_path.dsv
+[0.109s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/path.sh
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/path.dsv
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.bash
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.sh
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.zsh
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.dsv
+[0.110s] -- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/package.dsv
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/packages/dynamixel_rdk_ros
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/cmake/dynamixel_rdk_rosConfig.cmake
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/cmake/dynamixel_rdk_rosConfig-version.cmake
+[0.110s] -- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/package.xml
+[0.112s] Invoked command in '/home/kmj/colcon_ws/build/dynamixel_rdk_ros' returned '0': CMAKE_PREFIX_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/colcon_ws/install/tune_walk:/home/kmj/colcon_ws/install/master_jo:/home/kmj/colcon_ws/install/humanoid_interfaces:/home/kmj/colcon_ws/install/dynamixel_rdk_ros:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble LD_LIBRARY_PATH=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib:/home/kmj/colcon_ws/install/humanoid_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/kmj/colcon_ws/build/dynamixel_rdk_ros

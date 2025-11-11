@@ -1,0 +1,310 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found std_msgs: 4.9.0 (/opt/ros/humble/share/std_msgs/cmake)
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+-- Found PythonExtra: .so  
+-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/kmj/colcon_ws/build/dynamixel_rdk_msgs
+[  1%] [34m[1mGenerating C code for ROS interfaces[0m
+[  3%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[  3%] Built target ament_cmake_python_copy_dynamixel_rdk_msgs
+running egg_info
+creating dynamixel_rdk_msgs.egg-info
+writing dynamixel_rdk_msgs.egg-info/PKG-INFO
+writing dependency_links to dynamixel_rdk_msgs.egg-info/dependency_links.txt
+writing top-level names to dynamixel_rdk_msgs.egg-info/top_level.txt
+writing manifest file 'dynamixel_rdk_msgs.egg-info/SOURCES.txt'
+reading manifest file 'dynamixel_rdk_msgs.egg-info/SOURCES.txt'
+writing manifest file 'dynamixel_rdk_msgs.egg-info/SOURCES.txt'
+[  3%] Built target ament_cmake_python_build_dynamixel_rdk_msgs_egg
+[  7%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__functions.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__functions.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__functions.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__functions.c.o[0m
+[ 10%] Built target dynamixel_rdk_msgs__cpp
+[ 16%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 16%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 16%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 18%] [32m[1mLinking C shared library libdynamixel_rdk_msgs__rosidl_generator_c.so[0m
+[ 18%] Built target dynamixel_rdk_msgs__rosidl_generator_c
+[ 21%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 21%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 23%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs__type_support.cpp.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_msgs__type_support.cpp.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_control_msgs__type_support.cpp.o[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_status_msgs__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.cpp.o[0m
+[ 38%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.cpp.o[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_msgs__type_support.cpp.o[0m
+[ 43%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_bulk_read_msgs__type_support.cpp.o[0m
+[ 41%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_control_msgs__type_support.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_status_msgs__type_support.cpp.o[0m
+[ 47%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_msgs__type_support.cpp.o[0m
+[ 49%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_control_msgs__type_support.cpp.o[0m
+[ 50%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.c.o[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_status_msgs__type_support.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs__type_support.cpp.o[0m
+[ 56%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.c.o[0m
+[ 60%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.c.o[0m
+[ 60%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.c.o[0m
+[ 63%] [32m[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_cpp.so[0m
+[ 63%] [32m[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_c.so[0m
+[ 65%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support_c.cpp.o[0m
+[ 67%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support_c.cpp.o[0m
+[ 69%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support_c.cpp.o[0m
+[ 70%] [32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support_c.cpp.o[0m
+[ 72%] [32m[1mLinking C shared library libdynamixel_rdk_msgs__rosidl_typesupport_introspection_c.so[0m
+[ 72%] Built target dynamixel_rdk_msgs__rosidl_typesupport_cpp
+[ 72%] Built target dynamixel_rdk_msgs__rosidl_typesupport_c
+[ 72%] Built target dynamixel_rdk_msgs__rosidl_typesupport_introspection_c
+[ 74%] [32m[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[ 76%] [32m[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 76%] Built target dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp
+[ 78%] [32m[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[ 78%] Built target dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp
+[ 78%] Built target dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c
+[ 78%] Built target dynamixel_rdk_msgs
+[ 80%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 80%] Built target dynamixel_rdk_msgs__py
+[ 87%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs_s.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs_s.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_msgs_s.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs_s.c.o[0m
+[ 89%] [32m[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/libdynamixel_rdk_msgs__rosidl_generator_py.so[0m
+[ 89%] Built target dynamixel_rdk_msgs__rosidl_generator_py
+[ 94%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 98%] [32m[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[ 98%] [32m[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[100%] [32m[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[100%] Built target dynamixel_rdk_msgs__rosidl_typesupport_c__pyext
+[100%] Built target dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c__pyext
+[100%] Built target dynamixel_rdk_msgs__rosidl_typesupport_introspection_c__pyext
+-- Install configuration: ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/rosidl_interfaces/dynamixel_rdk_msgs
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_msgs.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__struct.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__functions.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__functions.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__functions.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__struct.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__functions.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__functions.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__struct.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__functions.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__functions.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__functions.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__struct.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_status_msgs.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_control_msgs.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/library_path.sh
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/library_path.dsv
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_c.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_c.so" to ""
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_introspection_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_introspection_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_introspection_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_introspection_c.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_c.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_msgs.hpp
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__builder.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__builder.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__traits.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__builder.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__struct.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__traits.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__traits.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__struct.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__builder.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__struct.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__struct.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__traits.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_status_msgs.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_control_msgs.hpp
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dds_fastrtps
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg
+-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.cpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.cpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.cpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.cpp
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_cpp.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_cpp.so" to ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/pythonpath.sh
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/pythonpath.dsv
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/top_level.txt
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/PKG-INFO
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/libdynamixel_rdk_msgs__rosidl_generator_py.so
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_c.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs.py
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs_s.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs_s.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_msgs_s.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_msgs.py
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/__init__.py
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs.py
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs_s.c
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs.py
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/__init__.py
+Listing '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs'...
+Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/__init__.py'...
+Listing '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg'...
+Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/__init__.py'...
+Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs.py'...
+Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs.py'...
+Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_msgs.py'...
+Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs.py'...
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_py.so
+-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_py.so" to ""
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelMsgs.idl
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelControlMsgs.idl
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelStatusMsgs.idl
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelBulkReadMsgs.idl
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelMsgs.msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelControlMsgs.msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelStatusMsgs.msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelBulkReadMsgs.msg
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/package_run_dependencies/dynamixel_rdk_msgs
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/parent_prefix_path/dynamixel_rdk_msgs
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/ament_prefix_path.sh
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/ament_prefix_path.dsv
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/path.sh
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/path.dsv
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.bash
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.sh
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.zsh
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.dsv
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/package.dsv
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/packages/dynamixel_rdk_msgs
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_cExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_cppExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_pyExport.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/rosidl_cmake-extras.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgsConfig.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgsConfig-version.cmake
+-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/package.xml

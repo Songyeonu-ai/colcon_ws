@@ -1,0 +1,4 @@
+source;share/ebimu/local_setup.bash
+source;share/ebimu/local_setup.dsv
+source;share/ebimu/local_setup.sh
+source;share/ebimu/local_setup.zsh

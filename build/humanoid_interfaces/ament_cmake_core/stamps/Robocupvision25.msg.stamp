@@ -1,0 +1,13 @@
+int64 ball_cam_x
+int64 ball_cam_y
+float64 ball_2d_x
+float64 ball_2d_y
+float64 ball_d
+float64 pan
+float64 tilt
+float64 ball_speed_x
+float64 ball_speed_y
+float64[] robot_vec_x
+float64[] robot_vec_y
+int64 ball_speed_level
+int64 scan_mode

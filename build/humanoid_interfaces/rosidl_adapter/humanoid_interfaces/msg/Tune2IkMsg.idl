@@ -1,0 +1,326 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/Tune2IkMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct Tune2IkMsg {
+      boolean ik_flag;
+
+      double entire_time;
+
+      double frequency;
+
+      double default_x_left;
+
+      double default_y_left;
+
+      double default_z_left;
+
+      double default_x_right;
+
+      double default_y_right;
+
+      double default_z_right;
+
+      sequence<double> offset_motor;
+
+      double swing_shoulder_left;
+
+      double swing_shoulder_right;
+
+      double swing_leg_left;
+
+      double swing_leg_right;
+
+      double rise_leg_left;
+
+      double rise_leg_right;
+
+      double start_entire_time;
+
+      double start_swing;
+
+      double start_rise;
+
+      double end_entire_time;
+
+      double end_swing;
+
+      double end_rise;
+
+      double test_x;
+
+      double test_side;
+
+      double test_yaw;
+
+      double tuning_x;
+
+      double tuning_side;
+
+      double tuning_yaw;
+
+      double balance_value_0;
+
+      double balance_value_1;
+
+      double balance_value_2;
+
+      double balance_value_3;
+
+      double balance_pitch_gp;
+
+      double balance_pitch_gi;
+
+      double balance_pitch_gd;
+
+      double balance_pitch_elimit;
+
+      double balance_pitch_olimit;
+
+      double balance_pitch_neg_target;
+
+      double balance_pitch_pos_target;
+
+      double balance_roll_gp;
+
+      double balance_roll_gi;
+
+      double balance_roll_gd;
+
+      double balance_roll_elimit;
+
+      double balance_roll_olimit;
+
+      double balance_roll_neg_target;
+
+      double balance_roll_pos_target;
+
+      double balance_angle_pitch_gp;
+
+      double balance_angle_pitch_gi;
+
+      double balance_angle_pitch_gd;
+
+      double balance_angle_pitch_elimit;
+
+      double balance_angle_pitch_olimit;
+
+      double balance_angle_pitch_neg_target;
+
+      double balance_angle_pitch_pos_target;
+
+      double balance_value_4;
+
+      double balance_value_5;
+
+      @verbatim (language="comment", text=
+        "bool")
+      int64 balance_pitch_flag_imu;
+
+      double balance_pitch_gp_imu;
+
+      double balance_pitch_gi_imu;
+
+      double balance_pitch_gd_imu;
+
+      double balance_pitch_neg_target_imu;
+
+      double balance_pitch_pos_target_imu;
+
+      double balance_pitch_elimit_imu;
+
+      double balance_pitch_olimit_imu;
+
+      @verbatim (language="comment", text=
+        "bool")
+      int64 balance_roll_flag_imu;
+
+      double balance_roll_gp_imu;
+
+      double balance_roll_gi_imu;
+
+      double balance_roll_gd_imu;
+
+      double balance_roll_neg_target_imu;
+
+      double balance_roll_pos_target_imu;
+
+      double balance_roll_elimit_imu;
+
+      double balance_roll_olimit_imu;
+
+      @verbatim (language="comment", text=
+        "bool")
+      int64 balance_pitch_flag;
+
+      @verbatim (language="comment", text=
+        "bool")
+      int64 balance_ankle_pitch_flag;
+
+      @verbatim (language="comment", text=
+        "bool")
+      int64 balance_roll_flag;
+
+      int64 ratio_check_flag;
+
+      double center2leg;
+
+      double link2link;
+
+      double init_z_up;
+
+      sequence<double> percentage_of_ik_motor;
+
+      double first_pos_xr;
+
+      double first_neg_xr;
+
+      double first_pos_side_r;
+
+      double first_neg_side_r;
+
+      double first_pos_yaw_r;
+
+      double first_neg_yaw_r;
+
+      double first_pos_xl;
+
+      double first_neg_xl;
+
+      double first_pos_side_l;
+
+      double first_neg_side_l;
+
+      double first_pos_yaw_l;
+
+      double first_neg_yaw_l;
+
+      double first_pos_side_r_swing_minus;
+
+      double first_neg_side_r_swing_minus;
+
+      double first_pos_side_l_swing_minus;
+
+      double first_neg_side_l_swing_minus;
+
+      int64 first_min;
+
+      int64 first_max;
+
+      double second_pos_xr;
+
+      double second_neg_xr;
+
+      double second_pos_side_r;
+
+      double second_neg_side_r;
+
+      double second_pos_yaw_r;
+
+      double second_neg_yaw_r;
+
+      double second_pos_xl;
+
+      double second_neg_xl;
+
+      double second_pos_side_l;
+
+      double second_neg_side_l;
+
+      double second_pos_yaw_l;
+
+      double second_neg_yaw_l;
+
+      double second_pos_side_r_swing_minus;
+
+      double second_neg_side_r_swing_minus;
+
+      double second_pos_side_l_swing_minus;
+
+      double second_neg_side_l_swing_minus;
+
+      int64 second_min;
+
+      int64 second_max;
+
+      double third_pos_xr;
+
+      double third_neg_xr;
+
+      double third_pos_side_r;
+
+      double third_neg_side_r;
+
+      double third_pos_yaw_r;
+
+      double third_neg_yaw_r;
+
+      double third_pos_xl;
+
+      double third_neg_xl;
+
+      double third_pos_side_l;
+
+      double third_neg_side_l;
+
+      double third_pos_yaw_l;
+
+      double third_neg_yaw_l;
+
+      double third_pos_side_r_swing_minus;
+
+      double third_neg_side_r_swing_minus;
+
+      double third_pos_side_l_swing_minus;
+
+      double third_neg_side_l_swing_minus;
+
+      int64 third_min;
+
+      int64 third_max;
+
+      double fourth_pos_xr;
+
+      double fourth_neg_xr;
+
+      double fourth_pos_side_r;
+
+      double fourth_neg_side_r;
+
+      double fourth_pos_yaw_r;
+
+      double fourth_neg_yaw_r;
+
+      double fourth_pos_xl;
+
+      double fourth_neg_xl;
+
+      double fourth_pos_side_l;
+
+      double fourth_neg_side_l;
+
+      double fourth_pos_yaw_l;
+
+      double fourth_neg_yaw_l;
+
+      double fourth_pos_side_r_swing_minus;
+
+      double fourth_neg_side_r_swing_minus;
+
+      double fourth_pos_side_l_swing_minus;
+
+      double fourth_neg_side_l_swing_minus;
+
+      int64 fourth_min;
+
+      int64 fourth_max;
+
+      int64 landing_time_control_flag;
+
+      int64 control_system_flag;
+    };
+  };
+};

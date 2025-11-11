@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/MotorMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct MotorMsg {
+      int32 length;
+
+      int32 mode;
+
+      sequence<int32> id;
+
+      sequence<int32> speed;
+
+      sequence<int32> position;
+
+      sequence<int32> type;
+
+      sequence<int32> acceleration;
+    };
+  };
+};

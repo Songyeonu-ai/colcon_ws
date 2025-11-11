@@ -1,0 +1,36 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/Robocupvision25.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct Robocupvision25 {
+      int64 ball_cam_x;
+
+      int64 ball_cam_y;
+
+      double ball_2d_x;
+
+      double ball_2d_y;
+
+      double ball_d;
+
+      double pan;
+
+      double tilt;
+
+      double ball_speed_x;
+
+      double ball_speed_y;
+
+      sequence<double> robot_vec_x;
+
+      sequence<double> robot_vec_y;
+
+      int64 ball_speed_level;
+
+      int64 scan_mode;
+    };
+  };
+};

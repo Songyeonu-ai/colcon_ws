@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-25e01f39089c2023cf18.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "dynamixel_rdk_ros",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_rdk_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_rdk_node-4060c8fc76f0f7d5f475.json",
+					"name" : "dynamixel_rdk_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "dynamixel_rdk_ros_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-dynamixel_rdk_ros_uninstall-abcbda210d167a9ac63c.json",
+					"name" : "dynamixel_rdk_ros_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-58acb37d648327c6c26a.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/kmj/colcon_ws/build/dynamixel_rdk_ros",
+		"source" : "/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

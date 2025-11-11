@@ -1,0 +1,4 @@
+Invoking command in '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/dynamixel_rdk_msgs -- -j16 -l16
+Invoked command in '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/dynamixel_rdk_msgs -- -j16 -l16
+Invoking command in '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/dynamixel_rdk_msgs
+Invoked command in '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/dynamixel_rdk_msgs

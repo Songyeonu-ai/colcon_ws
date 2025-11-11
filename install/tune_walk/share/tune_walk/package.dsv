@@ -1,0 +1,8 @@
+source;share/tune_walk/hook/cmake_prefix_path.ps1
+source;share/tune_walk/hook/cmake_prefix_path.dsv
+source;share/tune_walk/hook/cmake_prefix_path.sh
+source;share/tune_walk/local_setup.bash
+source;share/tune_walk/local_setup.dsv
+source;share/tune_walk/local_setup.ps1
+source;share/tune_walk/local_setup.sh
+source;share/tune_walk/local_setup.zsh

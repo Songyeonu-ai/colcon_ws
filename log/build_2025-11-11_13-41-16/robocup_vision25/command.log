@@ -1,0 +1,6 @@
+Invoking command in '/home/kmj/colcon_ws/build/robocup_vision25': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/robocup_vision25 -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/robocup_vision25
+Invoked command in '/home/kmj/colcon_ws/build/robocup_vision25' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/kmj/colcon_ws/src/robocup_vision25 -DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/robocup_vision25
+Invoking command in '/home/kmj/colcon_ws/build/robocup_vision25': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/robocup_vision25 -- -j16 -l16
+Invoked command in '/home/kmj/colcon_ws/build/robocup_vision25' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/robocup_vision25 -- -j16 -l16
+Invoking command in '/home/kmj/colcon_ws/build/robocup_vision25': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/robocup_vision25
+Invoked command in '/home/kmj/colcon_ws/build/robocup_vision25' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/robocup_vision25

@@ -1,0 +1,5 @@
+-I/home/kmj/colcon_ws/src/ebimu
+-I/home/kmj/colcon_ws/build/ebimu
+-o
+/home/kmj/colcon_ws/build/ebimu/include/ebimu/moc_serial_manager.cpp
+/home/kmj/colcon_ws/src/ebimu/include/ebimu/serial_manager.hpp

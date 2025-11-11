@@ -1,0 +1,56 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dynamixel_rdk_msgs/msg/DynamixelStatusMsgs.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module dynamixel_rdk_msgs {
+  module msg {
+    typedef double double__2[2];
+    @verbatim (language="comment", text=
+      "Messages" "\n"
+      "" "\n"
+      "Dynamixel Status Message")
+    struct DynamixelStatusMsgs {
+      std_msgs::msg::Header header;
+
+      int32 id;
+
+      @verbatim (language="comment", text=
+        "1 if torque is enabled, 0 if disabled")
+      boolean torque_enabled;
+
+      @verbatim (language="comment", text=
+        "https://emanual.robotis.com/docs/kr/dxl/mx/mx-106-2/#shutdown63")
+      uint8 error_status;
+
+      @verbatim (language="comment", text=
+        "radians")
+      double present_position;
+
+      @verbatim (language="comment", text=
+        "radians/s")
+      double present_velocity;
+
+      @verbatim (language="comment", text=
+        "radians/s^2")
+      double present_acceleration;
+
+      @verbatim (language="comment", text=
+        "mA")
+      double present_current;
+
+      @verbatim (language="comment", text=
+        "V")
+      double present_voltage;
+
+      @verbatim (language="comment", text=
+        "C")
+      double present_temperature;
+
+      @verbatim (language="comment", text=
+        "radians")
+      double__2 min_max_position;
+    };
+  };
+};

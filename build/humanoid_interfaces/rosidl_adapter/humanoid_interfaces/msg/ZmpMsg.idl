@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/ZmpMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct ZmpMsg {
+      double left_x_zmp;
+
+      double left_y_zmp;
+
+      double right_x_zmp;
+
+      double right_y_zmp;
+
+      double total_x_zmp;
+
+      double total_y_zmp;
+
+      boolean left_foot;
+
+      boolean right_foot;
+
+      boolean both_feet;
+    };
+  };
+};

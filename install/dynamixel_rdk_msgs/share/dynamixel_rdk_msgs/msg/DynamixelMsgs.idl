@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from dynamixel_rdk_msgs/msg/DynamixelMsgs.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module dynamixel_rdk_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "Messages" "\n"
+      "" "\n"
+      "Dynamixel Control Message")
+    struct DynamixelMsgs {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "radian")
+      float goal_position;
+
+      @verbatim (language="comment", text=
+        "radian/s^2")
+      float profile_acceleration;
+
+      @verbatim (language="comment", text=
+        "radian/s")
+      float profile_velocity;
+    };
+  };
+};

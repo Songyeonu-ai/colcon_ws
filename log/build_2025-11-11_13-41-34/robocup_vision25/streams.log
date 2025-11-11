@@ -1,0 +1,25 @@
+[0.016s] Invoking command in '/home/kmj/colcon_ws/build/robocup_vision25': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/robocup_vision25 -- -j16 -l16
+[0.045s] [35m[1mConsolidate compiler generated dependencies of target robocup_vision25[0m
+[0.065s] [100%] Built target robocup_vision25
+[0.083s] Invoked command in '/home/kmj/colcon_ws/build/robocup_vision25' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kmj/colcon_ws/build/robocup_vision25 -- -j16 -l16
+[0.087s] Invoking command in '/home/kmj/colcon_ws/build/robocup_vision25': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/robocup_vision25
+[0.094s] -- Install configuration: ""
+[0.094s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/lib/robocup_vision25/robocup_vision25
+[0.094s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/launch
+[0.094s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/launch/robocup_vision25_launch.py
+[0.094s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/package_run_dependencies/robocup_vision25
+[0.094s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/parent_prefix_path/robocup_vision25
+[0.094s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/ament_prefix_path.sh
+[0.094s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/ament_prefix_path.dsv
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/path.sh
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/environment/path.dsv
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.bash
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.sh
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.zsh
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/local_setup.dsv
+[0.095s] -- Installing: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/package.dsv
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/ament_index/resource_index/packages/robocup_vision25
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/cmake/robocup_vision25Config.cmake
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/cmake/robocup_vision25Config-version.cmake
+[0.095s] -- Up-to-date: /home/kmj/colcon_ws/install/robocup_vision25/share/robocup_vision25/package.xml
+[0.112s] Invoked command in '/home/kmj/colcon_ws/build/robocup_vision25' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kmj/colcon_ws/build/robocup_vision25

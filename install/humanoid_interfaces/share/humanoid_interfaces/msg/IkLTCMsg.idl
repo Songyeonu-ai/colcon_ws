@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/IkLTCMsg.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct IkLTCMsg {
+      double entire_time;
+
+      double swing_gain_l;
+
+      double swing_gain_r;
+
+      int64 warning;
+
+      int64 safe;
+
+      double landing_time_l;
+
+      double landing_time_r;
+
+      double landing_error_l;
+
+      double landing_error_r;
+    };
+  };
+};

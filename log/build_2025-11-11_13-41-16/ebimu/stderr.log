@@ -1,0 +1,17 @@
+/home/kmj/colcon_ws/src/ebimu/include/ebimu/e2box_imu_node.hpp:0: Note: No relevant classes found. No output generated.
+/home/kmj/colcon_ws/src/ebimu/include/ebimu/serial_manager.hpp:0: Note: No relevant classes found. No output generated.
+In file included from [01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:17[m[K:
+[01m[K/home/kmj/colcon_ws/src/ebimu/src/../include/ebimu/serial_manager.hpp:[m[K In constructor ‘[01m[Ke2box_imu::SerialManager::SerialManager()[m[K’:
+[01m[K/home/kmj/colcon_ws/src/ebimu/src/../include/ebimu/serial_manager.hpp:52:8:[m[K [01;35m[Kwarning: [m[K‘[01m[Ke2box_imu::SerialManager::isConnected[m[K’ will be initialized after [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   52 |   bool [01;35m[KisConnected[m[K;
+      |        [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/ebimu/src/../include/ebimu/serial_manager.hpp:51:7:[m[K [01;35m[Kwarning: [m[K  ‘[01m[Kint e2box_imu::SerialManager::n_length[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   51 |   int [01;35m[Kn_length[m[K;
+      |       [01;35m[K^~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:22:1:[m[K [01;35m[Kwarning: [m[K  when initialized here [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreorder-Wreorder]8;;[m[K]
+   22 | [01;35m[KSerialManager[m[K::SerialManager()
+      | [01;35m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:[m[K In member function ‘[01m[Kvoid e2box_imu::SerialManager::readSerial()[m[K’:
+[01m[K/home/kmj/colcon_ws/src/ebimu/src/serial_manager.cpp:137:18:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Ktimeout[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  137 |   struct timeval [01;35m[Ktimeout[m[K;
+      |                  [01;35m[K^~~~~~~[m[K

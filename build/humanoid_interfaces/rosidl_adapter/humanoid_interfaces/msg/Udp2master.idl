@@ -1,0 +1,28 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/Udp2master.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct Udp2master {
+      int64 robotnum;
+
+      int64 robotcase;
+
+      int64 localx;
+
+      int64 localy;
+
+      int64 localyaw;
+
+      int64 ballx;
+
+      int64 bally;
+
+      int64 balldist;
+
+      int64 balltheta;
+    };
+  };
+};

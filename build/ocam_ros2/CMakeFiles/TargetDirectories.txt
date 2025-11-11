@@ -1,0 +1,10 @@
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/uninstall.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/ocam_ros2_uninstall.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/ocam_ros2.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/test.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/edit_cache.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/rebuild_cache.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/list_install_components.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/install.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/install/local.dir
+/home/kmj/colcon_ws/build/ocam_ros2/CMakeFiles/install/strip.dir

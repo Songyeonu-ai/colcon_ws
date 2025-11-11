@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from humanoid_interfaces/msg/Motionend.msg
+// generated code does not contain a copyright notice
+
+
+module humanoid_interfaces {
+  module msg {
+    struct Motionend {
+      int32 motionend;
+
+      int32 motioning;
+
+      int32 motionstarting;
+
+      int32 motionending;
+
+      int32 motionnum;
+    };
+  };
+};

@@ -1,0 +1,8 @@
+msg/DynamixelBulkReadMsgs.idl
+msg/DynamixelBulkReadMsgs.msg
+msg/DynamixelControlMsgs.idl
+msg/DynamixelControlMsgs.msg
+msg/DynamixelMsgs.idl
+msg/DynamixelMsgs.msg
+msg/DynamixelStatusMsgs.idl
+msg/DynamixelStatusMsgs.msg

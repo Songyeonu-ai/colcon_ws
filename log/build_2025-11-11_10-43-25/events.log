@@ -1,0 +1,563 @@
+[0.000000] (-) TimerEvent: {}
+[0.000161] (-) JobUnselected: {'identifier': 'ebimu'}
+[0.000183] (-) JobUnselected: {'identifier': 'humanoid_interfaces'}
+[0.000198] (-) JobUnselected: {'identifier': 'ik_walk'}
+[0.000667] (-) JobUnselected: {'identifier': 'master_jo'}
+[0.000688] (-) JobUnselected: {'identifier': 'ocam_ros2'}
+[0.000700] (-) JobUnselected: {'identifier': 'robocup_vision25'}
+[0.000710] (-) JobUnselected: {'identifier': 'tune_walk'}
+[0.000724] (dynamixel_rdk_msgs) JobQueued: {'identifier': 'dynamixel_rdk_msgs', 'dependencies': OrderedDict()}
+[0.000738] (dynamixel_rdk_ros) JobQueued: {'identifier': 'dynamixel_rdk_ros', 'dependencies': OrderedDict([('dynamixel_rdk_msgs', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs')])}
+[0.000751] (dynamixel_rdk_msgs) JobStarted: {'identifier': 'dynamixel_rdk_msgs'}
+[0.008149] (dynamixel_rdk_msgs) JobProgress: {'identifier': 'dynamixel_rdk_msgs', 'progress': 'cmake'}
+[0.008541] (dynamixel_rdk_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_msgs', '-DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/dynamixel_rdk_msgs'], 'cwd': '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en'), ('USER', 'kmj'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kmj'), ('OLDPWD', '/home/kmj'), ('DESKTOP_SESSION', 'ubuntu-wayland'), ('NVM_BIN', '/home/kmj/.nvm/versions/node/v22.19.0/bin'), ('NVM_INC', '/home/kmj/.nvm/versions/node/v22.19.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '1140'), ('SYSTEMD_EXEC_PID', '1600'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '91635'), ('NVM_DIR', '/home/kmj/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kmj'), ('JOURNAL_STREAM', '8:11496'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kmj'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/kmj/opt/cmake-4.1.1-linux-x86_64/bin:/home/kmj/Qt/6.9.2/gcc_64/bin:/home/kmj/.nvm/versions/node/v22.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kmj:@/tmp/.ICE-unix/1344,unix/kmj:/tmp/.ICE-unix/1344'), ('INVOCATION_ID', '1e80cb6399c447778b2ecf8ea5c01eba'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'ko_KR.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-wayland'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.M290F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '6'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:b8ae889f-87ba-496f-8344-dccc3f835ca6'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-wayland'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-wayland:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu-wayland:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kmj/Qt/6.9.2/gcc_64::/opt/ros/humble')]), 'shell': False}
+[0.079156] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099481] (-) TimerEvent: {}
+[0.141798] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.151456] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.199524] (-) TimerEvent: {}
+[0.243497] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.249269] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.249523] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.249787] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.252936] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.299793] (-) TimerEvent: {}
+[0.355223] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.361194] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.361826] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.361893] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.364692] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.399858] (-) TimerEvent: {}
+[0.499580] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.500305] (-) TimerEvent: {}
+[0.576618] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[0.578884] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.584791] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.600436] (-) TimerEvent: {}
+[0.617084] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.642205] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found std_msgs: 4.9.0 (/opt/ros/humble/share/std_msgs/cmake)\n'}
+[0.700568] (-) TimerEvent: {}
+[0.800884] (-) TimerEvent: {}
+[0.900772] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[0.901149] (-) TimerEvent: {}
+[1.001628] (-) TimerEvent: {}
+[1.085707] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.101695] (-) TimerEvent: {}
+[1.202026] (-) TimerEvent: {}
+[1.295089] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.302091] (-) TimerEvent: {}
+[1.312872] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") \n'}
+[1.314533] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[1.334309] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") \n'}
+[1.334711] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[1.334818] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[1.334904] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[1.350534] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[1.385375] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.402256] (-) TimerEvent: {}
+[1.406905] (dynamixel_rdk_msgs) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[1.408435] (dynamixel_rdk_msgs) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.409208] (dynamixel_rdk_msgs) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.411376] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.442354] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Generating done\n'}
+[1.452333] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Build files have been written to: /home/kmj/colcon_ws/build/dynamixel_rdk_msgs\n'}
+[1.460300] (dynamixel_rdk_msgs) CommandEnded: {'returncode': 0}
+[1.461859] (dynamixel_rdk_msgs) JobProgress: {'identifier': 'dynamixel_rdk_msgs', 'progress': 'build'}
+[1.461884] (dynamixel_rdk_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs', '--', '-j16', '-l16'], 'cwd': '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en'), ('USER', 'kmj'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kmj'), ('OLDPWD', '/home/kmj'), ('DESKTOP_SESSION', 'ubuntu-wayland'), ('NVM_BIN', '/home/kmj/.nvm/versions/node/v22.19.0/bin'), ('NVM_INC', '/home/kmj/.nvm/versions/node/v22.19.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '1140'), ('SYSTEMD_EXEC_PID', '1600'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '91635'), ('NVM_DIR', '/home/kmj/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kmj'), ('JOURNAL_STREAM', '8:11496'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kmj'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/kmj/opt/cmake-4.1.1-linux-x86_64/bin:/home/kmj/Qt/6.9.2/gcc_64/bin:/home/kmj/.nvm/versions/node/v22.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kmj:@/tmp/.ICE-unix/1344,unix/kmj:/tmp/.ICE-unix/1344'), ('INVOCATION_ID', '1e80cb6399c447778b2ecf8ea5c01eba'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'ko_KR.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-wayland'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.M290F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '6'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:b8ae889f-87ba-496f-8344-dccc3f835ca6'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-wayland'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-wayland:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu-wayland:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kmj/Qt/6.9.2/gcc_64::/opt/ros/humble')]), 'shell': False}
+[1.499113] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.502350] (-) TimerEvent: {}
+[1.507856] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.514892] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[  3%] Built target ament_cmake_python_copy_dynamixel_rdk_msgs\n'}
+[1.602439] (-) TimerEvent: {}
+[1.669762] (dynamixel_rdk_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[1.670154] (dynamixel_rdk_msgs) StdoutLine: {'line': b'creating dynamixel_rdk_msgs.egg-info\n'}
+[1.670301] (dynamixel_rdk_msgs) StdoutLine: {'line': b'writing dynamixel_rdk_msgs.egg-info/PKG-INFO\n'}
+[1.670394] (dynamixel_rdk_msgs) StdoutLine: {'line': b'writing dependency_links to dynamixel_rdk_msgs.egg-info/dependency_links.txt\n'}
+[1.670482] (dynamixel_rdk_msgs) StdoutLine: {'line': b'writing top-level names to dynamixel_rdk_msgs.egg-info/top_level.txt\n'}
+[1.670616] (dynamixel_rdk_msgs) StdoutLine: {'line': b"writing manifest file 'dynamixel_rdk_msgs.egg-info/SOURCES.txt'\n"}
+[1.671767] (dynamixel_rdk_msgs) StdoutLine: {'line': b"reading manifest file 'dynamixel_rdk_msgs.egg-info/SOURCES.txt'\n"}
+[1.672066] (dynamixel_rdk_msgs) StdoutLine: {'line': b"writing manifest file 'dynamixel_rdk_msgs.egg-info/SOURCES.txt'\n"}
+[1.696860] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[  3%] Built target ament_cmake_python_build_dynamixel_rdk_msgs_egg\n'}
+[1.702542] (-) TimerEvent: {}
+[1.802783] (-) TimerEvent: {}
+[1.871994] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__functions.c.o\x1b[0m\n'}
+[1.872177] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__functions.c.o\x1b[0m\n'}
+[1.872432] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__functions.c.o\x1b[0m\n'}
+[1.872915] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_c.dir/rosidl_generator_c/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__functions.c.o\x1b[0m\n'}
+[1.879083] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 10%] Built target dynamixel_rdk_msgs__cpp\n'}
+[1.888436] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[1.888614] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[1.888671] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[1.902910] (-) TimerEvent: {}
+[1.909099] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 18%] \x1b[32m\x1b[1mLinking C shared library libdynamixel_rdk_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[1.944822] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 18%] Built target dynamixel_rdk_msgs__rosidl_generator_c\n'}
+[1.954367] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 21%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[1.954545] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 21%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[1.954587] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[2.003032] (-) TimerEvent: {}
+[2.103300] (-) TimerEvent: {}
+[2.185903] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.186092] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.186158] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_control_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.186375] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dynamixel_rdk_msgs/msg/dynamixel_status_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.203424] (-) TimerEvent: {}
+[2.238433] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.238632] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.238700] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.238765] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.271095] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.271298] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 43%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_bulk_read_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.271366] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_control_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.271427] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 45%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dynamixel_rdk_msgs/msg/detail/dds_fastrtps/dynamixel_status_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.305027] (-) TimerEvent: {}
+[2.342374] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 47%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.391392] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 49%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_control_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.405145] (-) TimerEvent: {}
+[2.421001] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.c.o\x1b[0m\n'}
+[2.428469] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 52%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_status_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.442137] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 54%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs__type_support.cpp.o\x1b[0m\n'}
+[2.476449] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.c.o\x1b[0m\n'}
+[2.476794] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.c.o\x1b[0m\n'}
+[2.476900] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.c.o\x1b[0m\n'}
+[2.487333] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[2.487889] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 63%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_c.so\x1b[0m\n'}
+[2.499775] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 65%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support_c.cpp.o\x1b[0m\n'}
+[2.505509] (-) TimerEvent: {}
+[2.506270] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 67%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support_c.cpp.o\x1b[0m\n'}
+[2.508454] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support_c.cpp.o\x1b[0m\n'}
+[2.522135] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support_c.cpp.o\x1b[0m\n'}
+[2.524526] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 72%] \x1b[32m\x1b[1mLinking C shared library libdynamixel_rdk_msgs__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[2.546784] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 72%] Built target dynamixel_rdk_msgs__rosidl_typesupport_cpp\n'}
+[2.548283] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 72%] Built target dynamixel_rdk_msgs__rosidl_typesupport_c\n'}
+[2.570297] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 72%] Built target dynamixel_rdk_msgs__rosidl_typesupport_introspection_c\n'}
+[2.605906] (-) TimerEvent: {}
+[2.706533] (-) TimerEvent: {}
+[2.724321] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[2.768239] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 76%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[2.805565] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 76%] Built target dynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp\n'}
+[2.806616] (-) TimerEvent: {}
+[2.829145] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 78%] \x1b[32m\x1b[1mLinking CXX shared library libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[2.836896] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 78%] Built target dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp\n'}
+[2.893379] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 78%] Built target dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c\n'}
+[2.906722] (-) TimerEvent: {}
+[2.913802] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 78%] Built target dynamixel_rdk_msgs\n'}
+[2.934616] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 80%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[3.006901] (-) TimerEvent: {}
+[3.107329] (-) TimerEvent: {}
+[3.207693] (-) TimerEvent: {}
+[3.308154] (-) TimerEvent: {}
+[3.408483] (-) TimerEvent: {}
+[3.476487] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 80%] Built target dynamixel_rdk_msgs__py\n'}
+[3.497241] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs_s.c.o\x1b[0m\n'}
+[3.497604] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs_s.c.o\x1b[0m\n'}
+[3.497661] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_msgs_s.c.o\x1b[0m\n'}
+[3.497699] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_generator_py.dir/rosidl_generator_py/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs_s.c.o\x1b[0m\n'}
+[3.508689] (-) TimerEvent: {}
+[3.574794] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 89%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/libdynamixel_rdk_msgs__rosidl_generator_py.so\x1b[0m\n'}
+[3.608785] (-) TimerEvent: {}
+[3.612009] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 89%] Built target dynamixel_rdk_msgs__rosidl_generator_py\n'}
+[3.630469] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[3.630622] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[3.630666] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 94%] \x1b[32mBuilding C object CMakeFiles/dynamixel_rdk_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[3.705967] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.706122] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[ 98%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.707010] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[3.708857] (-) TimerEvent: {}
+[3.737738] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[100%] Built target dynamixel_rdk_msgs__rosidl_typesupport_c__pyext\n'}
+[3.738015] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[100%] Built target dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c__pyext\n'}
+[3.738127] (dynamixel_rdk_msgs) StdoutLine: {'line': b'[100%] Built target dynamixel_rdk_msgs__rosidl_typesupport_introspection_c__pyext\n'}
+[3.749665] (dynamixel_rdk_msgs) CommandEnded: {'returncode': 0}
+[3.750161] (dynamixel_rdk_msgs) JobProgress: {'identifier': 'dynamixel_rdk_msgs', 'progress': 'install'}
+[3.760697] (dynamixel_rdk_msgs) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs'], 'cwd': '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en'), ('USER', 'kmj'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kmj'), ('OLDPWD', '/home/kmj'), ('DESKTOP_SESSION', 'ubuntu-wayland'), ('NVM_BIN', '/home/kmj/.nvm/versions/node/v22.19.0/bin'), ('NVM_INC', '/home/kmj/.nvm/versions/node/v22.19.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '1140'), ('SYSTEMD_EXEC_PID', '1600'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '91635'), ('NVM_DIR', '/home/kmj/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kmj'), ('JOURNAL_STREAM', '8:11496'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kmj'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/kmj/opt/cmake-4.1.1-linux-x86_64/bin:/home/kmj/Qt/6.9.2/gcc_64/bin:/home/kmj/.nvm/versions/node/v22.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kmj:@/tmp/.ICE-unix/1344,unix/kmj:/tmp/.ICE-unix/1344'), ('INVOCATION_ID', '1e80cb6399c447778b2ecf8ea5c01eba'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'ko_KR.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-wayland'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.M290F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '6'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:b8ae889f-87ba-496f-8344-dccc3f835ca6'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-wayland'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kmj/colcon_ws/build/dynamixel_rdk_msgs'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-wayland:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu-wayland:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kmj/Qt/6.9.2/gcc_64::/opt/ros/humble')]), 'shell': False}
+[3.767369] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.767578] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/rosidl_interfaces/dynamixel_rdk_msgs\n'}
+[3.767720] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs\n'}
+[3.767816] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg\n'}
+[3.767921] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_msgs.h\n'}
+[3.768118] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail\n'}
+[3.768229] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__struct.h\n'}
+[3.768311] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__functions.h\n'}
+[3.768430] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__functions.c\n'}
+[3.768509] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__functions.c\n'}
+[3.768580] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__struct.h\n'}
+[3.768643] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.h\n'}
+[3.768723] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__functions.h\n'}
+[3.768792] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__functions.c\n'}
+[3.768859] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__struct.h\n'}
+[3.768929] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__functions.h\n'}
+[3.769004] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.h\n'}
+[3.769081] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.h\n'}
+[3.769149] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.h\n'}
+[3.769216] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__functions.c\n'}
+[3.769279] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__functions.h\n'}
+[3.769343] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__struct.h\n'}
+[3.769409] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_generator_c__visibility_control.h\n'}
+[3.769462] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_status_msgs.h\n'}
+[3.769527] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs.h\n'}
+[3.769591] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_control_msgs.h\n'}
+[3.769696] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/library_path.sh\n'}
+[3.769804] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/library_path.dsv\n'}
+[3.770016] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_c.so\n'}
+[3.770370] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_c.so" to ""\n'}
+[3.770465] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs\n'}
+[3.770568] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg\n'}
+[3.770684] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail\n'}
+[3.770730] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_fastrtps_c.h\n'}
+[3.770819] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_fastrtps_c.h\n'}
+[3.770880] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_fastrtps_c.h\n'}
+[3.770978] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_fastrtps_c.h\n'}
+[3.771079] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[3.771138] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.so\n'}
+[3.771404] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[3.771475] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs\n'}
+[3.771552] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg\n'}
+[3.771619] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[3.771696] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail\n'}
+[3.771752] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_introspection_c.h\n'}
+[3.771817] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.c\n'}
+[3.771880] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_introspection_c.h\n'}
+[3.771954] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.c\n'}
+[3.772047] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_introspection_c.h\n'}
+[3.772130] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.c\n'}
+[3.772217] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_introspection_c.h\n'}
+[3.772303] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.c\n'}
+[3.772427] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_c.so\n'}
+[3.772708] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_c.so" to ""\n'}
+[3.772753] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_c.so\n'}
+[3.773007] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_c.so" to ""\n'}
+[3.773047] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs\n'}
+[3.773089] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg\n'}
+[3.773131] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_msgs.hpp\n'}
+[3.773180] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail\n'}
+[3.773225] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.hpp\n'}
+[3.773311] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__builder.hpp\n'}
+[3.773406] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__builder.hpp\n'}
+[3.773490] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.hpp\n'}
+[3.773577] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__traits.hpp\n'}
+[3.773670] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__builder.hpp\n'}
+[3.773754] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__struct.hpp\n'}
+[3.773841] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__traits.hpp\n'}
+[3.773926] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__traits.hpp\n'}
+[3.774024] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__struct.hpp\n'}
+[3.774116] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.hpp\n'}
+[3.774200] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__builder.hpp\n'}
+[3.774287] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.hpp\n'}
+[3.774373] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__struct.hpp\n'}
+[3.774455] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__struct.hpp\n'}
+[3.774544] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__traits.hpp\n'}
+[3.774632] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[3.774711] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_status_msgs.hpp\n'}
+[3.774791] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_bulk_read_msgs.hpp\n'}
+[3.774870] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/dynamixel_control_msgs.hpp\n'}
+[3.774969] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs\n'}
+[3.775016] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg\n'}
+[3.775066] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail\n'}
+[3.775093] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[3.775149] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[3.775235] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[3.775321] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[3.775407] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dds_fastrtps\n'}
+[3.775477] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[3.775587] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.so\n'}
+[3.776041] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[3.776090] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs\n'}
+[3.776127] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg\n'}
+[3.776175] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Up-to-date: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail\n'}
+[3.776204] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__rosidl_typesupport_introspection_cpp.hpp\n'}
+[3.776366] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__rosidl_typesupport_introspection_cpp.hpp\n'}
+[3.776547] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__type_support.cpp\n'}
+[3.776662] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__rosidl_typesupport_introspection_cpp.hpp\n'}
+[3.776763] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_control_msgs__rosidl_typesupport_introspection_cpp.hpp\n'}
+[3.776852] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_status_msgs__type_support.cpp\n'}
+[3.776927] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_bulk_read_msgs__type_support.cpp\n'}
+[3.777042] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/include/dynamixel_rdk_msgs/dynamixel_rdk_msgs/msg/detail/dynamixel_msgs__type_support.cpp\n'}
+[3.777514] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.so\n'}
+[3.778258] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[3.778340] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_cpp.so\n'}
+[3.778566] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_typesupport_cpp.so" to ""\n'}
+[3.778621] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/pythonpath.sh\n'}
+[3.778701] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/pythonpath.dsv\n'}
+[3.778795] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info\n'}
+[3.778934] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/top_level.txt\n'}
+[3.779026] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/PKG-INFO\n'}
+[3.779107] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/SOURCES.txt\n'}
+[3.779186] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs-0.0.1-py3.10.egg-info/dependency_links.txt\n'}
+[3.779293] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs\n'}
+[3.779354] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[3.779461] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[3.779559] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/libdynamixel_rdk_msgs__rosidl_generator_py.so\n'}
+[3.779671] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.779771] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/_dynamixel_rdk_msgs_s.ep.rosidl_typesupport_c.c\n'}
+[3.779863] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg\n'}
+[3.779922] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs.py\n'}
+[3.780111] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs_s.c\n'}
+[3.780310] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs_s.c\n'}
+[3.780428] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_msgs_s.c\n'}
+[3.780531] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_msgs.py\n'}
+[3.780619] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/__init__.py\n'}
+[3.780713] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs.py\n'}
+[3.780801] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs_s.c\n'}
+[3.780890] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs.py\n'}
+[3.780974] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.781081] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.781171] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/__init__.py\n'}
+[3.807722] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Listing '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs'...\n"}
+[3.807930] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/__init__.py'...\n"}
+[3.807982] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Listing '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg'...\n"}
+[3.808023] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/__init__.py'...\n"}
+[3.808056] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_bulk_read_msgs.py'...\n"}
+[3.808091] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_control_msgs.py'...\n"}
+[3.808121] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_msgs.py'...\n"}
+[3.808149] (dynamixel_rdk_msgs) StdoutLine: {'line': b"Compiling '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/msg/_dynamixel_status_msgs.py'...\n"}
+[3.808942] (-) TimerEvent: {}
+[3.811508] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.811789] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.812170] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.812794] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.812968] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[3.813220] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages/dynamixel_rdk_msgs/dynamixel_rdk_msgs_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""\n'}
+[3.813327] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_py.so\n'}
+[3.813588] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib/libdynamixel_rdk_msgs__rosidl_generator_py.so" to ""\n'}
+[3.813721] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelMsgs.idl\n'}
+[3.813857] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelControlMsgs.idl\n'}
+[3.813986] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelStatusMsgs.idl\n'}
+[3.814126] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelBulkReadMsgs.idl\n'}
+[3.814241] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelMsgs.msg\n'}
+[3.814343] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelControlMsgs.msg\n'}
+[3.814419] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelStatusMsgs.msg\n'}
+[3.814523] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/msg/DynamixelBulkReadMsgs.msg\n'}
+[3.814661] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/package_run_dependencies/dynamixel_rdk_msgs\n'}
+[3.814802] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/parent_prefix_path/dynamixel_rdk_msgs\n'}
+[3.814909] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/ament_prefix_path.sh\n'}
+[3.815017] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/ament_prefix_path.dsv\n'}
+[3.815118] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/path.sh\n'}
+[3.815212] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/environment/path.dsv\n'}
+[3.815305] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.bash\n'}
+[3.815401] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.sh\n'}
+[3.815496] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.zsh\n'}
+[3.815591] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/local_setup.dsv\n'}
+[3.815688] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/package.dsv\n'}
+[3.815821] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/ament_index/resource_index/packages/dynamixel_rdk_msgs\n'}
+[3.815965] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_cExport.cmake\n'}
+[3.816080] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_cExport-noconfig.cmake\n'}
+[3.816189] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[3.816292] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[3.816398] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cExport.cmake\n'}
+[3.816506] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[3.816625] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cExport.cmake\n'}
+[3.816732] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[3.816847] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_cppExport.cmake\n'}
+[3.816972] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[3.817083] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[3.817191] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[3.817298] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[3.817403] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cppExport.cmake\n'}
+[3.817505] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgs__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[3.817610] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_pyExport.cmake\n'}
+[3.817716] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/export_dynamixel_rdk_msgs__rosidl_generator_pyExport-noconfig.cmake\n'}
+[3.817812] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/rosidl_cmake-extras.cmake\n'}
+[3.817909] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[3.818031] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[3.818131] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[3.818237] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[3.818334] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[3.818427] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[3.818530] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgsConfig.cmake\n'}
+[3.818619] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/cmake/dynamixel_rdk_msgsConfig-version.cmake\n'}
+[3.818735] (dynamixel_rdk_msgs) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_msgs/share/dynamixel_rdk_msgs/package.xml\n'}
+[3.821420] (dynamixel_rdk_msgs) CommandEnded: {'returncode': 0}
+[3.833495] (dynamixel_rdk_msgs) JobEnded: {'identifier': 'dynamixel_rdk_msgs', 'rc': 0}
+[3.834227] (dynamixel_rdk_ros) JobStarted: {'identifier': 'dynamixel_rdk_ros'}
+[3.841286] (dynamixel_rdk_ros) JobProgress: {'identifier': 'dynamixel_rdk_ros', 'progress': 'cmake'}
+[3.842934] (dynamixel_rdk_ros) Command: {'cmd': ['/usr/bin/cmake', '/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros', '-DCMAKE_INSTALL_PREFIX=/home/kmj/colcon_ws/install/dynamixel_rdk_ros'], 'cwd': '/home/kmj/colcon_ws/build/dynamixel_rdk_ros', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en'), ('USER', 'kmj'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kmj'), ('OLDPWD', '/home/kmj'), ('DESKTOP_SESSION', 'ubuntu-wayland'), ('NVM_BIN', '/home/kmj/.nvm/versions/node/v22.19.0/bin'), ('NVM_INC', '/home/kmj/.nvm/versions/node/v22.19.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '1140'), ('SYSTEMD_EXEC_PID', '1600'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '91635'), ('NVM_DIR', '/home/kmj/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kmj'), ('JOURNAL_STREAM', '8:11496'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kmj'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/kmj/opt/cmake-4.1.1-linux-x86_64/bin:/home/kmj/Qt/6.9.2/gcc_64/bin:/home/kmj/.nvm/versions/node/v22.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kmj:@/tmp/.ICE-unix/1344,unix/kmj:/tmp/.ICE-unix/1344'), ('INVOCATION_ID', '1e80cb6399c447778b2ecf8ea5c01eba'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'ko_KR.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-wayland'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.M290F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '6'), ('AMENT_PREFIX_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:b8ae889f-87ba-496f-8344-dccc3f835ca6'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-wayland'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kmj/colcon_ws/build/dynamixel_rdk_ros'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-wayland:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu-wayland:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble')]), 'shell': False}
+[3.890825] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[3.909063] (-) TimerEvent: {}
+[3.937372] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[3.943878] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[4.007710] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[4.009128] (-) TimerEvent: {}
+[4.012311] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[4.012558] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[4.012808] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[4.014867] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.084653] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.090125] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.090456] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.090776] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.092787] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found ament_cmake_auto: 1.3.12 (/opt/ros/humble/share/ament_cmake_auto/cmake)\n'}
+[4.109257] (-) TimerEvent: {}
+[4.209574] (-) TimerEvent: {}
+[4.215330] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[4.309741] (-) TimerEvent: {}
+[4.372491] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[4.377510] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[4.384381] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[4.393717] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.407059] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[4.409793] (-) TimerEvent: {}
+[4.443765] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[4.446030] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[4.509945] (-) TimerEvent: {}
+[4.526289] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[4.549759] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[4.586128] (dynamixel_rdk_ros) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[4.593582] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[4.610034] (-) TimerEvent: {}
+[4.660296] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[4.660570] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[4.710272] (-) TimerEvent: {}
+[4.732059] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[4.732792] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[4.783453] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[4.799676] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Configuring done\n'}
+[4.807825] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Generating done\n'}
+[4.810315] (-) TimerEvent: {}
+[4.810486] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Build files have been written to: /home/kmj/colcon_ws/build/dynamixel_rdk_ros\n'}
+[4.819041] (dynamixel_rdk_ros) CommandEnded: {'returncode': 0}
+[4.820061] (dynamixel_rdk_ros) JobProgress: {'identifier': 'dynamixel_rdk_ros', 'progress': 'build'}
+[4.820362] (dynamixel_rdk_ros) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/kmj/colcon_ws/build/dynamixel_rdk_ros', '--', '-j16', '-l16'], 'cwd': '/home/kmj/colcon_ws/build/dynamixel_rdk_ros', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en'), ('USER', 'kmj'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kmj'), ('OLDPWD', '/home/kmj'), ('DESKTOP_SESSION', 'ubuntu-wayland'), ('NVM_BIN', '/home/kmj/.nvm/versions/node/v22.19.0/bin'), ('NVM_INC', '/home/kmj/.nvm/versions/node/v22.19.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '1140'), ('SYSTEMD_EXEC_PID', '1600'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '91635'), ('NVM_DIR', '/home/kmj/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kmj'), ('JOURNAL_STREAM', '8:11496'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kmj'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/kmj/opt/cmake-4.1.1-linux-x86_64/bin:/home/kmj/Qt/6.9.2/gcc_64/bin:/home/kmj/.nvm/versions/node/v22.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kmj:@/tmp/.ICE-unix/1344,unix/kmj:/tmp/.ICE-unix/1344'), ('INVOCATION_ID', '1e80cb6399c447778b2ecf8ea5c01eba'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'ko_KR.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-wayland'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.M290F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '6'), ('AMENT_PREFIX_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:b8ae889f-87ba-496f-8344-dccc3f835ca6'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-wayland'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kmj/colcon_ws/build/dynamixel_rdk_ros'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-wayland:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu-wayland:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble')]), 'shell': False}
+[4.868315] (dynamixel_rdk_ros) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_node.dir/src/dynamixel_rdk_node.cpp.o\x1b[0m\n'}
+[4.868615] (dynamixel_rdk_ros) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_node.dir/src/dynamixel_ctrl.cpp.o\x1b[0m\n'}
+[4.868737] (dynamixel_rdk_ros) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/dynamixel_rdk_node.dir/src/dynamixel.cpp.o\x1b[0m\n'}
+[4.910472] (-) TimerEvent: {}
+[5.010853] (-) TimerEvent: {}
+[5.111166] (-) TimerEvent: {}
+[5.146612] (dynamixel_rdk_ros) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool dynamixel_rdk_ros::Dynamixel::get_dynamixel_status(dynamixel::GroupSyncRead&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.147047] (dynamixel_rdk_ros) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel.cpp:133:7:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kerror_status_int\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.147102] (dynamixel_rdk_ros) StderrLine: {'line': b'  133 |   int \x1b[01;35m\x1b[Kerror_status_int\x1b[m\x1b[K = static_cast<int>(error_status);\n'}
+[5.147139] (dynamixel_rdk_ros) StderrLine: {'line': b'      |       \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.206742] (dynamixel_rdk_ros) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel_ctrl.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool dynamixel_rdk_ros::DynamixelCtrl::read_dynamixel_status()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.207190] (dynamixel_rdk_ros) StderrLine: {'line': b'\x1b[01m\x1b[K/home/kmj/colcon_ws/src/dynamixel_rdk/dynamixel-RDK/dynamixel_rdk_ros/src/dynamixel_ctrl.cpp:337:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kdynamixel\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[5.207299] (dynamixel_rdk_ros) StderrLine: {'line': b'  337 |     for (auto & \x1b[01;35m\x1b[Kdynamixel\x1b[m\x1b[K : dynamixels) {\n'}
+[5.207383] (dynamixel_rdk_ros) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[5.211289] (-) TimerEvent: {}
+[5.311609] (-) TimerEvent: {}
+[5.411981] (-) TimerEvent: {}
+[5.512353] (-) TimerEvent: {}
+[5.612791] (-) TimerEvent: {}
+[5.713281] (-) TimerEvent: {}
+[5.813614] (-) TimerEvent: {}
+[5.914016] (-) TimerEvent: {}
+[6.014353] (-) TimerEvent: {}
+[6.114668] (-) TimerEvent: {}
+[6.215016] (-) TimerEvent: {}
+[6.315352] (-) TimerEvent: {}
+[6.415850] (-) TimerEvent: {}
+[6.516219] (-) TimerEvent: {}
+[6.616510] (-) TimerEvent: {}
+[6.716818] (-) TimerEvent: {}
+[6.817188] (-) TimerEvent: {}
+[6.917472] (-) TimerEvent: {}
+[7.017795] (-) TimerEvent: {}
+[7.118337] (-) TimerEvent: {}
+[7.218712] (-) TimerEvent: {}
+[7.319093] (-) TimerEvent: {}
+[7.419389] (-) TimerEvent: {}
+[7.519681] (-) TimerEvent: {}
+[7.619993] (-) TimerEvent: {}
+[7.720373] (-) TimerEvent: {}
+[7.820826] (-) TimerEvent: {}
+[7.921041] (-) TimerEvent: {}
+[8.021496] (-) TimerEvent: {}
+[8.121915] (-) TimerEvent: {}
+[8.222484] (-) TimerEvent: {}
+[8.322844] (-) TimerEvent: {}
+[8.423270] (-) TimerEvent: {}
+[8.523788] (-) TimerEvent: {}
+[8.624254] (-) TimerEvent: {}
+[8.724638] (-) TimerEvent: {}
+[8.824999] (-) TimerEvent: {}
+[8.925359] (-) TimerEvent: {}
+[9.025705] (-) TimerEvent: {}
+[9.126154] (-) TimerEvent: {}
+[9.226634] (-) TimerEvent: {}
+[9.327126] (-) TimerEvent: {}
+[9.427589] (-) TimerEvent: {}
+[9.528026] (-) TimerEvent: {}
+[9.628469] (-) TimerEvent: {}
+[9.728876] (-) TimerEvent: {}
+[9.829353] (-) TimerEvent: {}
+[9.929852] (-) TimerEvent: {}
+[10.030320] (-) TimerEvent: {}
+[10.130766] (-) TimerEvent: {}
+[10.231242] (-) TimerEvent: {}
+[10.331696] (-) TimerEvent: {}
+[10.432205] (-) TimerEvent: {}
+[10.532667] (-) TimerEvent: {}
+[10.633097] (-) TimerEvent: {}
+[10.733563] (-) TimerEvent: {}
+[10.834047] (-) TimerEvent: {}
+[10.934488] (-) TimerEvent: {}
+[11.034940] (-) TimerEvent: {}
+[11.135462] (-) TimerEvent: {}
+[11.235923] (-) TimerEvent: {}
+[11.336380] (-) TimerEvent: {}
+[11.436826] (-) TimerEvent: {}
+[11.537291] (-) TimerEvent: {}
+[11.637783] (-) TimerEvent: {}
+[11.738310] (-) TimerEvent: {}
+[11.838762] (-) TimerEvent: {}
+[11.939236] (-) TimerEvent: {}
+[12.039700] (-) TimerEvent: {}
+[12.140122] (-) TimerEvent: {}
+[12.240553] (-) TimerEvent: {}
+[12.341037] (-) TimerEvent: {}
+[12.441511] (-) TimerEvent: {}
+[12.541980] (-) TimerEvent: {}
+[12.642450] (-) TimerEvent: {}
+[12.742912] (-) TimerEvent: {}
+[12.843396] (-) TimerEvent: {}
+[12.943859] (-) TimerEvent: {}
+[13.044307] (-) TimerEvent: {}
+[13.144733] (-) TimerEvent: {}
+[13.245235] (-) TimerEvent: {}
+[13.345731] (-) TimerEvent: {}
+[13.446218] (-) TimerEvent: {}
+[13.546599] (-) TimerEvent: {}
+[13.647102] (-) TimerEvent: {}
+[13.747548] (-) TimerEvent: {}
+[13.848013] (-) TimerEvent: {}
+[13.948498] (-) TimerEvent: {}
+[14.048974] (-) TimerEvent: {}
+[14.149416] (-) TimerEvent: {}
+[14.249808] (-) TimerEvent: {}
+[14.350298] (-) TimerEvent: {}
+[14.450769] (-) TimerEvent: {}
+[14.551246] (-) TimerEvent: {}
+[14.651717] (-) TimerEvent: {}
+[14.696145] (dynamixel_rdk_ros) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable dynamixel_rdk_node\x1b[0m\n'}
+[14.751882] (-) TimerEvent: {}
+[14.852367] (-) TimerEvent: {}
+[14.952906] (-) TimerEvent: {}
+[15.053499] (-) TimerEvent: {}
+[15.154471] (-) TimerEvent: {}
+[15.254978] (-) TimerEvent: {}
+[15.265193] (dynamixel_rdk_ros) StdoutLine: {'line': b'[100%] Built target dynamixel_rdk_node\n'}
+[15.277895] (dynamixel_rdk_ros) CommandEnded: {'returncode': 0}
+[15.278890] (dynamixel_rdk_ros) JobProgress: {'identifier': 'dynamixel_rdk_ros', 'progress': 'install'}
+[15.279532] (dynamixel_rdk_ros) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/kmj/colcon_ws/build/dynamixel_rdk_ros'], 'cwd': '/home/kmj/colcon_ws/build/dynamixel_rdk_ros', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'ko:en'), ('USER', 'kmj'), ('LC_TIME', 'ko_KR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/kmj'), ('OLDPWD', '/home/kmj'), ('DESKTOP_SESSION', 'ubuntu-wayland'), ('NVM_BIN', '/home/kmj/.nvm/versions/node/v22.19.0/bin'), ('NVM_INC', '/home/kmj/.nvm/versions/node/v22.19.0/include/node'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'ko_KR.UTF-8'), ('MANAGERPID', '1140'), ('SYSTEMD_EXEC_PID', '1600'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator25ef4b219e3b005583550f2b0f9f990c3'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '91635'), ('NVM_DIR', '/home/kmj/.nvm'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'kmj'), ('JOURNAL_STREAM', '8:11496'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'kmj'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/home/kmj/opt/cmake-4.1.1-linux-x86_64/bin:/home/kmj/Qt/6.9.2/gcc_64/bin:/home/kmj/.nvm/versions/node/v22.19.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/kmj:@/tmp/.ICE-unix/1344,unix/kmj:/tmp/.ICE-unix/1344'), ('INVOCATION_ID', '1e80cb6399c447778b2ecf8ea5c01eba'), ('PAPERSIZE', 'a4'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'ko_KR.UTF-8'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'ko_KR.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'ko_KR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-wayland'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.M290F3'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '6'), ('AMENT_PREFIX_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'ko_KR.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:b8ae889f-87ba-496f-8344-dccc3f835ca6'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-wayland'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'ko_KR.UTF-8'), ('LC_IDENTIFICATION', 'ko_KR.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/kmj/colcon_ws/build/dynamixel_rdk_ros'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-wayland:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu-wayland:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'ko_KR.UTF-8'), ('LC_PAPER', 'ko_KR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/kmj/colcon_ws/install/dynamixel_rdk_msgs:/home/kmj/Qt/6.9.2/gcc_64:/opt/ros/humble')]), 'shell': False}
+[15.286310] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[15.286539] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//config\n'}
+[15.286670] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//config/dynamixel.yaml\n'}
+[15.286767] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//launch\n'}
+[15.286835] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros//launch/dynamixel_rdk.launch.py\n'}
+[15.286904] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/lib/dynamixel_rdk_ros/dynamixel_rdk_node\n'}
+[15.291924] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Set runtime path of "/home/kmj/colcon_ws/install/dynamixel_rdk_ros/lib/dynamixel_rdk_ros/dynamixel_rdk_node" to ""\n'}
+[15.292058] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/package_run_dependencies/dynamixel_rdk_ros\n'}
+[15.292243] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/parent_prefix_path/dynamixel_rdk_ros\n'}
+[15.292426] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/ament_prefix_path.sh\n'}
+[15.292553] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/ament_prefix_path.dsv\n'}
+[15.292645] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/path.sh\n'}
+[15.292768] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/environment/path.dsv\n'}
+[15.292836] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.bash\n'}
+[15.292937] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.sh\n'}
+[15.293066] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.zsh\n'}
+[15.293181] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/local_setup.dsv\n'}
+[15.293297] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/package.dsv\n'}
+[15.293348] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/ament_index/resource_index/packages/dynamixel_rdk_ros\n'}
+[15.293425] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/cmake/dynamixel_rdk_rosConfig.cmake\n'}
+[15.293485] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/cmake/dynamixel_rdk_rosConfig-version.cmake\n'}
+[15.293554] (dynamixel_rdk_ros) StdoutLine: {'line': b'-- Installing: /home/kmj/colcon_ws/install/dynamixel_rdk_ros/share/dynamixel_rdk_ros/package.xml\n'}
+[15.295657] (dynamixel_rdk_ros) CommandEnded: {'returncode': 0}
+[15.303578] (dynamixel_rdk_ros) JobEnded: {'identifier': 'dynamixel_rdk_ros', 'rc': 0}
+[15.303964] (-) EventReactorShutdown: {}
