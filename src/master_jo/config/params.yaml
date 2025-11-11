@@ -1,4 +1,4 @@
-/**:
+master_jo_node:
     ros__parameters:
         Kp: 3.0
         Ki: 0.0001
