@@ -15,7 +15,7 @@ public:
     void stateSet();
     void statePlay();
     void stateFinished();
-
+    bool stop_or_go = false;
 };
 
 }

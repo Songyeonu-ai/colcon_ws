@@ -129,17 +129,18 @@ private:
       // }
       
       cv::waitKey(1);
-       // --- 빨간 픽셀 좌표 찾기 ---
-      std::vector<cv::Point> locations;
-      cv::findNonZero(red_mask, locations);
 
-      // --- FLAG 계산 ---
-      int flag = 0;
-      int lower_region_boundary = frame.rows * 0.75;
-      const int min_red_pixels_in_region = 10000; // Minimum number of red pixels in the target region
+      
+      std::vector<cv::Point> red_locations;
+      cv::findNonZero(red_mask, red_locations);
+      std::vector<cv::Point> white_locations;
+      cv::findNonZero(white_mask, white_locations);
+
+      // --- 픽셀 수 계산 ---
+      int lower_region_boundary = frame.rows * 0.5; // 하단 절반 영역
+      const int min_red_pixels_in_region = 10000;
       int red_pixels_in_lower_region = 0;
-
-      for (const auto& pt : locations)
+      for (const auto& pt : red_locations)
       {
         if (pt.y > lower_region_boundary)
         {
@@ -147,9 +148,39 @@ private:
         }
       }
 
-      if (red_pixels_in_lower_region > min_red_pixels_in_region)
+      int lower_region_boundary2 = frame.cols * 0.25;
+      const int min_white_pixels_in_region = 10000;
+      int white_pixels_in_lower_region = 0;
+      for (const auto& pt : white_locations)
       {
+        if (pt.y > lower_region_boundary2)
+        {
+          white_pixels_in_lower_region++;
+        }
+      }
+
+      // FLAG 계산
+      bool is_red_detected = red_pixels_in_lower_region > min_red_pixels_in_region;
+      bool is_white_detected = white_pixels_in_lower_region > min_white_pixels_in_region;
+      int flag = 0;
+      bool both_detected_mode_ = false;
+      // 동시 감지 모드 진입 및 해제 조건
+      if (is_red_detected && is_white_detected) {
+        both_detected_mode_ = true;
+      } 
+      else if (!is_red_detected) {
+        both_detected_mode_ = false;
+      }
+
+      // 상태에 따른 flag 값 결정
+      if (both_detected_mode_ && is_red_detected) {
+        flag = 2;
+      } 
+      else if (is_red_detected) {
         flag = 1;
+      } 
+      else {
+        flag = 0;
       }
 
       // --- 퍼블리시 ---

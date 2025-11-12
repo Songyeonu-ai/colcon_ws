@@ -10,95 +10,98 @@
 #include "forward.hpp"
 #include "master_jo.hpp"
 
-namespace master_jo {
+namespace master_jo
+{
 
-class MasterJoNode : public rclcpp_lifecycle::LifecycleNode {
- public:
-  MasterJoNode(
-      const rclcpp::NodeOptions &options = rclcpp::NodeOptions());
+    class MasterJoNode : public rclcpp_lifecycle::LifecycleNode
+    {
+    public:
+        MasterJoNode(
+            const rclcpp::NodeOptions &options = rclcpp::NodeOptions());
 
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
-  on_configure(const rclcpp_lifecycle::State &previous_state);
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
-  on_activate(const rclcpp_lifecycle::State &previous_state);
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
-  on_deactivate(const rclcpp_lifecycle::State &previous_state);
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
-  on_cleanup(const rclcpp_lifecycle::State &previous_state);
-  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
-  on_shutdown(const rclcpp_lifecycle::State &previous_state);
+        rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
+        on_configure(const rclcpp_lifecycle::State &previous_state);
+        rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
+        on_activate(const rclcpp_lifecycle::State &previous_state);
+        rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
+        on_deactivate(const rclcpp_lifecycle::State &previous_state);
+        rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
+        on_cleanup(const rclcpp_lifecycle::State &previous_state);
+        rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn
+        on_shutdown(const rclcpp_lifecycle::State &previous_state);
 
-  rcl_interfaces::msg::SetParametersResult on_parameter_change(
-      const std::vector<rclcpp::Parameter> &parameters);
+        rcl_interfaces::msg::SetParametersResult on_parameter_change(
+            const std::vector<rclcpp::Parameter> &parameters);
 
-  std::shared_ptr<master_jo::MasterRcko> master;
+        std::shared_ptr<master_jo::MasterRcko> master;
 
- private:
-  void init_parameters();
-  void get_parameters();
+    private:
+        void init_parameters();
+        void get_parameters();
 
-  void imuCallback(const humanoid_interfaces::msg::ImuMsg::SharedPtr msg);
-  void visionCallback(
-      const humanoid_interfaces::msg::HumanPjVision::SharedPtr msg);
-  void ikCallback(const humanoid_interfaces::msg::IkEndMsg::SharedPtr msg);
-  void gamecontrolCallback(
-      const humanoid_interfaces::msg::Gamecontroldata::SharedPtr msg);
-  void localCallback(
-      const humanoid_interfaces::msg::Robocuplocalization25::SharedPtr msg);
-  void udpCallback(const humanoid_interfaces::msg::Udp2master::SharedPtr msg);
-  void motionCallback(
-      const humanoid_interfaces::msg::MotionOperator::SharedPtr msg);
-  void pidCallback(const humanoid_interfaces::msg::Pidtuning::SharedPtr msg);
+        void imuCallback(const humanoid_interfaces::msg::ImuMsg::SharedPtr msg);
+        void visionCallback(
+            const humanoid_interfaces::msg::HumanPjVision::SharedPtr msg);
+        void ikCallback(const humanoid_interfaces::msg::IkEndMsg::SharedPtr msg);
+        void gamecontrolCallback(
+            const humanoid_interfaces::msg::Gamecontroldata::SharedPtr msg);
+        void localCallback(
+            const humanoid_interfaces::msg::Robocuplocalization25::SharedPtr msg);
+        void udpCallback(const humanoid_interfaces::msg::Udp2master::SharedPtr msg);
+        void motionCallback(
+            const humanoid_interfaces::msg::MotionOperator::SharedPtr msg);
+        void pidCallback(const humanoid_interfaces::msg::Pidtuning::SharedPtr msg);
 
-  void robocup_master();
+        void robocup_master();
 
- private:
-  std::shared_ptr<master_jo::Player> player;
-  rclcpp::TimerBase::SharedPtr timer;
+    private:
+        std::shared_ptr<master_jo::Player> player;
+        rclcpp::TimerBase::SharedPtr timer;
 
+        rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2IkMsg>::SharedPtr ik_pub;
+        rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2vision25>::SharedPtr vision_pub;
+        rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Gamecontrolreturndata>::SharedPtr gamecontrol_pub;
+        rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2localization25>::SharedPtr local_pub;
+        rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2udp>::SharedPtr udp_pub;
+        rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::MotionOperator>::SharedPtr motionPub;
 
-  rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2IkMsg>::SharedPtr ik_pub;
-  rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2vision25>::SharedPtr vision_pub;
-  rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Gamecontrolreturndata>::SharedPtr gamecontrol_pub;
-  rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2localization25>::SharedPtr local_pub;
-  rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2udp>::SharedPtr udp_pub;
-  rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::MotionOperator>::SharedPtr motionPub;
+        rclcpp::Subscription<humanoid_interfaces::msg::ImuMsg>::SharedPtr imu_sub;
+        rclcpp::Subscription<humanoid_interfaces::msg::HumanPjVision>::SharedPtr vision_sub;
+        rclcpp::Subscription<humanoid_interfaces::msg::IkEndMsg>::SharedPtr ik_sub;
+        rclcpp::Subscription<humanoid_interfaces::msg::Gamecontroldata>::SharedPtr gamecontrol_sub;
+        rclcpp::Subscription<humanoid_interfaces::msg::Robocuplocalization25>::SharedPtr local_sub;
+        rclcpp::Subscription<humanoid_interfaces::msg::Udp2master>::SharedPtr udp_sub;
+        rclcpp::Subscription<humanoid_interfaces::msg::Pidtuning>::SharedPtr pid_sub;
 
-  rclcpp::Subscription<humanoid_interfaces::msg::ImuMsg>::SharedPtr imu_sub;
-  rclcpp::Subscription<humanoid_interfaces::msg::HumanPjVision>::SharedPtr vision_sub;
-  rclcpp::Subscription<humanoid_interfaces::msg::IkEndMsg>::SharedPtr ik_sub;
-  rclcpp::Subscription<humanoid_interfaces::msg::Gamecontroldata>::SharedPtr gamecontrol_sub;
-  rclcpp::Subscription<humanoid_interfaces::msg::Robocuplocalization25>::SharedPtr local_sub;
-  rclcpp::Subscription<humanoid_interfaces::msg::Udp2master>::SharedPtr udp_sub;
-  rclcpp::Subscription<humanoid_interfaces::msg::Pidtuning>::SharedPtr pid_sub;
+        double kp_;
+        double kd_;
+        double ki_;
+        bool left_side_flag = false;
+        int right_side_flag = 0;
 
-  double kp_;
-  double kd_;
-  double ki_;
+        int FRONT_MAX_;
+        int REAR_MAX_;
+        int RIGHT_MAX_;
+        int LEFT_MAX_;
+        int R_YAW_MAX_;
+        int L_YAW_MAX_;
+        int X_MIN_;
+        int Y_MIN_;
+        int ROUND_Y_;
+        int ROUND_YAW_MIN_;
 
-  int FRONT_MAX_;
-  int REAR_MAX_;
-  int RIGHT_MAX_;
-  int LEFT_MAX_;
-  int R_YAW_MAX_;
-  int L_YAW_MAX_;
-  int X_MIN_;
-  int Y_MIN_;
-  int ROUND_Y_;
-  int ROUND_YAW_MIN_;
+        int In_;
+        int Out_;
+        int Back_;
+        int Front_;
 
-  int In_;
-  int Out_;
-  int Back_;
-  int Front_;
+        bool isPenalty;
+        bool testFlag = false;
+        bool vision_movement_allowed_ = true;
 
-  bool isPenalty;
-  bool testFlag = false;
-  bool vision_movement_allowed_ = true;
-
-  int position = 2;
-  int state = STATE_PLAYING;
-};
+        int position = 2;
+        int state = STATE_PLAYING;
+    };
 
 }
 
