@@ -33,6 +33,9 @@ class Player {
   int publish_motion_num;
   bool publish_motion_flag = false;
   bool publish_motion_complete = true;
+  int x=0;
+  int y=0;
+  int yaw=0;
 
   bool walkStop();
 

@@ -59,7 +59,7 @@ namespace master_jo
         humanoid_interfaces::msg::MotionOperator motionEnd; // ㅇㅋ
 
         // 기타
-        // humanoid_interfaces::msg::MotorMsg motor;
+        //humanoid_interfaces::msg::MotorMsg motor;
         // humanoid_interfaces::msg::Pidtuning pid;
 
         // 제어 상수

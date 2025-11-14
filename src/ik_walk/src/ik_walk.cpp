@@ -64,6 +64,7 @@ void IKwalk::timer_callback()
     {
       Timer_Time_End = 0;
     }
+
     Walk_Start_End(Now_Param, Past_Param);
 
     if (Now_Param.Check_ratio.Ratio_Flag != Past_Param.Check_ratio.Ratio_Flag)
@@ -95,11 +96,10 @@ int main(int argc, char **argv)
   node->Generate_Pattern(Now_Param);
   node->IK.Balance_Control_Body_Upright(0, Now_Param.Z.Default_Z_Right, Init_Position_Time, Init_Rise_Condition, Init_Position_Pitch, Init_Position_Balance_Msg, Init_Position_Balance_Msg, 0, 0, 0, 0, 0, Model_Data.Link2Link, 0, 0, 99);
 
-
-  Now_Param.Y.Default_Y_Right=-(Model_Data.Center2Leg);
-  Now_Param.Y.Default_Y_Left=Model_Data.Center2Leg;
-  Now_Param.Z.Default_Z_Right=-(2*Model_Data.Link2Link-Model_Data.Init_Z_Up);
-  Now_Param.Z.Default_Z_Left=-(2*Model_Data.Link2Link-Model_Data.Init_Z_Up);
+  Now_Param.Y.Default_Y_Right = -(Model_Data.Center2Leg);
+  Now_Param.Y.Default_Y_Left = Model_Data.Center2Leg;
+  Now_Param.Z.Default_Z_Right = -(2 * Model_Data.Link2Link - Model_Data.Init_Z_Up);
+  Now_Param.Z.Default_Z_Left = -(2 * Model_Data.Link2Link - Model_Data.Init_Z_Up);
 
   node->IK.solve(0.0, Now_Param.Y.Default_Y_Right, Now_Param.Z.Default_Z_Right, 0.0, 0.0, Now_Param.Y.Default_Y_Left, Now_Param.Z.Default_Z_Left, 0.0, Leg, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
@@ -210,7 +210,6 @@ void IKwalk::Walk_Start_End(Walk_Param &Now_Param, Walk_Param &Past_Param)
 void IKwalk::Generate_Pattern(Walk_Param &Now_Param)
 {
   //-------------------------Single_OR_Double_Pattern-------------------------//
-
   if (Balance.Ratio_Check_Flag == 1)
   {
     //-------------------------Start_Pattern-------------------------//
@@ -576,8 +575,11 @@ void IKwalk::Result_Pattern(Walk_Param &Now_Param)
   else
   {
     cout << "\n**************Normal_Walking*****************\n\n";
-    cout<<-COM_Pattern.result(Time_Right_Leg)<<endl<<Balance.Swing_Control_R<<endl<<Now_Param.Y.Swing_Leg_Right<<endl;//(Cal.negative_position(Now_Param.Yaw_R.Yaw * K_value[0].Neg_YawR) - Cal.positive_position(Now_Param.Yaw_R.Yaw * K_value[0].Pos_YawR)) - (Cal.negative_position(Now_Param.X.X * K_value[0].Neg_XR) +
-    cout<<Cal.positive_position(Now_Param.X.X * K_value[0].Pos_XR)<<endl<<Now_Param.Y.Default_Y_Right<<endl;
+    // cout << -COM_Pattern.result(Time_Right_Leg) << endl
+    //      << Balance.Swing_Control_R << endl
+    //      << Now_Param.Y.Swing_Leg_Right << endl; //(Cal.negative_position(Now_Param.Yaw_R.Yaw * K_value[0].Neg_YawR) - Cal.positive_position(Now_Param.Yaw_R.Yaw * K_value[0].Pos_YawR)) - (Cal.negative_position(Now_Param.X.X * K_value[0].Neg_XR) +
+    // cout << Cal.positive_position(Now_Param.X.X * K_value[0].Pos_XR) << endl
+    //      << Now_Param.Y.Default_Y_Right << endl;
     if (Normal_first_Flag == true)
     {
       Now_Param.Sink_Entire_Time = Now_Param.Entire_Time;
@@ -637,12 +639,18 @@ void IKwalk::Result_Pattern(Walk_Param &Now_Param)
         imu_safe_cnt = 0;
     }
 
-    if (Balance.Swing_Control_add_L > 1.5)  Balance.Swing_Control_add_L = 1.5;
-    if (Balance.Swing_Control_add_R > 1.5)  Balance.Swing_Control_add_R = 1.5;
-    if (Balance.Swing_Control_add_L < -0.5) Balance.Swing_Control_add_L = -0.5;
-    if (Balance.Swing_Control_add_R < -0.5)  Balance.Swing_Control_add_R = -0.5;
-    if (abs(Balance.Swing_Control_add_L) < 0.05)  Balance.Swing_Control_add_L = 0;
-    if (abs(Balance.Swing_Control_add_R) < 0.05)  Balance.Swing_Control_add_R = 0;
+    if (Balance.Swing_Control_add_L > 1.5)
+      Balance.Swing_Control_add_L = 1.5;
+    if (Balance.Swing_Control_add_R > 1.5)
+      Balance.Swing_Control_add_R = 1.5;
+    if (Balance.Swing_Control_add_L < -0.5)
+      Balance.Swing_Control_add_L = -0.5;
+    if (Balance.Swing_Control_add_R < -0.5)
+      Balance.Swing_Control_add_R = -0.5;
+    if (abs(Balance.Swing_Control_add_L) < 0.05)
+      Balance.Swing_Control_add_L = 0;
+    if (abs(Balance.Swing_Control_add_R) < 0.05)
+      Balance.Swing_Control_add_R = 0;
 
     // master node debug line sytart ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // adjust swing
@@ -1112,13 +1120,12 @@ void IKwalk::Result_Pattern(Walk_Param &Now_Param)
     // cout<< "timer : "<<Time_Right_Leg<<endl;
     // cout<<" end_timer : "<<Time_Right_Leg_End<<endl;
 
-    cout << "Now_Param.X.X >> " << Now_Param.X.X << endl;
-    cout << "Now_Param.Y.Side >> " << Now_Param.Y.Side << endl;
-    cout << "Now_Param.Z.YawR >> " << Now_Param.Yaw_R.Yaw << endl;
-    cout << "Past_Param.X.X >> " << Past_Param.X.X << endl;
-    cout << "Past_Param.Y.Side >> " << Past_Param.Y.Side << endl;
-    cout << "Past_Param.Z.YawR >> " << Past_Param.Yaw_R.Yaw << endl;
-
+    // cout << "Now_Param.X.X >> " << Now_Param.X.X << endl;
+    // cout << "Now_Param.Y.Side >> " << Now_Param.Y.Side << endl;
+    // cout << "Now_Param.Z.YawR >> " << Now_Param.Yaw_R.Yaw << endl;
+    // cout << "Past_Param.X.X >> " << Past_Param.X.X << endl;
+    // cout << "Past_Param.Y.Side >> " << Past_Param.Y.Side << endl;
+    // cout << "Past_Param.Z.YawR >> " << Past_Param.Yaw_R.Yaw << endl;
   }
   Ik_Flag_Past = Now_Param.IK_Flag;
 }
@@ -1127,7 +1134,7 @@ void IKwalk::get_parameters()
 {
 
   std::string addr;
-  addr = "/home/robit/colcon_ws/src/tune_walk/work/RCKO"; // 18
+  addr = "/home/yu/colcon_ws/src/tune_walk/work/RCKO"; // 18
 
   std::ifstream is(addr.c_str());
 
@@ -1139,6 +1146,7 @@ void IKwalk::get_parameters()
     std::exit(0);
   }
 
+  cout << "get_parameters..." << endl;
   is >> Past_Param.Entire_Time;
   is >> Past_Param.Frequency;
   is >> Balance.Ratio_Check_Flag;
@@ -1329,7 +1337,7 @@ void IKwalk::get_parameters()
   Balance.Balance_Pitch_Flag_imu = true;
   Balance.Balance_Roll_Flag_imu = false;
 
-  //Default//
+  // Default//
   Now_Param.Y.Default_Y_Right = -(Model_Data.Center2Leg);
   Now_Param.Y.Default_Y_Left = Model_Data.Center2Leg;
   Now_Param.Z.Default_Z_Right = -(2 * Model_Data.Link2Link - Model_Data.Init_Z_Up);
@@ -1338,23 +1346,29 @@ void IKwalk::get_parameters()
   // Offset & % of IK init//
   IK.Now_Motor_Angle = IK.Past_Motor_Angle;
   IK.Now_Percentage_of_IK_Motor = IK.Past_Percentage_of_IK_Motor;
+  cout<<Past_Param.X.Tuning_X<<endl;
 }
 
 void IKwalk::master2ik_callback(const humanoid_interfaces::msg::Master2IkMsg::SharedPtr msg)
 {
+  using namespace std; 
+
   Past_Param.IK_Flag = msg->flag;
+  cout << "Past_Param.IK_Flag updated"<< endl;
+  //msg->y_length=10; 응 안돼
+  //Acc.check_old_x=0;
   //-----------X_Accel-----------//
   if (fabs(msg->x_length - Acc.check_old_x) >= 10) // 기존 x 값과 수신 받은 x 값의 차이가 10 보다 큰 상황 일때 >> 유의미하게 큰 X 값을 받을 떄
   {
     Acc.check_old_x = msg->x_length;
     Acc.basic_x = Now_Param.X.X;
-    if (msg->x_length - Now_Param.X.X >= 0)         // 메세지 x 값이 더 클때 >> 전진
+    if (msg->x_length - Now_Param.X.X >= 0) // 메세지 x 값이 더 클때 >> 전진
     {
       Acc.accel_pos_x = msg->x_length - Now_Param.X.X;
       Acc.accel_pos_x_cnt = 0;
       Acc.accel_neg_x_cnt = -1;
     }
-    else                                              // 후진 일때
+    else // 후진 일때
     {
       Acc.accel_neg_x = msg->x_length - Now_Param.X.X;
       Acc.accel_pos_x_cnt = -1;
@@ -1362,26 +1376,26 @@ void IKwalk::master2ik_callback(const humanoid_interfaces::msg::Master2IkMsg::Sh
     }
     Past_Param.X.X = msg->x_length;
   }
-  else                                            // 기존 x 값과 수신 받은 x 값의 차이가 10 이내 일때 >> X 값의 크기가 유의미하지 않을때
+  else // 기존 x 값과 수신 받은 x 값의 차이가 10 이내 일때 >> X 값의 크기가 유의미하지 않을때
   {
     Acc.check_old_x = msg->x_length;
     Past_Param.X.X = msg->x_length;
   }
   //-----------Y_Accel-----------//
-  if (fabs(msg->y_length - Acc.check_old_y) >= 5)   // 유의미하게 큰 Y 값을 받을때 기준 값 크기 5
+  if (fabs(msg->y_length - Acc.check_old_y) >= 5) // 유의미하게 큰 Y 값을 받을때 기준 값 크기 5
   {
-    Acc.check_old_y = -msg->y_length;
+    Acc.check_old_y = msg->y_length;
     Acc.basic_y = Now_Param.Y.Side;
 
     Acc.accel_pos_y = msg->y_length - Now_Param.Y.Side;
 
-    if (msg->y_length - Now_Param.Y.Side >= 0)    // 좌측으로 이동
+    if (msg->y_length - Now_Param.Y.Side >= 0) // 좌측으로 이동
     {
       Acc.accel_pos_y = msg->y_length - Now_Param.Y.Side;
       Acc.accel_pos_y_cnt = 0;
       Acc.accel_neg_y_cnt = -1;
     }
-    else                                          // 우측으로 이동
+    else // 우측으로 이동
     {
       Acc.accel_neg_y = msg->y_length - Now_Param.Y.Side;
       Acc.accel_pos_y_cnt = -1;
@@ -1389,19 +1403,19 @@ void IKwalk::master2ik_callback(const humanoid_interfaces::msg::Master2IkMsg::Sh
     }
     Past_Param.Y.Side = msg->y_length;
   }
-  else                                            // 유의미하지 않은 Y 값을 수신 받음
+  else // 유의미하지 않은 Y 값을 수신 받음
   {
     Acc.check_old_y = msg->y_length;
     Past_Param.Y.Side = msg->y_length;
   }
   //---------Z(Yaw)_Accel---------//
-  if (fabs(msg->yaw - Acc.check_old_z) >= 3)      // z 값 : 제자리 회전 값이 3 보다 크다 >> 유의미 하게 큰 YAW 값을 수신 받음
+  if (fabs(msg->yaw - Acc.check_old_z) >= 3) // z 값 : 제자리 회전 값이 3 보다 크다 >> 유의미 하게 큰 YAW 값을 수신 받음
   {
     Acc.check_old_z = msg->yaw;
     Acc.basic_z = Now_Param.Yaw_R.Yaw;
     Acc.accel_pos_z = msg->yaw - Now_Param.Yaw_R.Yaw;
 
-    if (msg->yaw - Now_Param.Yaw_R.Yaw >= 0)      // 좌측으로의 회전
+    if (msg->yaw - Now_Param.Yaw_R.Yaw >= 0) // 좌측으로의 회전
     {
       Acc.accel_pos_z = msg->yaw - Now_Param.Yaw_R.Yaw;
       Acc.accel_pos_z_cnt = 0;
@@ -1455,12 +1469,11 @@ void IKwalk::master2ik_callback(const humanoid_interfaces::msg::Master2IkMsg::Sh
     Past_Param.Yaw_L.Yaw = YAW_LIMIT;
   else if (Past_Param.Yaw_L.Yaw <= -YAW_LIMIT)
     Past_Param.Yaw_L.Yaw = -YAW_LIMIT;
-
 }
 
 void IKwalk::imu_callback(const humanoid_interfaces::msg::ImuMsg::SharedPtr msg)
 {
-  IMU.pitch = msg->pitch;//Cal.MAF(msg->pitch);
+  IMU.pitch = msg->pitch; // Cal.MAF(msg->pitch);
   IMU.roll = msg->roll;
   IMU.yaw = msg->yaw;
 }
@@ -1669,7 +1682,7 @@ void IKwalk::tune2ik_callback(const humanoid_interfaces::msg::Tune2IkMsg::Shared
   //-------------------Kinetic_value-------------------//
   // tune2ik msg call back
 
-//18
+  // 18
   K_value[0].Pos_XR = msg->first_pos_xr;
   K_value[0].Neg_XR = msg->first_neg_xr;
   K_value[0].Pos_SideR = msg->first_pos_side_r;
@@ -1689,8 +1702,7 @@ void IKwalk::tune2ik_callback(const humanoid_interfaces::msg::Tune2IkMsg::Shared
   K_value[0].min = msg->first_min;
   K_value[0].max = msg->first_max;
 
-
-//18
+  // 18
   K_value[1].Pos_XR = msg->second_pos_xr;
   K_value[1].Neg_XR = msg->second_neg_xr;
   K_value[1].Pos_SideR = msg->second_pos_side_r;
@@ -1710,8 +1722,7 @@ void IKwalk::tune2ik_callback(const humanoid_interfaces::msg::Tune2IkMsg::Shared
   K_value[1].min = msg->second_min;
   K_value[1].max = msg->second_max;
 
-
-//18
+  // 18
   K_value[2].Pos_XR = msg->third_pos_xr;
   K_value[2].Neg_XR = msg->third_neg_xr;
   K_value[2].Pos_SideR = msg->third_pos_side_r;
@@ -1731,8 +1742,7 @@ void IKwalk::tune2ik_callback(const humanoid_interfaces::msg::Tune2IkMsg::Shared
   K_value[2].min = msg->third_min;
   K_value[2].max = msg->third_max;
 
-
-//18개
+  // 18개
   K_value[3].Pos_XR = msg->fourth_pos_xr;
   K_value[3].Neg_XR = msg->fourth_neg_xr;
   K_value[3].Pos_SideR = msg->fourth_pos_side_r;
@@ -1759,7 +1769,6 @@ void IKwalk::tune2ik_callback(const humanoid_interfaces::msg::Tune2IkMsg::Shared
   Balance.Balance_Pitch_Flag = msg->balance_pitch_flag;
   Balance.Balance_Ankle_Pitch_Flag = msg->balance_ankle_pitch_flag;
   Balance.Balance_Roll_Flag = msg->balance_roll_flag;
-
 }
 
 double IKwalk::Step_Acc::step_acc_func(double basic, double acc, int num, int &cnt)

@@ -152,7 +152,7 @@ class robocup_vision25 : public rclcpp::Node {
     double P[12] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     int cnt;
     ifstream Calibration_Info(
-        "/home/robit/colcon_ws/src/ocam_ros2/config/camera.yaml");
+        "/home/yu/colcon_ws/src/ocam_ros2/config/camera.yaml");
     if (Calibration_Info.is_open()) {
       for (int i = 0; i < 12; i++) {
         Calibration_Info >> temp;

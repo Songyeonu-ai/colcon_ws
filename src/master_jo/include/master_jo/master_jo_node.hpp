@@ -57,14 +57,17 @@ namespace master_jo
     private:
         std::shared_ptr<master_jo::Player> player;
         rclcpp::TimerBase::SharedPtr timer;
-
+        rclcpp::TimerBase::SharedPtr timer_;
+   
+        int counter_ = 0;
+        
         rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2IkMsg>::SharedPtr ik_pub;
         rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2vision25>::SharedPtr vision_pub;
         rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Gamecontrolreturndata>::SharedPtr gamecontrol_pub;
         rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2localization25>::SharedPtr local_pub;
         rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::Master2udp>::SharedPtr udp_pub;
         rclcpp_lifecycle::LifecyclePublisher<humanoid_interfaces::msg::MotionOperator>::SharedPtr motionPub;
-
+        
         rclcpp::Subscription<humanoid_interfaces::msg::ImuMsg>::SharedPtr imu_sub;
         rclcpp::Subscription<humanoid_interfaces::msg::HumanPjVision>::SharedPtr vision_sub;
         rclcpp::Subscription<humanoid_interfaces::msg::IkEndMsg>::SharedPtr ik_sub;

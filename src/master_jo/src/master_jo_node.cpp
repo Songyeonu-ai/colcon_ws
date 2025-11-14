@@ -21,6 +21,9 @@ namespace master_jo
     get_parameters();
 
     ik_pub = create_publisher<humanoid_interfaces::msg::Master2IkMsg>("master2ik", 10);
+    // timer_ = create_wall_timer(100ms, [this]() {
+    //       ik_pub->publish(master->ik); cout<< "발행함" << endl;
+    //     });
     vision_pub = create_publisher<humanoid_interfaces::msg::Master2vision25>(
         "master2vision", 10);
     gamecontrol_pub = create_publisher<humanoid_interfaces::msg::Gamecontrolreturndata>(
@@ -327,6 +330,7 @@ namespace master_jo
 
   void MasterJoNode::robocup_master()
   {
+    using namespace std;
     if (!testFlag)
     {
       position = POSITION_FW; // master->gameControlData.position;
@@ -362,9 +366,13 @@ namespace master_jo
         player->gameStateControl(!isPenalty, state);
       }
 
-      player->publishMsg();
+      player->publishMsg();//pub
+      master->ik.x_length = player->x;
+      master->ik.y_length = player->y;
+      master->ik.yaw = player->yaw;
 
-      ik_pub->publish(master->ik);                             // ㅇㅋ
+      ik_pub->publish(master->ik);
+      cout<<"ik_pubished"<<endl;            // ㅇㅋ
       vision_pub->publish(master->master2vision);              // ㅇㅋ
       gamecontrol_pub->publish(master->gameControlReturnData); // ㅇㅋ
       local_pub->publish(master->master2local);                // ㅇㅋ
