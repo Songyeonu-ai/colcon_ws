@@ -1,0 +1,994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindowDesign</class>
+ <widget class="QMainWindow" name="MainWindowDesign">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>871</width>
+    <height>822</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Robocup_Localization23</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/images/icon.png</normaloff>:/images/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(30, 30, 30);
+color: rgb(238, 238, 236);</string>
+  </property>
+  <property name="locale">
+   <locale language="English" country="Australia"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="title">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>321</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Condensed</family>
+      <pointsize>25</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Robocup_Localization24</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="screen">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>60</y>
+      <width>830</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>CrossCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(241, 241, 241);</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="layout0">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>851</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>0</y>
+      <width>111</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>VERSION 8.0</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>670</y>
+      <width>211</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="subtitle0">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>680</y>
+      <width>191</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string> SET ROBOT</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_free_set">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>715</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>FREE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="BALL_X_value">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>570</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(191, 64, 64, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>BALL_X : 00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="BALL_Y_value">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>590</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(191, 64, 64, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>BALL_Y : 00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ROBOT_X_value">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>610</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(191, 64, 64, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>ROBOT_X : 00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ROBOT_Y_value">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>630</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(191, 64, 64, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>ROBOT_Y : 00</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="IK_Y_value">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>630</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(191, 64, 64, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>IK_Y : 00</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="IK_X_value">
+    <property name="geometry">
+     <rect>
+      <x>670</x>
+      <y>610</y>
+      <width>171</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(191, 64, 64, 0);
+color: rgb(0, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>IK_X : 00</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_set_1">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>715</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>A</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_set_2">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>715</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>B</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_set_3">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>715</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>C</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>670</y>
+      <width>641</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_ball_set">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>715</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>SET</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="subtitle0_2">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>680</y>
+      <width>191</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string> SET BALL</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>670</y>
+      <width>211</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_set_6">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>760</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>F</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_set_4">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>760</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>D</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_set_5">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>760</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>E</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_test">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>715</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>CLS</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="layout0_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>851</width>
+      <height>621</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgba(191, 64, 64, 0);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="subtitle0_3">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>680</y>
+      <width>411</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="text">
+     <string> OBJECTS</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_ball_del">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>715</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>DEL</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_set_auto">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>760</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string>AUTO</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="odom_ry_value">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>780</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(46, 52, 54);</string>
+    </property>
+    <property name="decimals">
+     <number>2</number>
+    </property>
+    <property name="singleStep">
+     <double>0.010000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_13">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>735</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string> B_x</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="odom_fx_value">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>715</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(46, 52, 54);</string>
+    </property>
+    <property name="decimals">
+     <number>2</number>
+    </property>
+    <property name="singleStep">
+     <double>0.010000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>760</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string> L_y</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>780</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string> R_y</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>715</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string> F_x</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="odom_bx_value">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>735</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(46, 52, 54);</string>
+    </property>
+    <property name="decimals">
+     <number>2</number>
+    </property>
+    <property name="singleStep">
+     <double>0.010000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="odom_ly_value">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>760</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(46, 52, 54);</string>
+    </property>
+    <property name="decimals">
+     <number>2</number>
+    </property>
+    <property name="singleStep">
+     <double>0.010000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="particle_range_value">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>715</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(46, 52, 54);</string>
+    </property>
+    <property name="decimals">
+     <number>0</number>
+    </property>
+    <property name="maximum">
+     <double>150.000000000000000</double>
+    </property>
+    <property name="singleStep">
+     <double>1.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>0.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>650</x>
+      <y>715</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string> range</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_objects_save">
+    <property name="geometry">
+     <rect>
+      <x>810</x>
+      <y>760</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Mono</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_save_save.png&quot;);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <zorder>label_4</zorder>
+   <zorder>label_5</zorder>
+   <zorder>layout0</zorder>
+   <zorder>title</zorder>
+   <zorder>screen</zorder>
+   <zorder>label</zorder>
+   <zorder>label_3</zorder>
+   <zorder>subtitle0</zorder>
+   <zorder>btn_free_set</zorder>
+   <zorder>BALL_X_value</zorder>
+   <zorder>BALL_Y_value</zorder>
+   <zorder>ROBOT_X_value</zorder>
+   <zorder>ROBOT_Y_value</zorder>
+   <zorder>IK_Y_value</zorder>
+   <zorder>IK_X_value</zorder>
+   <zorder>btn_set_1</zorder>
+   <zorder>btn_set_2</zorder>
+   <zorder>btn_set_3</zorder>
+   <zorder>btn_ball_set</zorder>
+   <zorder>subtitle0_2</zorder>
+   <zorder>btn_set_6</zorder>
+   <zorder>btn_set_4</zorder>
+   <zorder>btn_set_5</zorder>
+   <zorder>btn_test</zorder>
+   <zorder>layout0_2</zorder>
+   <zorder>subtitle0_3</zorder>
+   <zorder>btn_ball_del</zorder>
+   <zorder>btn_set_auto</zorder>
+   <zorder>odom_ry_value</zorder>
+   <zorder>label_13</zorder>
+   <zorder>odom_fx_value</zorder>
+   <zorder>label_10</zorder>
+   <zorder>label_14</zorder>
+   <zorder>label_9</zorder>
+   <zorder>odom_bx_value</zorder>
+   <zorder>odom_ly_value</zorder>
+   <zorder>particle_range_value</zorder>
+   <zorder>label_12</zorder>
+   <zorder>btn_objects_save</zorder>
+  </widget>
+  <action name="action_Quit">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::ApplicationShortcut</enum>
+   </property>
+  </action>
+  <action name="action_Preferences">
+   <property name="text">
+    <string>&amp;Preferences</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About &amp;Qt</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>action_Quit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindowDesign</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
