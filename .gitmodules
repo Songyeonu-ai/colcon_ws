@@ -4,9 +4,6 @@
 [submodule "ik_walk"]
 	path = ik_walk
 	url = https://github.com/ROBIT-KOR-teamHumanoid/ik_walk.git
-[submodule "robocup_localization25"]
-	path = robocup_localization25
-	url = https://github.com/ROBIT-KOR-teamHumanoid/robocup_localization25.git
 [submodule "gamecontroller"]
 	path = gamecontroller
 	url = https://github.com/ROBIT-KOR-teamHumanoid/gamecontroller.git
