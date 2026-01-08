@@ -1,0 +1,30 @@
+[submodule "tune_walk"]
+	path = tune_walk
+	url = https://github.com/ROBIT-KOR-teamHumanoid/tune_walk.git
+[submodule "ik_walk"]
+	path = ik_walk
+	url = https://github.com/ROBIT-KOR-teamHumanoid/ik_walk.git
+[submodule "robocup_localization25"]
+	path = robocup_localization25
+	url = https://github.com/ROBIT-KOR-teamHumanoid/robocup_localization25.git
+[submodule "gamecontroller"]
+	path = gamecontroller
+	url = https://github.com/ROBIT-KOR-teamHumanoid/gamecontroller.git
+[submodule "robocup_master25"]
+	path = robocup_master25
+	url = https://github.com/ROBIT-KOR-teamHumanoid/robocup_master25.git
+[submodule "udpcom"]
+	path = udpcom
+	url = https://github.com/ROBIT-KOR-teamHumanoid/udpcom.git
+[submodule "humanoid_interfaces"]
+	path = humanoid_interfaces
+	url = https://github.com/ROBIT-KOR-teamHumanoid/humanoid_interfaces.git
+[submodule "robocup_vision"]
+	path = robocup_vision
+	url = https://github.com/ROBIT-KOR-teamHumanoid/robocup_vision.git
+[submodule "web_control_bridge"]
+	path = web_control_bridge
+	url = https://github.com/ROBIT-KOR-teamHumanoid/web_control_bridge.git
+[submodule "dynamixel_rdk_ros2"]
+	path = dynamixel_rdk_ros2
+	url = https://github.com/ROBIT-KOR-teamHumanoid/dynamixel_rdk_ros2.git
