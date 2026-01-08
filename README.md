@@ -5,6 +5,22 @@
 
 ---
 
+## 🚀 Usage / 사용 방법
+
+### Clone (with submodules) / 서브모듈 포함 클론 (필수)
+This repository uses Git submodules. Please clone with `--recurse-submodules` so that all packages are downloaded.  
+이 레포는 **Git submodule**을 사용합니다. 아래 명령으로 클론해야 각 패키지 내용까지 함께 내려옵니다.
+
+```bash
+git clone --recurse-submodules <ROOT_REPO_URL>
+cd robocup_26_RCKO_src
+```
+
+### If you already cloned / 이미 클론했다면
+```bash
+git submodule update --init --recursive
+```
+
 ## 🎯 Purpose / 목적
 - Manage competition packages, launch files, configs, and documentation in one place.  
   대회에 필요한 패키지/런치/설정/문서를 한 곳에서 관리합니다.
