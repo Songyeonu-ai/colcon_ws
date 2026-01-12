@@ -16,6 +16,13 @@ git clone --recurse-submodules <ROOT_REPO_URL>
 cd robocup_26_RCKO_src
 ```
 
+### pull 받을 때
+
+```bash
+git pull
+git submodule update --init --recursive
+```
+
 ### If you already cloned / 이미 클론했다면
 ```bash
 git submodule update --init --recursive
