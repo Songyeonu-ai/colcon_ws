@@ -25,9 +25,3 @@
 [submodule "dynamixel_rdk_ros2"]
 	path = dynamixel_rdk_ros2
 	url = https://github.com/ROBIT-KOR-teamHumanoid/dynamixel_rdk_ros2.git
-[submodule "Humanoid-Motion-Teacher"]
-	path = Humanoid-Motion-Teacher
-	url = https://github.com/ROBIT-KOR-teamHumanoid/Humanoid-Motion-Teacher.git
-[submodule "motion_operator"]
-	path = motion_operator
-	url = https://github.com/ROBIT-KOR-teamHumanoid/motion_operator.git
