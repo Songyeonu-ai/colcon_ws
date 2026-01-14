@@ -25,3 +25,6 @@
 [submodule "dynamixel_rdk_ros2"]
 	path = dynamixel_rdk_ros2
 	url = https://github.com/ROBIT-KOR-teamHumanoid/dynamixel_rdk_ros2.git
+[submodule "motion_operator"]
+	path = motion_operator
+	url = https://github.com/ROBIT-KOR-teamHumanoid/motion_operator.git
