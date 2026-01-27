@@ -1,4 +1,4 @@
-# robocup_26_RCKO_src
+# robocup_26_RCKO_src2
 
 **robocup_26_RCKO_src** is the main repository for managing RoboCup 2026 (RCKO) competition-related packages and configurations.  
 이 레포는 **RoboCup 2026 대회 관련 패키지/설정(특히 파라미터)** 을 관리하는 메인 레포입니다.
