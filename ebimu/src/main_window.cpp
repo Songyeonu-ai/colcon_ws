@@ -27,6 +27,9 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
   ui->setupUi(this);
   uiUpdate();
   past_yaw = 0;
+  past_roll = 0;
+  past_pitch = 0;
+
   ui->dial->setRange(-180 +30, 180 -30);
 
   QIcon icon("://ros-icon.png");
@@ -56,7 +59,24 @@ void MainWindow::imu_callback()
 
   if(yaw > 180) yaw -= 360;
   else if(yaw <= -180)  yaw += 360;
+
+    if(past_roll > 180) past_roll -= 360;
+  else if(past_roll <= -180)  past_roll += 360;
+  roll -= past_roll;
+
+  if(roll > 180) roll -= 360;
+  else if(roll <= -180)  roll += 360;
+
+    if(past_pitch > 180) past_pitch -= 360;
+  else if(past_pitch <= -180)  past_pitch += 360;
+  pitch -= past_pitch;
+
+  if(pitch > 180) pitch -= 360;
+  else if(pitch <= -180)  pitch += 360;
+
   imu_data_.yaw=yaw;
+  imu_data_.roll=roll;
+  imu_data_.pitch=pitch;
 
   if (qnode->imu_flag_ == 0)
   {
@@ -103,6 +123,19 @@ void MainWindow::on_pushButton_set_clicked()
 {
     std::cout<<"set"<<std::endl;
     past_yaw += yaw;
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    std::cout<<"set"<<std::endl;
+    past_roll += roll;
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+    std::cout<<"set"<<std::endl;
+    past_pitch += pitch;
 }
 void MainWindow::on_pushButton_set_p90_clicked()
 {

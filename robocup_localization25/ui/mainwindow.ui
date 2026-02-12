@@ -168,7 +168,7 @@ color: rgb(238, 238, 236);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>FREE</string>
@@ -341,7 +341,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>A</string>
@@ -364,7 +364,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>B</string>
@@ -387,7 +387,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>C</string>
@@ -426,7 +426,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>SET</string>
@@ -492,7 +492,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>F</string>
@@ -515,7 +515,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>D</string>
@@ -538,7 +538,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>E</string>
@@ -561,7 +561,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>CLS</string>
@@ -630,7 +630,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>DEL</string>
@@ -653,7 +653,7 @@ color: rgb(0, 0, 0);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_empty.png&quot;);</string>
     </property>
     <property name="text">
      <string>AUTO</string>
@@ -899,7 +899,7 @@ color: rgb(46, 52, 54);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image:url(&quot;/home/robit/catkin_ws/src/robocup_localization23/resources/UI/btn_save_save.png&quot;);</string>
+     <string notr="true">border-image:url(&quot;/home/syu/catkin_ws/src/robocup_localization23/resources/UI/btn_save_save.png&quot;);</string>
     </property>
     <property name="text">
      <string/>

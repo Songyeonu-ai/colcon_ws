@@ -1,0 +1,95 @@
+# Example ROS2 Parameter Configuration for Package Manager
+#
+# Usage:
+#   ros2 run package_manager_py package_manager --ros-args --params-file config_example.yaml
+
+package_manager_py_node:
+  ros__parameters:
+    # Package 1: Dynamixel RDK
+    packages:
+      package1:
+        name: "dynamixel_rdk_ros2"
+        executable: "rdk.launch.py"
+        type: "launch"
+        description: "Dynamixel RDK ROS2"
+        auto_start: false
+
+      # Package 2: IK Walk
+      package2:
+        name: "ik_walk"
+        executable: "ik_walk"
+        type: "run"
+        description: "Inverse Kinematics Walk"
+        auto_start: false
+
+      # Package 3: EBIMU V5
+      package3:
+        name: "ebimu_v5"
+        executable: "e2box_imu_9dofv4.launch.py"
+        type: "launch"
+        description: "EBIMU V5 IMU Sensor"
+        auto_start: false
+
+      # Package 4: Vision
+      package4:
+        name: "robocup_vision"
+        executable: "robocup_vision.launch.py"
+        type: "launch"
+        description: "Vision"
+        auto_start: false
+
+      # Package 5: Udp Communication
+      package5:
+        name: "udpcom"
+        executable: "udp_com.launch.py"
+        type: "launch"
+        description: "Udp Communication"
+        auto_start: false
+
+      # Package 6: Web Control Bridge
+      package6:
+        name: "web_control_bridge"
+        executable: "web_control_bridge.launch.py"
+        type: "launch"
+        description: "Web Control Bridge"
+        auto_start: false
+
+      # Package 7: Game Controller
+      package6:
+        name: "gamecontroller"
+        executable: "gamecontroller"
+        type: "run"
+        description: "Game Controller"
+        auto_start: false
+
+      # Package 8: Localization
+      package6:
+        name: "robocup_localization25"
+        executable: "robocup_localization25"
+        type: "run"
+        description: "Localization"
+        auto_start: false
+
+      # Package 9: Master
+      package6:
+        name: "robocup_master25"
+        executable: "robocup_master25.launch.py"
+        type: "launch"
+        description: "Master"
+        auto_start: false
+
+      # Package 10: Motion Operator
+      package8:
+        name: "motion_operator"
+        executable: "motion_operator.launch.py"
+        type: "launch"
+        description: "Motion Operator"
+        auto_start: false
+
+      # Package 11: Tune Walk
+      package7:
+        name: "tune_walk"
+        executable: "tune_walk"
+        type: "run"
+        description: "Walk Tuning"
+        auto_start: false

@@ -41,6 +41,8 @@ public:
 public Q_SLOTS:
   void imu_callback();
   void on_pushButton_set_clicked();
+  void on_pushButton_2_clicked();
+  void on_pushButton_clicked();
   void on_pushButton_set_p90_clicked();
   void on_pushButton_set_n90_clicked();
   void on_pushButton_set_180_clicked();
@@ -51,6 +53,8 @@ private:
   void closeEvent(QCloseEvent* event);
 
   double past_yaw;
+  double past_roll;
+  double past_pitch;
 
   
 };

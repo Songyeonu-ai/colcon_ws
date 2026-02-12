@@ -21,7 +21,7 @@ QNode::QNode()
   this->start();
 
   imu_sub_ = node->create_subscription<humanoid_interfaces::msg::ImuMsg>("Imu", rclcpp::QoS(rclcpp::KeepLast(10)).reliable().best_effort(), std::bind(&QNode::imuCallback, this, std::placeholders::_1));
-  vision_sub_ = node->create_subscription<humanoid_interfaces::msg::Robocupvision25>("vision", 100, std::bind(&QNode::visionCallback, this, std::placeholders::_1));
+  vision_sub_ = node->create_subscription<humanoid_interfaces::msg::Robocupvision25>("vision", 1, std::bind(&QNode::visionCallback, this, std::placeholders::_1));
   vision_feature_sub_ = node->create_subscription<humanoid_interfaces::msg::Robocupvision25feature>("vision_feature", 100, std::bind(&QNode::visionFeatureCallback, this, std::placeholders::_1));
   ik_sub_ = node->create_subscription<humanoid_interfaces::msg::IkCoordMsg>("ikcoordinate", 10, std::bind(&QNode::ikCallback, this, std::placeholders::_1));
   game_control_sub_ = node->create_subscription<humanoid_interfaces::msg::Gamecontroldata>("gamecontroldata", 10, std::bind(&QNode::gameControlCallback, this, std::placeholders::_1));
