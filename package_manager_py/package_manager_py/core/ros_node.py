@@ -10,7 +10,8 @@ from ..package_settings import settings, DEFAULT_PACKAGES
 from ..package_settings.package_defaults import PackageConfig
 from ..core.process_manager import ProcessManager
 from ..core.package_manager import PackageConfigManager
-from ..utils.constants import LAUNCH, RUN, RESTART_DELAY
+from ..utils.constants import LAUNCH, RUN
+from ..package_settings.settings import RESTART_DELAY
 
 package_count=settings.DEFAULT_PACKAGE_COUNT+1
 count=0

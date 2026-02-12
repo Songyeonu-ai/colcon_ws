@@ -4,7 +4,7 @@ Process Manager - Handles QProcess lifecycle
 
 from PyQt5.QtCore import QProcess, QObject, pyqtSignal
 from typing import Dict, Tuple, Optional
-from ..utils.constants import PROCESS_STOP_TIMEOUT, PROCESS_KILL_TIMEOUT
+from ..package_settings.settings import PROCESS_STOP_TIMEOUT, PROCESS_KILL_TIMEOUT
 import os, signal
 from ..utils.window_arrange import WindowArranger
 from ..package_settings.settings import PACKAGE_GUI_SETTINGS

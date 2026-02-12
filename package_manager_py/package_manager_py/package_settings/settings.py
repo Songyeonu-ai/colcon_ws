@@ -13,7 +13,7 @@ DEFAULT_PACKAGE_COUNT = 11
 # ========== Process Settings ==========
 PROCESS_STOP_TIMEOUT = 5000  # milliseconds
 PROCESS_KILL_TIMEOUT = 3000  # milliseconds
-RESTART_DELAY = 800  # milliseconds
+RESTART_DELAY = 5000  # milliseconds
 
 # ========== UI Settings ==========
 WINDOW_TITLE = "ROS2 Package Manager"
