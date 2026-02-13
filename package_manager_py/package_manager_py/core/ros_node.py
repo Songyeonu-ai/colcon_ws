@@ -132,6 +132,7 @@ class RosNode(Node, QObject):
             if config and config.name and config.name != "tune_walk":
                 pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
                 self.start_package(config.name, config.executable, pkg_type)
+                QThread.msleep(500) #패키지 켜질 시간
 
     def tune_start(self):
         all_pkgs = self.config_manager.get_all_packages()
@@ -139,6 +140,7 @@ class RosNode(Node, QObject):
             if config and config.name and (config.name == "dynamixel_rdk_ros2" or config.name == "ik_walk" or config.name == "tune_walk" or config.name == "ebimu_v5" or config.name == "robocup_localization25)"):
                 pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
                 self.start_package(config.name, config.executable, pkg_type)
+                QThread.msleep(500)
 
     def without_UDP(self):
         all_pkgs = self.config_manager.get_all_packages()
@@ -146,6 +148,7 @@ class RosNode(Node, QObject):
             if config and config.name and config.name != "udpcom" and config.name != "tune_walk":
                 pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
                 self.start_package(config.name, config.executable, pkg_type)
+                QThread.msleep(500)
     
     def restart_package(self, package_name: str, executable: str, pkg_type: int):
         """
