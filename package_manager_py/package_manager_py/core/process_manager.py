@@ -89,8 +89,13 @@ class ProcessManager(QObject):
                 os.kill(-pid, signal.SIGKILL)
 
             del self.processes[package_name]
+
+            if package_name == "web_controller_bridge" or package_name == "udpcom":
+                #web_controller_bridge등등 프로세스 종료후에도 백그라운드에 남아있는 경우가 있어서 강제 종료
+                subprocess.run(["pkill", "-9", "-f", "sender"])
+                subprocess.run(["pkill", "-9", "-f", "receiver"])
             return True, f"Package '{package_name}' stopped"
-        #pkill -9 -f sender_master방법이없다 명령어강제이식만이답이다
+        #pkill -9 -f sender_master방법이없다 명령어강제이식만이답이다 됏다!!!됏다됏다 하드코딩이긴한데 pkill명령어는 잘 먹는다
             
         except Exception as e:
             return False, f"Error stopping package '{package_name}': {str(e)}"
