@@ -84,16 +84,13 @@ class ProcessManager(QObject):
         pid = process.processId()
 
         try:
-            #QProcess 종료(systemd 서비스 x)
-            os.killpg(os.getpgid(pid), signal.SIGINT)
-            
+            os.kill(-pid, signal.SIGINT) #Ctrl+C 해야 gui도 같이 종료되는 듯. 좀비노드 문제는 해결
             if not process.waitForFinished(PROCESS_STOP_TIMEOUT):
-                os.killpg(os.getpgid(pid), signal.SIGTERM)
+                os.kill(-pid, signal.SIGKILL)
 
-                if package_name in self.processes:
-                    del self.processes[package_name]
+            del self.processes[package_name]
             return True, f"Package '{package_name}' stopped"
-            
+        #pkill -9 -f sender_master방법이없다 명령어강제이식만이답이다
             
         except Exception as e:
             return False, f"Error stopping package '{package_name}': {str(e)}"
