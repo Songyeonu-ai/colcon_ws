@@ -48,7 +48,7 @@ PACKAGE_GUI_SETTINGS = {
     },
     # 기본값
     "default": {
-        "width": 600,
-        "height": 400,
+        "width": 800,
+        "height": 600,
     }
 }

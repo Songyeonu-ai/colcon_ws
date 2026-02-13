@@ -1,15 +1,14 @@
 """
 Process Manager - Handles QProcess lifecycle
 """
+#여기에서는 process 관련 함수만. 실행은 ros_node랑 main_window에서
 
 from PyQt5.QtCore import QProcess, QObject, pyqtSignal
 from typing import Dict, Tuple, Optional
 from ..package_settings.settings import PROCESS_STOP_TIMEOUT, PROCESS_KILL_TIMEOUT
-import os, signal
+import os, signal, subprocess
 from ..utils.window_arrange import WindowArranger
 from ..package_settings.settings import PACKAGE_GUI_SETTINGS
-
-
 class ProcessManager(QObject):
     """
     Manages QProcess instances for ROS2 packages
@@ -23,6 +22,7 @@ class ProcessManager(QObject):
     process_started = pyqtSignal(str)  # package_name
     process_stopped = pyqtSignal(str)  # package_name
     process_error = pyqtSignal(str, str)  # package_name, error_message
+    log_received = pyqtSignal(str, str)
     
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -84,13 +84,17 @@ class ProcessManager(QObject):
         pid = process.processId()
 
         try:
-            os.kill(-pid, signal.SIGINT) #Ctrl+C 해야 gui도 같이 종료되는 듯. 좀비노드 문제는 해결
+            #QProcess 종료(systemd 서비스 x)
+            os.killpg(os.getpgid(pid), signal.SIGINT)
+            
             if not process.waitForFinished(PROCESS_STOP_TIMEOUT):
-                os.kill(-pid, signal.SIGKILL)
+                os.killpg(os.getpgid(pid), signal.SIGTERM)
 
-            del self.processes[package_name]
+                if package_name in self.processes:
+                    del self.processes[package_name]
             return True, f"Package '{package_name}' stopped"
-                
+            
+            
         except Exception as e:
             return False, f"Error stopping package '{package_name}': {str(e)}"
     
@@ -106,8 +110,10 @@ class ProcessManager(QObject):
         """Stop all running processes"""
         package_names = list(self.processes.keys())
         for package_name in package_names:
-            self.stop_process(package_name)
+            self.stop_process(package_name) #stop은 process manager에서 단독으로 처리 가능함 --> import 꼬이지 않음
+            #근데 start하는거는 ros_node에서 처리해야함 --> 그걸 process manager에서 처리하면 import 꼬임 파일이 용도에 맞지가 않음...  
     
+
     # ========== Private Signal Handlers ==========
     
     def _on_finished(self, exit_code: int, exit_status: QProcess.ExitStatus, package_name: str):

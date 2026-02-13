@@ -125,6 +125,27 @@ class RosNode(Node, QObject):
         """
         success, msg = self.process_manager.stop_process(package_name)
         self.status_message.emit(msg)
+
+    def start_all(self):
+        all_pkgs = self.config_manager.get_all_packages()
+        for i, config in all_pkgs.items():
+            if config and config.name and config.name != "tune_walk":
+                pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
+                self.start_package(config.name, config.executable, pkg_type)
+
+    def tune_start(self):
+        all_pkgs = self.config_manager.get_all_packages()
+        for i, config in all_pkgs.items():
+            if config and config.name and (config.name == "dynamixel_rdk_ros2" or config.name == "ik_walk" or config.name == "tune_walk" or config.name == "ebimu_v5" or config.name == "robocup_localization25)"):
+                pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
+                self.start_package(config.name, config.executable, pkg_type)
+
+    def without_UDP(self):
+        all_pkgs = self.config_manager.get_all_packages()
+        for i, config in all_pkgs.items():
+            if config and config.name and config.name != "udpcom" and config.name != "tune_walk":
+                pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
+                self.start_package(config.name, config.executable, pkg_type)
     
     def restart_package(self, package_name: str, executable: str, pkg_type: int):
         """

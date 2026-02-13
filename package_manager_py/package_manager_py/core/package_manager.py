@@ -1,6 +1,7 @@
 """
 Package Configuration Manager
 """
+#얘는 설정 가져오는 역할만
 
 from typing import Dict, Optional
 from ..package_settings.package_defaults import PackageConfig, DEFAULT_PACKAGES

@@ -6,7 +6,7 @@ from PyQt5.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
     QTextEdit, QLabel, QPushButton, QSplitter
 )
-from PyQt5.QtGui import QIcon, QTextCursor
+from PyQt5.QtGui import QIcon, QTextCursor, QGuiApplication
 from PyQt5.QtCore import QTime, Qt
 
 from ..package_settings import settings
@@ -34,6 +34,11 @@ class MainWindow(QMainWindow):
         """
         super().__init__(parent)
         
+        screen_geo = QGuiApplication.primaryScreen().availableGeometry()
+        x = screen_geo.width() - self.width() - 50 # 우측 여백 50
+        y = screen_geo.height() - self.height() - 50 # 하단 여백 50
+        self.move(x, y)
+
         self.ros_node = ros_node
         
         # Setup UI
@@ -47,7 +52,7 @@ class MainWindow(QMainWindow):
     def _setup_window(self):
         """Setup main window properties"""
         self.setWindowTitle(settings.WINDOW_TITLE)
-        self.setMinimumSize(800, 600)
+        self.setMinimumSize(1000, 800)
         
         # Set window icon if available
         try:
@@ -141,10 +146,56 @@ class MainWindow(QMainWindow):
                 background-color: #da190b;
             }
         """)
+
+        start_all_btn = QPushButton("Start All Packages")
+        start_all_btn.clicked.connect(self._start_all_packages)
+        start_all_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #0cad2f;
+                color: white;                padding: 8px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #09661d;
+            }
+        """)
+
+        without_U_btn = QPushButton("without UDP")
+        without_U_btn.clicked.connect(self._without_UDP_packages)
+        without_U_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #a236f4;
+                color: white;                padding: 8px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #920bda;
+            }
+        """)
+
+        tune_btn = QPushButton("Tunning Walk")
+        tune_btn.clicked.connect(self._tune_packages)
+        tune_btn.setStyleSheet("""
+            QPushButton {
+                background-color: #f4f436;
+                color: black;
+                padding: 8px;
+                font-size: 12px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #dada0b;
+            }
+        """)
         
         layout.addWidget(clear_btn)
         layout.addStretch()
         layout.addWidget(stop_all_btn)
+        layout.addWidget(start_all_btn)
+        layout.addWidget(without_U_btn)
+        layout.addWidget(tune_btn)
         
         return layout
     
@@ -196,6 +247,21 @@ class MainWindow(QMainWindow):
         """Stop all running packages"""
         self._log_message("Stopping all packages...")
         self.ros_node.process_manager.stop_all()
+
+    def _start_all_packages(self):
+        """Start all Debugging packages"""
+        self._log_message("Starting all Debugging packages...")
+        self.ros_node.start_all()
+
+    def _tune_packages(self):
+        """Tunning packages"""
+        self._log_message("Tunning walk packages...")
+        self.ros_node.tune_start()
+
+    def _without_UDP_packages(self):
+        """Start all running packages without UDP"""
+        self._log_message("Starting all packages without UDP...")
+        self.ros_node.without_UDP()
     
     # ========== Helper Methods ==========
     
