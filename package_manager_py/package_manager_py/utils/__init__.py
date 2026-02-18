@@ -1,5 +1,3 @@
-"""Utility modules for Package Manager"""
-
 from .constants import (
     LAUNCH,
     RUN,

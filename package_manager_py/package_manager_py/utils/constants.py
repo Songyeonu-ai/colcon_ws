@@ -1,6 +1,4 @@
-"""
-불변상수
-"""
+#불변상수
 
 # Package execution types
 LAUNCH = 0

@@ -1,5 +1,3 @@
-"""Core modules for Package Manager"""
-
 from .ros_node import RosNode
 from .process_manager import ProcessManager
 from .package_manager import PackageConfigManager

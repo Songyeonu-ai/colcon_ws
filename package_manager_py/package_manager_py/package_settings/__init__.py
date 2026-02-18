@@ -1,5 +1,3 @@
-"""Configuration module for Package Manager"""
-
 from .settings import *
 from .package_defaults import PackageConfig, DEFAULT_PACKAGES
 

@@ -1,22 +1,14 @@
-"""
-Default package configurations
-These can be overridden by ROS2 parameters
-"""
-
 from dataclasses import dataclass
 from typing import List
 
 @dataclass
 class PackageConfig:
-    """Package configuration data class"""
     name: str
     executable: str
     pkg_type: str  # 'launch' or 'run'
     description: str = ""
     auto_start: bool = False
 
-# Default package configurations
-# These will be used if no ROS2 parameters are provided
 DEFAULT_PACKAGES: List[PackageConfig] = [ # rdk, ik, tune, ebimu, vision, local, motion, udp, web, gamecontroller
     PackageConfig(
         name='dynamixel_rdk_ros2', 

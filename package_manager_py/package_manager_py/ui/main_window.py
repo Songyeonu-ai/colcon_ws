@@ -1,10 +1,6 @@
-"""
-Main Window for Package Manager
-"""
-
 from PyQt5.QtWidgets import (
     QMainWindow, QWidget, QVBoxLayout, QHBoxLayout, 
-    QTextEdit, QLabel, QPushButton, QSplitter
+    QTextEdit, QLabel, QPushButton, QSplitter, QTabWidget
 )
 from PyQt5.QtGui import QIcon, QTextCursor, QGuiApplication
 from PyQt5.QtCore import QTime, Qt
@@ -15,23 +11,7 @@ from .widgets.package_control import PackageControlPanel
 
 
 class MainWindow(QMainWindow):
-    """
-    Main window for ROS2 Package Manager
-    
-    Features:
-    - Package control (start/stop/restart)
-    - Status log display
-    - Real-time package status updates
-    """
-    
     def __init__(self, ros_node, parent=None):
-        """
-        Initialize main window
-        
-        Args:
-            ros_node: ROS2 node instance
-            parent: Parent widget
-        """
         super().__init__(parent)
         
         screen_geo = QGuiApplication.primaryScreen().availableGeometry()
@@ -40,77 +20,132 @@ class MainWindow(QMainWindow):
         self.move(x, y)
 
         self.ros_node = ros_node
-        
-        # Setup UI
+
         self._setup_window()
         self._setup_ui()
         self._connect_signals()
-        
-        # Initial status message
+
         self._log_message("Package Manager initialized. Ready to control packages.")
     
     def _setup_window(self):
-        """Setup main window properties"""
         self.setWindowTitle(settings.WINDOW_TITLE)
-        self.setMinimumSize(1000, 800)
-        
-        # Set window icon if available
+        self.setMinimumSize(600, 400)
+
         try:
             icon = QIcon("://ros-icon.png")
             self.setWindowIcon(icon)
         except:
             pass
     
-    def _setup_ui(self):
-        """Setup user interface"""
-        # Central widget
+    def _setup_ui(self):#셋업 UI 구성
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
-        
-        # Main layout
+
         main_layout = QVBoxLayout(central_widget)
-        
-        # Title label
+
         title_label = QLabel(f"{settings.WINDOW_TITLE} v{settings.APP_VERSION}")
         title_label.setStyleSheet("font-size: 18px; font-weight: bold; padding: 10px;")
         title_label.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(title_label)
-        
-        # Create splitter for resizable sections
+
+        self.tabs = QTabWidget()
+
+        self.tab1 = QWidget()
+        self._setup_tab1()
+        self.tabs.addTab(self.tab1, "Package Control")
+
+        # self.tab2 = QWidget()
+        # self._setup_tab2()
+        # self.tabs.addTab(self.tab2, "Monitoring")
+
+        main_layout.addWidget(self.tabs)
+
+        button_layout = self._create_button_layout()
+        main_layout.addLayout(button_layout)
+
+    def _setup_tab1(self):
         splitter = QSplitter(Qt.Vertical)
-        
-        # Package control panel
+
         packages = self.ros_node.get_all_packages()
         self.control_panel = PackageControlPanel(packages)
         splitter.addWidget(self.control_panel)
-        
-        # Status log section
+
         log_widget = self._create_log_widget()
         splitter.addWidget(log_widget)
-        
-        # Set initial splitter sizes (60% controls, 40% log)
+
         splitter.setSizes([600, 400])
+        self.tab1_layout = QVBoxLayout(self.tab1)
+        self.tab1_layout.addWidget(splitter)
+
+    def _setup_tab2(self):
+        layout = QVBoxLayout(self.tab2)
+        label_1 = QLabel("rdk features coming soon...") #rdk --> rclcpp로 모든 로그 출력
+        label_1.setAlignment(Qt.AlignCenter)
+        label_1.setStyleSheet("font-size: 14px; color: gray;")
         
-        main_layout.addWidget(splitter)
+        label_2 = QLabel("ik features coming soon...") #ik --> cout로 모든 로그 출력
+        label_2.setAlignment(Qt.AlignCenter)
+        label_2.setStyleSheet("font-size: 14px; color: gray;")
         
-        # Control buttons at bottom
-        button_layout = self._create_button_layout()
-        main_layout.addLayout(button_layout)
-    
+        label_3 = QLabel("ebimu features coming soon...") #ebimu --> 섞어씀
+        label_3.setAlignment(Qt.AlignCenter)
+        label_3.setStyleSheet("font-size: 14px; color: gray;")
+        
+        label_4 = QLabel("vision features coming soon...") #vision --> 섞어씀
+        label_4.setAlignment(Qt.AlignCenter)
+        label_4.setStyleSheet("font-size: 14px; color: gray;")
+        
+        label_5 = QLabel("udp features coming soon...") #udp --> rclcpp로 모든 로그 출력
+        label_5.setAlignment(Qt.AlignCenter)
+        label_5.setStyleSheet("font-size: 14px; color: gray;")
+        
+        label_6 = QLabel("web bridge features coming soon...") #web bridge --> rclcpp로 모든 로그 출력
+        label_6.setAlignment(Qt.AlignCenter)
+        label_6.setStyleSheet("font-size: 14px; color: gray;")
+        
+        label_7 = QLabel("gamecontroller features coming soon...") #gamecontroller --> cout로 모든 로그 출력
+        label_7.setAlignment(Qt.AlignCenter)
+        label_7.setStyleSheet("font-size: 14px; color: gray;")
+        
+        label_8 = QLabel("localization features coming soon...") #localization --> cout로 모든 로그 출력
+        label_8.setAlignment(Qt.AlignCenter)
+        label_8.setStyleSheet("font-size: 14px; color: gray;")
+
+        label_9 = QLabel("master features coming soon...") #master --> cout, rclcpp 섞어씀 cout진짜많이쓰고 rclcpp는 node.cpp에서만 씀
+        label_9.setAlignment(Qt.AlignCenter)
+        label_9.setStyleSheet("font-size: 14px; color: gray;")
+
+        label_10 = QLabel("motion features coming soon...") #motion --> 섞어씀
+        label_10.setAlignment(Qt.AlignCenter)
+        label_10.setStyleSheet("font-size: 14px; color: gray;")
+
+        label_11 = QLabel("tune features coming soon...") #tune --> cout로 모든 로그 출력
+        label_11.setAlignment(Qt.AlignCenter)
+        label_11.setStyleSheet("font-size: 14px; color: gray;")
+
+        layout.addWidget(label_1)
+        layout.addWidget(label_2)
+        layout.addWidget(label_3)
+        layout.addWidget(label_4)
+        layout.addWidget(label_5)
+        layout.addWidget(label_6)
+        layout.addWidget(label_7)
+        layout.addWidget(label_8)
+        layout.addWidget(label_9)
+        layout.addWidget(label_10)
+        layout.addWidget(label_11)
+
     def _create_log_widget(self) -> QWidget:
-        """Create status log widget"""
         widget = QWidget()
         layout = QVBoxLayout(widget)
         
-        # Log label
         log_label = QLabel("Status Log:")
         log_label.setStyleSheet("font-weight: bold; font-size: 12px;")
         layout.addWidget(log_label)
         
-        # Log text edit
         self.status_log = QTextEdit()
         self.status_log.setReadOnly(True)
-        self.status_log.setMinimumHeight(150)
+        self.status_log.setMinimumHeight(100)
         self.status_log.setStyleSheet("""
             QTextEdit {
                 background-color: #f5f5f5;
@@ -123,15 +158,12 @@ class MainWindow(QMainWindow):
         return widget
     
     def _create_button_layout(self) -> QHBoxLayout:
-        """Create bottom button layout"""
         layout = QHBoxLayout()
         
-        # Clear log button
         clear_btn = QPushButton("Clear Log")
         clear_btn.clicked.connect(self.status_log.clear)
         clear_btn.setStyleSheet("padding: 8px; font-size: 12px;")
         
-        # Stop all button
         stop_all_btn = QPushButton("Stop All Packages")
         stop_all_btn.clicked.connect(self._stop_all_packages)
         stop_all_btn.setStyleSheet("""
@@ -152,7 +184,8 @@ class MainWindow(QMainWindow):
         start_all_btn.setStyleSheet("""
             QPushButton {
                 background-color: #0cad2f;
-                color: white;                padding: 8px;
+                color: white;                
+                padding: 8px;
                 font-size: 12px;
                 font-weight: bold;
             }
@@ -166,7 +199,8 @@ class MainWindow(QMainWindow):
         without_U_btn.setStyleSheet("""
             QPushButton {
                 background-color: #a236f4;
-                color: white;                padding: 8px;
+                color: white;                
+                padding: 8px;
                 font-size: 12px;
                 font-weight: bold;
             }
@@ -200,14 +234,11 @@ class MainWindow(QMainWindow):
         return layout
     
     def _connect_signals(self):
-        """Connect signals and slots"""
-        # ROS node signals
         self.ros_node.shutdown_signal.connect(self.close)
         self.ros_node.status_message.connect(self._on_status_message)
         self.ros_node.package_started.connect(self._on_package_started)
         self.ros_node.package_stopped.connect(self._on_package_stopped)
-        
-        # Control panel signals
+
         self.control_panel.start_package.connect(self._on_start_package)
         self.control_panel.stop_package.connect(self._on_stop_package)
         self.control_panel.restart_package.connect(self._on_restart_package)
@@ -215,69 +246,52 @@ class MainWindow(QMainWindow):
     # ========== Slot Methods ==========
     
     def _on_start_package(self, index: int):
-        """Handle start package request"""
         self.ros_node.start_package_by_index(index)
     
     def _on_stop_package(self, index: int):
-        """Handle stop package request"""
         config = self.ros_node.get_package_info(index)
         if config:
             self.ros_node.stop_package(config.name)
     
     def _on_restart_package(self, index: int):
-        """Handle restart package request"""
         config = self.ros_node.get_package_info(index)
         if config:
             pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
             self.ros_node.restart_package(config.name, config.executable, pkg_type)
     
     def _on_status_message(self, message: str):
-        """Handle status message from ROS node"""
         self._log_message(message)
     
     def _on_package_started(self, package_name: str):
-        """Handle package started event"""
         self.control_panel.update_package_status(package_name, True)
     
     def _on_package_stopped(self, package_name: str):
-        """Handle package stopped event"""
         self.control_panel.update_package_status(package_name, False)
     
     def _stop_all_packages(self):
-        """Stop all running packages"""
         self._log_message("Stopping all packages...")
         self.ros_node.process_manager.stop_all()
 
     def _start_all_packages(self):
-        """Start all Debugging packages"""
         self._log_message("Starting all Debugging packages...")
         self.ros_node.start_all()
 
     def _tune_packages(self):
-        """Tunning packages"""
         self._log_message("Tunning walk packages...")
         self.ros_node.tune_start()
 
     def _without_UDP_packages(self):
-        """Start all running packages without UDP"""
         self._log_message("Starting all packages without UDP...")
         self.ros_node.without_UDP()
     
     # ========== Helper Methods ==========
     
     def _log_message(self, message: str):
-        """
-        Add message to status log with timestamp
-        
-        Args:
-            message: Message to log
-        """
         timestamp = QTime.currentTime().toString(settings.LOG_TIMESTAMP_FORMAT)
         formatted_message = f"[{timestamp}] {message}"
         
         self.status_log.append(formatted_message)
         
-        # Auto-scroll to bottom if enabled
         if settings.AUTO_SCROLL_LOG:
             cursor = self.status_log.textCursor()
             cursor.movePosition(QTextCursor.End)
@@ -286,6 +300,4 @@ class MainWindow(QMainWindow):
     # ========== Event Handlers ==========
     
     def closeEvent(self, event):
-        """Handle window close event"""
-        # Cleanup will be handled by main.py
         super().closeEvent(event)

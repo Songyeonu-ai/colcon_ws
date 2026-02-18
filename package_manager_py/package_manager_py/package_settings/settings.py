@@ -7,13 +7,13 @@ APP_NAME = "ROS2 Package Manager"
 APP_VERSION = "0.1.0"
 
 # ========== Package Configuration ==========
-MAX_PACKAGES = 11  # Maximum number of packages to manage
+MAX_PACKAGES = 11 
 DEFAULT_PACKAGE_COUNT = 11
 
 # ========== Process Settings ==========
-PROCESS_STOP_TIMEOUT = 5000  # milliseconds
-PROCESS_KILL_TIMEOUT = 3000  # milliseconds
-RESTART_DELAY = 5000  # milliseconds
+PROCESS_STOP_TIMEOUT = 5000  # ms
+PROCESS_KILL_TIMEOUT = 3000  # ms
+RESTART_DELAY = 5000  # ms
 
 # ========== UI Settings ==========
 WINDOW_TITLE = "ROS2 Package Manager"
