@@ -1,7 +1,14 @@
 #여기에서는 process 관련 함수만. 실행은 ros_node랑 main_window에서
 
-from PyQt5.QtCore import QProcess, QObject, pyqtSignal
+from logging import info
+from multiprocessing import process
+from turtle import pos
+
+from PyQt5.QtCore import QProcess, QObject, pyqtSignal, QProcessEnvironment, QTimer
 from typing import Dict, Tuple, Optional
+import os
+
+from click import command
 from ..package_settings.settings import PROCESS_STOP_TIMEOUT, PROCESS_KILL_TIMEOUT
 import os, signal, subprocess
 from ..utils.window_arrange import WindowArranger
@@ -16,61 +23,177 @@ class ProcessManager(QObject):
         super().__init__(parent)
         self.processes: Dict[str, QProcess] = {}
         self.arranger = WindowArranger()
+        self.trace_timer = QTimer(self)
+        self.trace_timer.timeout.connect(self._trace_processes)
+        self.trace_timer.start(1000)
     
-    def start_process(self, package_name: str, command: str, arguments: list) -> Tuple[bool, str]:
-        if package_name in self.processes:
-            return False, f"Package '{package_name}' is already running"
+    # def start_process(self, package_name: str, command: str, arguments: list) -> Tuple[bool, str]:
+    #     if package_name in self.processes:
+    #         return False, f"Package '{package_name}' is already running"
 
-        # 초기값 설정
-        geo_str = "Default"
-        run_args = list(arguments)
-        actual_command = "setsid"
-        terminator_base = ["terminator"]
+    #     # 초기값 설정
+    #     geo_str = "Default"
+    #     run_args = list(arguments)
+    #     pid_file = f"/tmp/{package_name}.pid"
+
+    #     cmd_str = " ".join([command] + arguments)
+    #     wrapped_cmd = f"echo $$ > {pid_file}; exec {cmd_str}"
+
     
-        #GUI 설정 처리
+    #     #GUI 설정 처리
+    #     pkg_set = PACKAGE_GUI_SETTINGS.get(package_name)
+    
+    #     if pkg_set:
+    #         w = pkg_set.get("width", 800)
+    #         h = pkg_set.get("height", 600)
+        
+    #         geo_str = self.arranger.get_next_geometry(w, h)
+    #         run_args.extend(["-geometry", geo_str])
+    #         status_msg = f"Started {package_name} at {geo_str}"
+    #     else:
+    #         status_msg = f"Started {package_name} (No GUI)"
+
+    #     #QProcess 설정
+    #     process = QProcess(self)
+    #     process.finished.connect(lambda code, status: self._on_finished(code, status, package_name))
+    #     process.errorOccurred.connect(lambda err: self._on_error(err, package_name))
+    #     process.started.connect(lambda: self._on_started(package_name))
+
+    #     process.start(
+    #         "terminator",
+    #         [
+    #             "--new-tab",
+    #             f"--command={wrapped_cmd}"
+    #         ]
+    #     )
+    
+    #     self.processes[package_name] = {
+    #         "QProcess": process,
+    #         "pid_file": pid_file
+    #     }
+    
+    #     return True, status_msg
+
+
+    def _is_pid_alive(self, pid: int) -> bool:
+        try:
+            os.kill(pid, 0)
+        except OSError:
+            return False
+        else:
+            return True
+        
+    def _trace_processes(self):
+        for package_name, info in list(self.processes.items()):
+            pid_file = info.get("pid_file")
+
+            if not pid_file or not os.path.exists(pid_file):
+                continue
+
+            try:
+                with open(pid_file, "r") as f:
+                    pid = int(f.read().strip())
+            except Exception:
+                continue
+
+            if not self._is_pid_alive(pid):
+                self._handle_real_exit(package_name)
+
+    def _handle_real_exit(self, package_name: str):
+        info = self.processes.pop(package_name, None)
+
+        if info:
+            pid_file = info.get("pid_file")
+            if pid_file and os.path.exists(pid_file):
+                os.remove(pid_file)
+
+        self.process_stopped.emit(package_name)
+
+
+    def start_process(self, package_name: str, command: str, arguments: list):
+
+        if package_name in self.processes:
+            return False, f"{package_name} already running"
+        
         pkg_set = PACKAGE_GUI_SETTINGS.get(package_name)
-    
         if pkg_set:
             w = pkg_set.get("width", 800)
             h = pkg_set.get("height", 600)
-        
-            geo_str = self.arranger.get_next_geometry(w, h)
-            terminator_base.extend(["--geometry", geo_str])
-            status_msg = f"Started {package_name} at {geo_str}"
+
+            pos = self.arranger.get_next_position(w, h)
+
+            x = pos["x"]
+            y = pos["y"]
+
+            geometry = f"{w}x{h}+{x}+{y}"
+
+            arguments = list(arguments) + [f"--pm-geometry={geometry}"]
+
+            status_msg = f"Started {package_name} at {geometry}"
         else:
             status_msg = f"Started {package_name} (No GUI)"
 
-        ros_cmd_str = f""
-
-        #QProcess 설정
+        pid_file = f"/tmp/{package_name}.pid"
+        cmd_str = " ".join([command] + arguments)
+        wrapped_cmd = f"""
+        source /opt/ros/humble/setup.bash
+        source ~/colcon_ws/install/setup.bash
+        echo $$ > {pid_file}
+        exec {cmd_str}
+        """
         process = QProcess(self)
-        actual_command = "setsid"
-        actual_args = [command] + run_args
-    
-        # 시그널 연결
-        process.finished.connect(lambda code, status: self._on_finished(code, status, package_name))
+
+        #process.finished.connect(lambda code, status: self._on_finished(code, status, package_name))
         process.errorOccurred.connect(lambda err: self._on_error(err, package_name))
         process.started.connect(lambda: self._on_started(package_name))
+
+        process.start(
+            "terminator",
+            [
+                "--new-tab",
+                "--command",
+                f"bash -lc '{wrapped_cmd}'"
+            ] 
+        )
+
+
+        self.processes[package_name] = {
+            "QProcess": process,
+            "pid_file": pid_file
+        }
+
+        return True, f"{status_msg}"
+
     
-        # 프로세스 시작
-        process.start(actual_command, actual_args)
-    
-        self.processes[package_name] = process
-    
-        return True, status_msg
-    
+    # def _handle_stdout(self, package_name):
+    #     process = self.processes.get(package_name)
+    #     if process:
+    #         data = process.readAllStandardOutput().data().decode('utf-8').strip()
+    #     if data:
+    #         self.log_received.emit(package_name, data)
+
+    # def _handle_stderr(self, package_name):
+    #     process = self.processes.get(package_name)
+    #     if process:
+    #         data = process.readAllStandardError().data().decode('utf-8').strip()
+    #     if data:
+    #         self.log_received.emit(package_name, f"ERROR: {data}")
+
     def stop_process(self, package_name: str) -> Tuple[bool, str]:
         if package_name not in self.processes:
             return False, f"Package '{package_name}' is not running"
         
         process = self.processes[package_name]
-        pid = process.processId()
+        info = self.processes[package_name]
+        pid_file = info.get("pid_file")
 
         try:
-            os.kill(-pid, signal.SIGINT) #Ctrl+C 해야 gui도 같이 종료되는 듯. 좀비노드 문제는 해결
+            with open(pid_file, "r") as f:
+                pid = int(f.read().strip())
+            os.kill(-pid, signal.SIGINT)
             if not process.waitForFinished(PROCESS_STOP_TIMEOUT):
                 os.kill(-pid, signal.SIGKILL)
-
+            os.remove(pid_file)
             del self.processes[package_name]
 
             if package_name == "web_controller_bridge" or package_name == "udpcom":
@@ -78,7 +201,6 @@ class ProcessManager(QObject):
                 subprocess.run(["pkill", "-9", "-f", "sender"])
                 subprocess.run(["pkill", "-9", "-f", "receiver"])
             return True, f"Package '{package_name}' stopped"
-        #pkill명령어는 잘 먹는다
             
         except Exception as e:
             return False, f"Error stopping package '{package_name}': {str(e)}"

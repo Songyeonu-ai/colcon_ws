@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
-from PyQt5.QtCore import QObject, pyqtSignal, QThread
+from web_control_bridge.msg import NodeManagerMsg
+from PyQt5.QtCore import QObject, pyqtSignal, QThread, QTimer
 
 from ..package_settings import settings, DEFAULT_PACKAGES
 from ..package_settings.package_defaults import PackageConfig
@@ -30,11 +31,66 @@ class RosNode(Node, QObject):
         self.process_manager = ProcessManager(self)
 
         self.timer = self.create_timer(0.1, lambda: self.timer_callback)
+        self.create_subscription(NodeManagerMsg, '/nodemanager', self._nodemanager_callback, 10)
         
         self._connect_process_signals()
 
     def timer_callback(self):
         count += 1
+
+    def _nodemanager_callback(self, msg: NodeManagerMsg):
+        if msg.id == 3: #딜레이같은거 생기면 여기서는 체크만하고 타이머 콜백함수로 옮기던지 해야함
+            if msg.action == "start":
+                if msg.package_id == 1:
+                    self.start_package_by_index(1)
+                elif msg.package_id == 2:
+                    self.start_package_by_index(2)
+                elif msg.package_id == 3:
+                    self.start_package_by_index(3)
+                elif msg.package_id == 4:
+                    self.start_package_by_index(4)
+                elif msg.package_id == 5:
+                    self.start_package_by_index(5)
+                # elif msg.package_id == 6:
+                #     self.start_package_by_index(6) 이거는 하면안됨
+                elif msg.package_id == 7:
+                    self.start_package_by_index(7)
+                elif msg.package_id == 8:
+                    self.start_package_by_index(8)
+                elif msg.package_id == 9:
+                    self.start_package_by_index(9)
+                elif msg.package_id == 10:
+                    self.start_package_by_index(10)
+                elif msg.package_id == 11:
+                    self.start_package_by_index(11)
+                else:
+                    pass
+            elif msg.action == "stop":
+                if msg.package_id == 1:
+                    self.stop_package("dynamixel_rdk_ros2")
+                elif msg.package_id == 2:
+                    self.stop_package("ik_walk")
+                elif msg.package_id == 3:
+                    self.stop_package("evimu_v5")
+                elif msg.package_id == 4:
+                    self.stop_package("rovocup_vision")
+                elif msg.package_id == 5:
+                    self.stop_package("udpcom")
+                # elif msg.package_id == 6:
+                #     self.stop_package("web_control_bridge")
+                elif msg.package_id == 7:
+                    self.stop_package("gamecontroller")
+                elif msg.package_id == 8:
+                    self.stop_package("robocup_localization25")
+                elif msg.package_id == 9:
+                    self.stop_package("robocup_master25")
+                elif msg.package_id == 10:
+                    self.stop_package("motion_operator")
+                elif msg.package_id == 11:
+                    self.stop_package("tune_walk")
+                else:
+                    pass    
+
 
     def _declare_parameters(self):
         for i in range(1, package_count):  #11 packages
@@ -116,7 +172,7 @@ class RosNode(Node, QObject):
         
     
     def start_package_by_index(self, index: int):
-        config = self.config_manager.get_package(index)
+        config = self.config_manager.get_package(index -1)
         
         if config is None or not config.name:
             self.status_message.emit(f"Package {index} not configured")
