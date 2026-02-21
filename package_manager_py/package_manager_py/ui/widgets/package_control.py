@@ -116,14 +116,14 @@ class PackageControlPanel(QGroupBox):
                 widget.stop_clicked.connect(self.stop_package.emit)
                 widget.restart_clicked.connect(self.restart_package.emit)
                 
-                self.package_widgets[config.name] = widget
+                self.package_widgets[index] = widget
                 layout.addWidget(widget)
         
         layout.addStretch()
     
-    def update_package_status(self, package_name: str, is_running: bool):
-        if package_name in self.package_widgets:
-            self.package_widgets[package_name].set_running(is_running)
+    def update_package_status(self, package_id: int, is_running: bool):
+        if package_id in self.package_widgets:
+            self.package_widgets[package_id].set_running(is_running)
     
-    def get_widget(self, package_name: str) -> PackageControlWidget:
-        return self.package_widgets.get(package_name)
+    def get_widget(self, package_id: int) -> PackageControlWidget:
+        return self.package_widgets.get(package_id)

@@ -1,22 +1,22 @@
 import rclpy
 from rclpy.node import Node
-from web_control_bridge.msg import NodeManagerMsg
+from web_control_bridge.msg import NodeManagerMsg, Pm2WebBridgeMsg
 from PyQt5.QtCore import QObject, pyqtSignal, QThread, QTimer
 
 from ..package_settings import settings, DEFAULT_PACKAGES
 from ..package_settings.package_defaults import PackageConfig
 from ..core.process_manager import ProcessManager
 from ..core.package_manager import PackageConfigManager
+from ..core.runtime_state_manager import RuntimeStateManager, PackageState
 from ..utils.constants import LAUNCH, RUN
 from ..package_settings.settings import RESTART_DELAY
 
 package_count=settings.DEFAULT_PACKAGE_COUNT+1
-count=0
 
 class RosNode(Node, QObject):
     status_message = pyqtSignal(str)
-    package_started = pyqtSignal(str)
-    package_stopped = pyqtSignal(str)
+    package_started = pyqtSignal(int)
+    package_stopped = pyqtSignal(int)
     shutdown_signal = pyqtSignal()
     
     def __init__(self, node_name: str = None):
@@ -29,73 +29,55 @@ class RosNode(Node, QObject):
 
         self.config_manager = PackageConfigManager(self)
         self.process_manager = ProcessManager(self)
+        self.state_manager = RuntimeStateManager()
 
-        self.timer = self.create_timer(0.1, lambda: self.timer_callback)
+        for pkg_id in self.config_manager.get_all_packages():
+            self.state_manager.register(pkg_id)
+
+        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.pm2web_pub = self.create_publisher(Pm2WebBridgeMsg, '/packagestate', 10)
+        self.timer = self.create_timer(0.1, self._pm2web_pub)
         self.create_subscription(NodeManagerMsg, '/nodemanager', self._nodemanager_callback, 10)
+        self.TUNE_SET = {1,2,3,8,11}
+        self.count = 0
         
         self._connect_process_signals()
 
     def timer_callback(self):
-        count += 1
+        self.count += 1
+
+    def _pm2web_pub(self):
+        msg = Pm2WebBridgeMsg()
+        states = self.process_manager.get_runtime_states()
+
+        for pkg_id, state_str in states.items():
+            state = Pm2WebBridgeMsg()
+            state.id = pkg_id
+            state.status = state_str
+            msg.states.append(state)
+
+        self.pm2web_pub.publish(msg)
+
 
     def _nodemanager_callback(self, msg: NodeManagerMsg):
-        if msg.id == 3: #딜레이같은거 생기면 여기서는 체크만하고 타이머 콜백함수로 옮기던지 해야함
-            if msg.action == "start":
-                if msg.package_id == 1:
-                    self.start_package_by_index(1)
-                elif msg.package_id == 2:
-                    self.start_package_by_index(2)
-                elif msg.package_id == 3:
-                    self.start_package_by_index(3)
-                elif msg.package_id == 4:
-                    self.start_package_by_index(4)
-                elif msg.package_id == 5:
-                    self.start_package_by_index(5)
-                # elif msg.package_id == 6:
-                #     self.start_package_by_index(6) 이거는 하면안됨
-                elif msg.package_id == 7:
-                    self.start_package_by_index(7)
-                elif msg.package_id == 8:
-                    self.start_package_by_index(8)
-                elif msg.package_id == 9:
-                    self.start_package_by_index(9)
-                elif msg.package_id == 10:
-                    self.start_package_by_index(10)
-                elif msg.package_id == 11:
-                    self.start_package_by_index(11)
-                else:
-                    pass
-            elif msg.action == "stop":
-                if msg.package_id == 1:
-                    self.stop_package("dynamixel_rdk_ros2")
-                elif msg.package_id == 2:
-                    self.stop_package("ik_walk")
-                elif msg.package_id == 3:
-                    self.stop_package("evimu_v5")
-                elif msg.package_id == 4:
-                    self.stop_package("rovocup_vision")
-                elif msg.package_id == 5:
-                    self.stop_package("udpcom")
-                # elif msg.package_id == 6:
-                #     self.stop_package("web_control_bridge")
-                elif msg.package_id == 7:
-                    self.stop_package("gamecontroller")
-                elif msg.package_id == 8:
-                    self.stop_package("robocup_localization25")
-                elif msg.package_id == 9:
-                    self.stop_package("robocup_master25")
-                elif msg.package_id == 10:
-                    self.stop_package("motion_operator")
-                elif msg.package_id == 11:
-                    self.stop_package("tune_walk")
-                else:
-                    pass    
+
+        if msg.id != 3:
+            return
+
+        if msg.action == "start":
+            self.start_package(msg.package_id)
+
+        elif msg.action == "stop":
+            self.stop_package(msg.package_id) 
 
 
     def _declare_parameters(self):
-        for i in range(1, package_count):  #11 packages
-            default_config = DEFAULT_PACKAGES[i - 1] if i - 1 < len(DEFAULT_PACKAGES) else PackageConfig("", "", "launch")
-            
+        for i in range(1, package_count):
+            default_config = DEFAULT_PACKAGES.get(i)
+
+            if default_config is None:
+                default_config = PackageConfig(i, "", "", "launch")
+
             self.declare_parameters(
                 namespace='',
                 parameters=[
@@ -120,69 +102,72 @@ class RosNode(Node, QObject):
     
     # ========== Package Control Methods ==========
     
-    def start_package(self, package_name: str, executable: str, pkg_type: int):
+    def start_package(self, package_id: int):
+        if not self.state_manager.can_start(package_id):
+            self.status_message.emit(f"Package {package_id} already running")
+            return
+
+        self.state_manager.set_starting(package_id)
+        
+        config = self.config_manager.get_package(package_id)
+        if not config:
+            self.status_message.emit(f"Package {package_id} not found")
+            return
+
         command = "ros2"
-        arguments = []
-        
-        if pkg_type == LAUNCH:
-            arguments = ["launch", package_name, executable]
+
+        if config.pkg_type == "launch":
+            arguments = ["launch", config.name, config.executable]
         else:
-            arguments = ["run", package_name, executable]
-        
+            arguments = ["run", config.name, config.executable]
+
         success, msg = self.process_manager.start_process(
-            package_name, command, arguments
+            package_id, command, arguments
         )
-        
+
         self.status_message.emit(msg)
     
-    def stop_package(self, package_name: str):
-        success, msg = self.process_manager.stop_process(package_name)
+    def stop_package(self, package_id: int):
+        if not self.state_manager.can_stop(package_id):
+            return
+
+        self.state_manager.set_stopping(package_id)
+        success, msg = self.process_manager.stop_process(package_id)
         self.status_message.emit(msg)
 
     def start_all(self):
-        all_pkgs = self.config_manager.get_all_packages()
-        for i, config in all_pkgs.items():
-            if config and config.name and config.name != "tune_walk":
-                pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
-                self.start_package(config.name, config.executable, pkg_type)
-                QThread.msleep(500) #패키지 켜질 대기시간
+        for pkg_id, config in self.config_manager.get_all_packages().items():
+            if pkg_id == 11:  # tune_walk 제외
+                continue
+            self.start_package(pkg_id)
+            QThread.msleep(500) #패키지 켜질 대기시간
+
 
     def tune_start(self):
-        all_pkgs = self.config_manager.get_all_packages()
-        for i, config in all_pkgs.items():
-            if config and config.name and (config.name == "dynamixel_rdk_ros2" or config.name == "ik_walk" or config.name == "tune_walk" or config.name == "ebimu_v5" or config.name == "robocup_localization25)"):
-                pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
-                self.start_package(config.name, config.executable, pkg_type)
-                QThread.msleep(500)
+        for pkg_id in self.TUNE_SET:
+            self.start_package(pkg_id)
+            QThread.msleep(500)
 
     def without_UDP(self):
-        all_pkgs = self.config_manager.get_all_packages()
-        for i, config in all_pkgs.items():
-            if config and config.name and config.name != "udpcom" and config.name != "tune_walk":
-                pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
-                self.start_package(config.name, config.executable, pkg_type)
-                QThread.msleep(500)
+        for pkg_id in self.config_manager.get_all_packages():
+            if pkg_id in (5,11):  # udpcom, tune_walk 제외
+                continue
+            self.start_package(pkg_id)
+            QThread.msleep(500)
     
-    def restart_package(self, package_name: str, executable: str, pkg_type: int):
-        self.status_message.emit(f"Restarting package: {package_name}")
-        self.stop_package(package_name)
-        
+    def restart_package(self, package_id: int):
+        self.status_message.emit(f"Restarting package: {package_id}")
+
+        self.stop_package(package_id)
         QThread.msleep(RESTART_DELAY)
-        self.start_package(package_name, executable, pkg_type)
+        self.start_package(package_id)
         
     
     def start_package_by_index(self, index: int):
-        config = self.config_manager.get_package(index -1)
-        
-        if config is None or not config.name:
-            self.status_message.emit(f"Package {index} not configured")
-            return
-        
-        pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
-        self.start_package(config.name, config.executable, pkg_type)
+        self.start_package(index)
     
-    def is_package_running(self, package_name: str) -> bool:
-        return self.process_manager.is_running(package_name)
+    def is_package_running(self, package_id: int) -> bool:
+        return self.process_manager.is_running(package_id)
     
     # ========== Convenience Methods ==========
     
@@ -194,16 +179,19 @@ class RosNode(Node, QObject):
     
     # ========== Signal Handlers ==========
     
-    def _on_package_started(self, package_name: str):
-        self.status_message.emit(f"✓ Package '{package_name}' started successfully")
-        self.package_started.emit(package_name)
+    def _on_package_started(self, package_id: int):
+        self.state_manager.set_running(package_id)
+        self.status_message.emit(f"✓ Package {package_id} started")
+        self.package_started.emit(package_id)
     
-    def _on_package_stopped(self, package_name: str):
-        self.status_message.emit(f"● Package '{package_name}' stopped")
-        self.package_stopped.emit(package_name)
+    def _on_package_stopped(self, package_id: int):
+        self.state_manager.set_stopped(package_id)
+        self.status_message.emit(f"● Package {package_id} stopping...")
+        self.package_stopped.emit(package_id)
     
-    def _on_package_error(self, package_name: str, error_msg: str):
-        self.status_message.emit(f"✗ {package_name}: {error_msg}")
+    def _on_package_error(self, package_id: int, error_msg: str):
+        self.state_manager.set_error(package_id, error_msg)
+        self.status_message.emit(f"✗ {package_id}: {error_msg}")
     
     # ========== Cleanup ==========
     

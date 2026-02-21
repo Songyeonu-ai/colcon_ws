@@ -13,35 +13,54 @@ from ..package_settings.settings import PROCESS_STOP_TIMEOUT, PROCESS_KILL_TIMEO
 import os, signal, subprocess
 from ..utils.window_arrange import WindowArranger
 from ..package_settings.settings import PACKAGE_GUI_SETTINGS
+from ..core.runtime_state_manager import PackageState
 class ProcessManager(QObject):
-    process_started = pyqtSignal(str)  # package_name
-    process_stopped = pyqtSignal(str)  # package_name
-    process_error = pyqtSignal(str, str)  # package_name, error_message
+    process_started = pyqtSignal(int)
+    process_stopped = pyqtSignal(int)
+    process_error = pyqtSignal(int, str)
     log_received = pyqtSignal(str, str)
     
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.processes: Dict[str, QProcess] = {}
+        self.processes: Dict[int, Dict]
+        self.processes = {}
         self.arranger = WindowArranger()
         self.trace_timer = QTimer(self)
         self.trace_timer.timeout.connect(self._trace_processes)
         self.trace_timer.start(1000)
+
+    def get_runtime_states(self) -> Dict[int, str]:
+        result = {}
+
+        for package_id, info in self.processes.items():
+            state: PackageState = info.get("state", PackageState.STOPPED)
+
+            if state == PackageState.STARTING:
+                result[package_id] = "STARTING"
+            elif state == PackageState.RUNNING:
+                result[package_id] = "RUNNING"
+            elif state == PackageState.STOPPING:
+                result[package_id] = "STOPPING"
+            else:
+                result[package_id] = "STOPPED"
+
+        return result
     
-    # def start_process(self, package_name: str, command: str, arguments: list) -> Tuple[bool, str]:
-    #     if package_name in self.processes:
-    #         return False, f"Package '{package_name}' is already running"
+    # def start_process(self, package_id: str, command: str, arguments: list) -> Tuple[bool, str]:
+    #     if package_id in self.processes:
+    #         return False, f"Package '{package_id}' is already running"
 
     #     # 초기값 설정
     #     geo_str = "Default"
     #     run_args = list(arguments)
-    #     pid_file = f"/tmp/{package_name}.pid"
+    #     pid_file = f"/tmp/{package_id}.pid"
 
     #     cmd_str = " ".join([command] + arguments)
     #     wrapped_cmd = f"echo $$ > {pid_file}; exec {cmd_str}"
 
     
     #     #GUI 설정 처리
-    #     pkg_set = PACKAGE_GUI_SETTINGS.get(package_name)
+    #     pkg_set = PACKAGE_GUI_SETTINGS.get(package_id)
     
     #     if pkg_set:
     #         w = pkg_set.get("width", 800)
@@ -49,15 +68,15 @@ class ProcessManager(QObject):
         
     #         geo_str = self.arranger.get_next_geometry(w, h)
     #         run_args.extend(["-geometry", geo_str])
-    #         status_msg = f"Started {package_name} at {geo_str}"
+    #         status_msg = f"Started {package_id} at {geo_str}"
     #     else:
-    #         status_msg = f"Started {package_name} (No GUI)"
+    #         status_msg = f"Started {package_id} (No GUI)"
 
     #     #QProcess 설정
     #     process = QProcess(self)
-    #     process.finished.connect(lambda code, status: self._on_finished(code, status, package_name))
-    #     process.errorOccurred.connect(lambda err: self._on_error(err, package_name))
-    #     process.started.connect(lambda: self._on_started(package_name))
+    #     process.finished.connect(lambda code, status: self._on_finished(code, status, package_id))
+    #     process.errorOccurred.connect(lambda err: self._on_error(err, package_id))
+    #     process.started.connect(lambda: self._on_started(package_id))
 
     #     process.start(
     #         "terminator",
@@ -67,7 +86,7 @@ class ProcessManager(QObject):
     #         ]
     #     )
     
-    #     self.processes[package_name] = {
+    #     self.processes[package_id] = {
     #         "QProcess": process,
     #         "pid_file": pid_file
     #     }
@@ -83,39 +102,78 @@ class ProcessManager(QObject):
         else:
             return True
         
+    def check_process_state(self, package_id: int) -> str:
+        pid_file = f"/tmp/{package_id}.pid"
+
+        if not os.path.exists(pid_file):
+            return "STOPPED"
+
+        try:
+            with open(pid_file, "r") as f:
+                pid = int(f.read().strip())
+        except:
+            return "STOPPED"
+
+        if self._is_pid_alive(pid):
+            return "RUNNING"
+        else:
+            os.remove(pid_file)  # 죽은파일정리
+            return "CRASHED"
+        
     def _trace_processes(self):
-        for package_name, info in list(self.processes.items()):
+        for package_id, info in list(self.processes.items()):
+            state = info["state"]
             pid_file = info.get("pid_file")
 
-            if not pid_file or not os.path.exists(pid_file):
-                continue
+            #STARTING
+            if state == PackageState.STARTING:
+                if not pid_file or not os.path.exists(pid_file):
+                    continue
 
-            try:
-                with open(pid_file, "r") as f:
-                    pid = int(f.read().strip())
-            except Exception:
-                continue
+                try:
+                    with open(pid_file, "r") as f:
+                        pid = int(f.read().strip())
+                        info["pid"] = pid
+                except Exception:
+                    continue
 
-            if not self._is_pid_alive(pid):
-                self._handle_real_exit(package_name)
+                if self._is_pid_alive(pid):
+                    info["state"] = PackageState.RUNNING
+                    self.process_started.emit(package_id)
 
-    def _handle_real_exit(self, package_name: str):
-        info = self.processes.pop(package_name, None)
+            #RUNNING
+            elif state == PackageState.RUNNING:
+                pid = info.get("pid")
+                if not pid or not self._is_pid_alive(pid):
+                    info["state"] = PackageState.STOPPED
+                    self._handle_real_exit(package_id)
+
+            #STOPPING
+            elif state == PackageState.STOPPING:
+                pid = info.get("pid")
+
+            if not pid or not self._is_pid_alive(pid):
+                info["state"] = PackageState.STOPPED
+                self._handle_real_exit(package_id)
+
+
+    def _handle_real_exit(self, package_id: int):
+        info = self.processes.pop(package_id, None)
 
         if info:
             pid_file = info.get("pid_file")
             if pid_file and os.path.exists(pid_file):
                 os.remove(pid_file)
 
-        self.process_stopped.emit(package_name)
+        self.process_stopped.emit(package_id)
 
 
-    def start_process(self, package_name: str, command: str, arguments: list):
+    def start_process(self, package_id: int, command: str, arguments: list):
 
-        if package_name in self.processes:
-            return False, f"{package_name} already running"
+        if package_id in self.processes:
+            return False, f"{package_id} already running"
         
-        pkg_set = PACKAGE_GUI_SETTINGS.get(package_name)
+        pkg_set = PACKAGE_GUI_SETTINGS.get(package_id)
         if pkg_set:
             w = pkg_set.get("width", 800)
             h = pkg_set.get("height", 600)
@@ -129,11 +187,11 @@ class ProcessManager(QObject):
 
             arguments = list(arguments) + [f"--pm-geometry={geometry}"]
 
-            status_msg = f"Started {package_name} at {geometry}"
+            status_msg = f"Starting {package_id} at {geometry}"
         else:
-            status_msg = f"Started {package_name} (No GUI)"
+            status_msg = f"Starting {package_id} (No GUI)"
 
-        pid_file = f"/tmp/{package_name}.pid"
+        pid_file = f"/tmp/{package_id}.pid"
         cmd_str = " ".join([command] + arguments)
         wrapped_cmd = f"""
         source /opt/ros/humble/setup.bash
@@ -143,9 +201,9 @@ class ProcessManager(QObject):
         """
         process = QProcess(self)
 
-        #process.finished.connect(lambda code, status: self._on_finished(code, status, package_name))
-        process.errorOccurred.connect(lambda err: self._on_error(err, package_name))
-        process.started.connect(lambda: self._on_started(package_name))
+        #process.finished.connect(lambda code, status, pid=package_id: self._on_finished(code, status, pid))
+        process.errorOccurred.connect(lambda err: self._on_error(err, package_id))
+        #process.started.connect(lambda: self._on_started(package_id))
 
         process.start(
             "terminator",
@@ -155,84 +213,90 @@ class ProcessManager(QObject):
                 f"bash -lc '{wrapped_cmd}'"
             ] 
         )
-
-
-        self.processes[package_name] = {
+        self.processes[package_id] = {
             "QProcess": process,
-            "pid_file": pid_file
+            "pid_file": pid_file,
+            "state": PackageState.STARTING,
+            "pid": None
         }
 
         return True, f"{status_msg}"
 
     
-    # def _handle_stdout(self, package_name):
-    #     process = self.processes.get(package_name)
+    # def _handle_stdout(self, package_id):
+    #     process = self.processes.get(package_id)
     #     if process:
     #         data = process.readAllStandardOutput().data().decode('utf-8').strip()
     #     if data:
-    #         self.log_received.emit(package_name, data)
+    #         self.log_received.emit(package_id, data)
 
-    # def _handle_stderr(self, package_name):
-    #     process = self.processes.get(package_name)
+    # def _handle_stderr(self, package_id):
+    #     process = self.processes.get(package_id)
     #     if process:
     #         data = process.readAllStandardError().data().decode('utf-8').strip()
     #     if data:
-    #         self.log_received.emit(package_name, f"ERROR: {data}")
+    #         self.log_received.emit(package_id, f"ERROR: {data}")
 
-    def stop_process(self, package_name: str) -> Tuple[bool, str]:
-        if package_name not in self.processes:
-            return False, f"Package '{package_name}' is not running"
+    def stop_process(self, package_id: int) -> Tuple[bool, str]:
+        if package_id not in self.processes:
+            return False, f"Package '{package_id}' is not running"
         
-        process = self.processes[package_name]
-        info = self.processes[package_name]
+        info = self.processes[package_id]
+        qt_process: QProcess = info.get("QProcess")
         pid_file = info.get("pid_file")
 
         try:
             with open(pid_file, "r") as f:
                 pid = int(f.read().strip())
+            info["state"] = PackageState.STOPPING
             os.kill(-pid, signal.SIGINT)
-            if not process.waitForFinished(PROCESS_STOP_TIMEOUT):
+            if qt_process and not qt_process.waitForFinished(PROCESS_STOP_TIMEOUT):
                 os.kill(-pid, signal.SIGKILL)
             os.remove(pid_file)
-            del self.processes[package_name]
+            del self.processes[package_id]
 
-            if package_name == "web_controller_bridge" or package_name == "udpcom":
+            if package_id == 5 or package_id == 6:
                 #web_controller_bridge등등 프로세스 종료후에도 백그라운드에 남아있는 경우가 있어서 강제 종료
                 subprocess.run(["pkill", "-9", "-f", "sender"])
                 subprocess.run(["pkill", "-9", "-f", "receiver"])
-            return True, f"Package '{package_name}' stopped"
+
+            if os.path.exists(pid_file):
+                os.remove(pid_file)
+
+            self._on_stopped(package_id)
+            return True, f"Package '{package_id}' stopped"
             
         except Exception as e:
-            return False, f"Error stopping package '{package_name}': {str(e)}"
+            return False, f"Error stopping package '{package_id}': {str(e)}"
     
-    def is_running(self, package_name: str) -> bool:
-        return package_name in self.processes
+    def is_running(self, package_id: int) -> bool:
+        return package_id in self.processes
     
     def get_running_packages(self) -> list:
         return list(self.processes.keys())
     
     def stop_all(self):
-        package_names = list(self.processes.keys())
-        for package_name in package_names:
-            self.stop_process(package_name) 
+        package_ids = list(self.processes.keys())
+        for package_id in package_ids:
+            self.stop_process(package_id) 
     # ========== Private Signal Handlers ==========
     
-    def _on_finished(self, exit_code: int, exit_status: QProcess.ExitStatus, package_name: str):
-        if package_name in self.processes:
-            del self.processes[package_name]
-        
-        self.process_stopped.emit(package_name)
+    def _on_finished(self, code, status, package_id):
+        if package_id in self.processes:
+            del self.processes[package_id]
 
-        if exit_code == 0 and exit_status == QProcess.NormalExit:
+        self.process_stopped.emit(package_id)
+
+        if code == 0 and status == QProcess.NormalExit:
             msg = f"Process stopped normally (exit code: 0)"
-        elif exit_status == QProcess.CrashExit:
-            msg = f"Process crashed (exit code: {exit_code})"
-            self.process_error.emit(package_name, msg)
+        elif status == QProcess.CrashExit:
+            msg = f"Process crashed (exit code: {code})"
+            self.process_error.emit(package_id, msg)
         else:
-            msg = f"Process stopped with error (exit code: {exit_code})"
-            self.process_error.emit(package_name, msg)
+            msg = f"Process stopped with error (exit code: {code})"
+            self.process_error.emit(package_id, msg)
     
-    def _on_error(self, error: QProcess.ProcessError, package_name: str):
+    def _on_error(self, error: QProcess.ProcessError, package_id: int):
         error_messages = {
             QProcess.FailedToStart: "Failed to start - command not found or insufficient permissions",
             QProcess.Crashed: "Process crashed",
@@ -243,11 +307,14 @@ class ProcessManager(QObject):
         }
         
         error_msg = error_messages.get(error, "Unknown error occurred")
-        self.process_error.emit(package_name, error_msg)
+        self.process_error.emit(package_id, error_msg)
         
-        if error == QProcess.FailedToStart and package_name in self.processes:
-            del self.processes[package_name]
-            self.process_stopped.emit(package_name)
+        if error == QProcess.FailedToStart and package_id in self.processes:
+            del self.processes[package_id]
+            self.process_stopped.emit(package_id)
     
-    def _on_started(self, package_name: str):
-        self.process_started.emit(package_name)
+    # def _on_started(self, package_id: int):
+    #     self.process_started.emit(package_id)
+
+    def _on_stopped(self, package_id: int):
+        self.process_stopped.emit(package_id)

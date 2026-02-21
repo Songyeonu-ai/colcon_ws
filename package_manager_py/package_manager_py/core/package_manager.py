@@ -39,6 +39,7 @@ class PackageConfigManager:
                     auto_start = False
                 
                 self.packages[i] = PackageConfig(
+                    id=i,
                     name=name,
                     executable=executable,
                     pkg_type=pkg_type,
@@ -46,21 +47,21 @@ class PackageConfigManager:
                     auto_start=auto_start
                 )
             except Exception as e:
-                if i - 1 < len(DEFAULT_PACKAGES):
-                    self.packages[i] = DEFAULT_PACKAGES[i - 1]
+                if i in DEFAULT_PACKAGES:
+                    self.packages[i] = DEFAULT_PACKAGES[i]
     
     def _load_from_defaults(self):
-        for i, config in enumerate(DEFAULT_PACKAGES, start=1):
-            self.packages[i] = config
+        for pkg_id, config in DEFAULT_PACKAGES.items():
+            self.packages[pkg_id] = config
     
     def get_package(self, index: int) -> Optional[PackageConfig]:
         return self.packages.get(index)
     
-    def get_package_by_name(self, name: str) -> Optional[PackageConfig]:
-        for config in self.packages.values():
-            if config.name == name:
-                return config
-        return None
+    # def get_package_by_name(self, name: str) -> Optional[PackageConfig]:
+    #     for config in self.packages.values():
+    #         if config.name == name:
+    #             return config
+    #     return None
     
     def get_all_packages(self) -> Dict[int, PackageConfig]:
         return self.packages.copy()

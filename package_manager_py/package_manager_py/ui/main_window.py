@@ -251,22 +251,22 @@ class MainWindow(QMainWindow):
     def _on_stop_package(self, index: int):
         config = self.ros_node.get_package_info(index)
         if config:
-            self.ros_node.stop_package(config.name)
+            self.ros_node.stop_package(index)
     
     def _on_restart_package(self, index: int):
         config = self.ros_node.get_package_info(index)
         if config:
             pkg_type = LAUNCH if config.pkg_type == "launch" else RUN
-            self.ros_node.restart_package(config.name, config.executable, pkg_type)
+            self.ros_node.restart_package(index, config.executable, pkg_type)
     
     def _on_status_message(self, message: str):
         self._log_message(message)
     
-    def _on_package_started(self, package_name: str):
-        self.control_panel.update_package_status(package_name, True)
+    def _on_package_started(self, package_id: int):
+        self.control_panel.update_package_status(package_id, True)
     
-    def _on_package_stopped(self, package_name: str):
-        self.control_panel.update_package_status(package_name, False)
+    def _on_package_stopped(self, package_id: int):
+        self.control_panel.update_package_status(package_id, False)
     
     def _stop_all_packages(self):
         self._log_message("Stopping all packages...")
