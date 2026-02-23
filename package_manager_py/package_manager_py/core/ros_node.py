@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from web_control_bridge.msg import NodeManagerMsg, Pm2WebBridgeMsg
+from web_control_bridge.msg import NodeManagerMsg, Pm2WebBridgeMsg, ListStructure
 from PyQt5.QtCore import QObject, pyqtSignal, QThread, QTimer
 
 from ..package_settings import settings, DEFAULT_PACKAGES
@@ -48,13 +48,25 @@ class RosNode(Node, QObject):
 
     def _pm2web_pub(self):
         msg = Pm2WebBridgeMsg()
-        states = self.process_manager.get_runtime_states()
+        runtime_states = self.process_manager.get_runtime_states()
 
-        for pkg_id, state_str in states.items():
-            state = Pm2WebBridgeMsg()
-            state.id = pkg_id
-            state.status = state_str
-            msg.states.append(state)
+        for pkg_id, state_str in runtime_states.items():
+            item = ListStructure()
+
+            item.id = int(pkg_id)
+
+            if state_str == "RUNNING":
+                item.state = PackageState.RUNNING      # 2
+            elif state_str == "STOPPED":
+                item.state = PackageState.STOPPED      # 0
+            elif state_str == "STARTING":
+                item.state = PackageState.STARTING     # 1
+            elif state_str == "STOPPING":
+                item.state = PackageState.STOPPING     # 3
+            else:
+                item.state = PackageState.ERROR        # 4
+
+            msg.packages.append(item)
 
         self.pm2web_pub.publish(msg)
 

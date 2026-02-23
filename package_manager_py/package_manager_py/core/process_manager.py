@@ -193,12 +193,19 @@ class ProcessManager(QObject):
 
         pid_file = f"/tmp/{package_id}.pid"
         cmd_str = " ".join([command] + arguments)
-        wrapped_cmd = f"""
-        source /opt/ros/humble/setup.bash
-        source ~/colcon_ws/install/setup.bash
-        echo $$ > {pid_file}
-        exec {cmd_str}
-        """
+        # wrapped_cmd = f"""
+        # source /opt/ros/humble/setup.bash
+        # source ~/colcon_ws/install/setup.bash
+        # echo $$ > {pid_file}
+        # exec {cmd_str}
+        # """
+        cmd_chain = (
+            "source /opt/ros/humble/setup.bash && "
+            "source ~/colcon_ws/install/setup.bash && "
+            "export ROS_DOMAIN_ID=99 && "
+            f"echo $$ > {pid_file} && "
+            f"exec {command} {' '.join(arguments)}"
+        )
         process = QProcess(self)
 
         #process.finished.connect(lambda code, status, pid=package_id: self._on_finished(code, status, pid))
@@ -210,8 +217,8 @@ class ProcessManager(QObject):
             [
                 "--new-tab",
                 "--command",
-                f"bash -lc '{wrapped_cmd}'"
-            ] 
+                f"bash -lc \"{cmd_chain}\""
+            ]
         )
         self.processes[package_id] = {
             "QProcess": process,
@@ -249,9 +256,9 @@ class ProcessManager(QObject):
             with open(pid_file, "r") as f:
                 pid = int(f.read().strip())
             info["state"] = PackageState.STOPPING
-            os.kill(-pid, signal.SIGINT)
+            os.killpg(pid, signal.SIGINT)
             if qt_process and not qt_process.waitForFinished(PROCESS_STOP_TIMEOUT):
-                os.kill(-pid, signal.SIGKILL)
+                os.killpg(pid, signal.SIGKILL)
             os.remove(pid_file)
             del self.processes[package_id]
 
