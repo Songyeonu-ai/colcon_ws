@@ -191,35 +191,33 @@ class ProcessManager(QObject):
         else:
             status_msg = f"Starting {package_id} (No GUI)"
 
+        import shlex
         pid_file = f"/tmp/{package_id}.pid"
-        cmd_str = " ".join([command] + arguments)
-        # wrapped_cmd = f"""
-        # source /opt/ros/humble/setup.bash
-        # source ~/colcon_ws/install/setup.bash
-        # echo $$ > {pid_file}
-        # exec {cmd_str}
-        # """
+
+        # 안전한 쉘 문자열 만들기 (공백/따옴표 포함 인자 깨짐 방지)
+        cmd_exec = " ".join([shlex.quote(command)] + [shlex.quote(a) for a in arguments])
+
         cmd_chain = (
             "source /opt/ros/humble/setup.bash && "
             "source ~/colcon_ws/install/setup.bash && "
-            "export ROS_DOMAIN_ID=99 && "
-            f"echo $$ > {pid_file} && "
-            f"exec {command} {' '.join(arguments)}"
+            f"echo $$ > {shlex.quote(pid_file)} && "
+            f"exec {cmd_exec}"
         )
+
         process = QProcess(self)
-
-        #process.finished.connect(lambda code, status, pid=package_id: self._on_finished(code, status, pid))
         process.errorOccurred.connect(lambda err: self._on_error(err, package_id))
-        #process.started.connect(lambda: self._on_started(package_id))
 
+        # terminator의 --command는 "한 개의 문자열"을 기대하는 경우가 많아서,
+        # bash -lc 전체를 하나의 인자로 넘김
         process.start(
             "terminator",
             [
                 "--new-tab",
                 "--command",
-                f"bash -lc \"{cmd_chain}\""
+                f"bash -lc {shlex.quote(cmd_chain)}"
             ]
         )
+
         self.processes[package_id] = {
             "QProcess": process,
             "pid_file": pid_file,
@@ -227,7 +225,7 @@ class ProcessManager(QObject):
             "pid": None
         }
 
-        return True, f"{status_msg}"
+        return True, status_msg
 
     
     # def _handle_stdout(self, package_id):
