@@ -1,0 +1,23 @@
+vision_tune:
+  ros__parameters:
+    red:
+      h_low: 50
+      h_high: 0
+      s_low: 0
+      s_high: 30
+      v_low: 10
+      v_high: 0
+    blue:
+      h_low: 182
+      h_high: 0
+      s_low: 0
+      s_high: 155
+      v_low: 95
+      v_high: 0
+    line:
+      h_low: 142
+      h_high: 0
+      s_low: 0
+      s_high: 63
+      v_low: 0
+      v_high: 0
