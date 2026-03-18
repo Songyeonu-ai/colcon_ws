@@ -1,3 +1,4 @@
+int32 selected_target 
 int32 red_h_low
 int32 red_h_high
 int32 red_s_low

@@ -51,24 +51,24 @@ rosidl_get_typesupport_target(cpp_typesupport_target
 # =========================
 # camera_node
 # =========================
-add_executable(camera_node
+add_executable(pan_tilt_camera_node
   src/usb_cam/insta/pan_tilt_camera_node.cpp
   src/usb_cam/insta/usb_camera.cpp
 )
 
-ament_target_dependencies(camera_node
+ament_target_dependencies(pan_tilt_camera_node
   rclcpp
   rclcpp_lifecycle
   sensor_msgs
   cv_bridge
 )
 
-target_include_directories(camera_node PUBLIC
+target_include_directories(pan_tilt_camera_node PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/include
   ${CMAKE_CURRENT_BINARY_DIR}/rosidl_generator_cpp
 )
 
-target_link_libraries(camera_node
+target_link_libraries(pan_tilt_camera_node
   ${cpp_typesupport_target}
 )
 
@@ -128,7 +128,7 @@ target_link_libraries(ui_node
 )
 
 install(TARGETS
-  camera_node
+  pan_tilt_camera_node
   process_node
   ui_node
   DESTINATION lib/${PROJECT_NAME}
@@ -139,6 +139,10 @@ install(DIRECTORY launch
 )
 
 install(DIRECTORY ui
+  DESTINATION share/${PROJECT_NAME}
+)
+
+install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -3,9 +3,10 @@
 
 #include <QDir>
 
-namespace {
-YAML::Node toYaml(const HSVRange &hsv)
+namespace
 {
+  YAML::Node to_yaml(const HSVRange &hsv)
+  {
     YAML::Node node;
     node["h_low"] = hsv.h_low;
     node["h_high"] = hsv.h_high;
@@ -14,12 +15,13 @@ YAML::Node toYaml(const HSVRange &hsv)
     node["v_low"] = hsv.v_low;
     node["v_high"] = hsv.v_high;
     return node;
-}
+  }
 
-bool fromYaml(const YAML::Node &node, HSVRange &hsv)
-{
-    if (!node) {
-        return false;
+  bool from_yaml(const YAML::Node &node, HSVRange &hsv)
+  {
+    if (!node)
+    {
+      return false;
     }
     hsv.h_low = node["h_low"].as<int>();
     hsv.h_high = node["h_high"].as<int>();
@@ -28,324 +30,454 @@ bool fromYaml(const YAML::Node &node, HSVRange &hsv)
     hsv.v_low = node["v_low"].as<int>();
     hsv.v_high = node["v_high"].as<int>();
     return true;
-}
+  }
 } // namespace
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow)
+    : QMainWindow(parent),
+      ui(new Ui::MainWindow),
+      pending_widget_config_(hsv_config_),
+      pending_widget_target_(current_target_)
 {
-    ui->setupUi(this);
-    syncBufferToUi();
+  ui->setupUi(this);
+
+  ui_apply_timer_ = new QTimer(this);
+  ui_apply_timer_->setInterval(66); // about 15 Hz
+  connect(ui_apply_timer_, &QTimer::timeout, this, &MainWindow::apply_pending_ui);
+  ui_apply_timer_->start();
+
+  queue_full_config_to_widgets();
+  apply_pending_ui();
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+  delete ui;
 }
 
-void MainWindow::updateRawImage(const QPixmap &pixmap)
+const HSVConfig &MainWindow::get_hsv_config() const
 {
-    if (pixmap.isNull()) return;
+  return hsv_config_;
+}
 
+HSVConfig &MainWindow::get_hsv_config_mutable()
+{
+  return hsv_config_;
+}
+
+VisionTarget MainWindow::get_current_target() const
+{
+  return current_target_;
+}
+
+HSVRange &MainWindow::current_hsv()
+{
+  switch (current_target_)
+  {
+  case VisionTarget::red:
+    return hsv_config_.red;
+  case VisionTarget::blue:
+    return hsv_config_.blue;
+  case VisionTarget::line:
+    return hsv_config_.line;
+  }
+  return hsv_config_.red;
+}
+
+const HSVRange &MainWindow::current_hsv() const
+{
+  switch (current_target_)
+  {
+  case VisionTarget::red:
+    return hsv_config_.red;
+  case VisionTarget::blue:
+    return hsv_config_.blue;
+  case VisionTarget::line:
+    return hsv_config_.line;
+  }
+  return hsv_config_.red;
+}
+
+void MainWindow::set_range_to_zero(HSVRange &range)
+{
+  range = HSVRange{};
+}
+
+void MainWindow::queue_value_change(int h_low, int h_high, int s_low, int s_high, int v_low, int v_high)
+{
+  HSVRange &hsv = current_hsv();
+  hsv.h_low = h_low;
+  hsv.h_high = h_high;
+  hsv.s_low = s_low;
+  hsv.s_high = s_high;
+  hsv.v_low = v_low;
+  hsv.v_high = v_high;
+  queue_current_target_to_widgets();
+}
+
+void MainWindow::queue_current_target_to_widgets()
+{
+  pending_widget_config_ = hsv_config_;
+  pending_widget_target_ = current_target_;
+  pending_widget_dirty_ = true;
+}
+
+void MainWindow::queue_full_config_to_widgets()
+{
+  pending_widget_config_ = hsv_config_;
+  pending_widget_target_ = current_target_;
+  pending_widget_dirty_ = true;
+}
+
+QLabel *MainWindow::get_current_result_label()
+{
+  switch (current_target_)
+  {
+  case VisionTarget::red:
+    return ui->label_red;
+  case VisionTarget::blue:
+    return ui->label_blue;
+  case VisionTarget::line:
+    return ui->label_line;
+  default:
+    return ui->label_red;
+  }
+}
+
+void MainWindow::apply_pending_ui()
+{
+  if (pending_widget_dirty_)
+  {
+    suppress_ui_sync_ = true;
+
+    const HSVRange *hsv = nullptr;
+    switch (pending_widget_target_)
+    {
+    case VisionTarget::red:
+      hsv = &pending_widget_config_.red;
+      ui->radioButton_red->setChecked(true);
+      break;
+    case VisionTarget::blue:
+      hsv = &pending_widget_config_.blue;
+      ui->radioButton_blue->setChecked(true);
+      break;
+    case VisionTarget::line:
+      hsv = &pending_widget_config_.line;
+      ui->radioButton_line->setChecked(true);
+      break;
+    }
+
+    if (hsv != nullptr)
+    {
+      ui->slider_h_low->setValue(hsv->h_low);
+      ui->slider_h_high->setValue(hsv->h_high);
+      ui->slider_s_low->setValue(hsv->s_low);
+      ui->slider_s_high->setValue(hsv->s_high);
+      ui->slider_v_low->setValue(hsv->v_low);
+      ui->slider_v_high->setValue(hsv->v_high);
+
+      ui->spinBox_h_low->setValue(hsv->h_low);
+      ui->spinBox_h_high->setValue(hsv->h_high);
+      ui->spinBox_s_low->setValue(hsv->s_low);
+      ui->spinBox_s_high->setValue(hsv->s_high);
+      ui->spinBox_v_low->setValue(hsv->v_low);
+      ui->spinBox_v_high->setValue(hsv->v_high);
+    }
+
+    suppress_ui_sync_ = false;
+    pending_widget_dirty_ = false;
+  }
+
+  if (pending_raw_dirty_)
+  {
     ui->label_raw->setPixmap(
-        pixmap.scaled(
+        pending_raw_pixmap_.scaled(
             ui->label_raw->size(),
             Qt::KeepAspectRatio,
-            Qt::SmoothTransformation
-        )
-    );
-}
+            Qt::SmoothTransformation));
+    pending_raw_dirty_ = false;
+  }
 
-void MainWindow::updateResultImage(const QPixmap &pixmap)
-{
-    if (pixmap.isNull()) return;
+  if (pending_result_image_dirty_)
+  {
+    QLabel *target_label = get_current_result_label();
 
-    ui->label_red->setPixmap(
-        pixmap.scaled(
-            ui->label_red->size(),
+    if (target_label != nullptr)
+    {
+      target_label->setPixmap(
+          pending_result_pixmap_.scaled(
+              target_label->size(),
+              Qt::KeepAspectRatio,
+              Qt::SmoothTransformation));
+    }
+
+    pending_result_image_dirty_ = false;
+  }
+
+  if (pending_bird_image_dirty_)
+  {
+    ui->label_bird->setPixmap(
+        pending_bird_pixmap_.scaled(
+            ui->label_bird->size(),
             Qt::KeepAspectRatio,
-            Qt::SmoothTransformation
-        )
-    );
+            Qt::SmoothTransformation));
+    pending_bird_image_dirty_ = false;
+  }
+
+  if (pending_result_msg_dirty_)
+  {
+    ui->label_detected->setText(pending_result_msg_.detected ? "true" : "false");
+    ui->label_center_x->setText(QString::number(pending_result_msg_.center_x));
+    ui->label_center_y->setText(QString::number(pending_result_msg_.center_y));
+    ui->label_area->setText(QString::number(pending_result_msg_.area));
+    pending_result_msg_dirty_ = false;
+  }
 }
 
-const HSVConfig &MainWindow::getHSVConfig() const
+void MainWindow::update_result(const vision_tune::msg::ProcessResult &msg)
 {
-    return hsv_config_;
+  pending_result_msg_ = msg;
+  pending_result_msg_dirty_ = true;
 }
 
-HSVConfig &MainWindow::getHSVConfigMutable()
+void MainWindow::update_raw_image(const QPixmap &pixmap)
 {
-    return hsv_config_;
+  if (pixmap.isNull())
+  {
+    return;
+  }
+  pending_raw_pixmap_ = pixmap;
+  pending_raw_dirty_ = true;
 }
 
-VisionTarget MainWindow::getCurrentTarget() const
+void MainWindow::update_result_image(const QPixmap &pixmap)
 {
-    return current_target_;
+  if (pixmap.isNull())
+  {
+    return;
+  }
+  pending_result_pixmap_ = pixmap;
+  pending_result_image_dirty_ = true;
 }
 
-HSVRange &MainWindow::currentHSV()
+void MainWindow::update_bird_image(const QPixmap &pixmap)
 {
-    switch (current_target_) {
-    case VisionTarget::Red:
-        return hsv_config_.red;
-    case VisionTarget::Blue:
-        return hsv_config_.blue;
-    case VisionTarget::Line:
-        return hsv_config_.line;
+  if (pixmap.isNull())
+  {
+    return;
+  }
+  pending_bird_pixmap_ = pixmap;
+  pending_bird_image_dirty_ = true;
+}
+
+bool MainWindow::save_yaml(const QString &file_path)
+{
+  try
+  {
+    YAML::Node root;
+    YAML::Node params;
+
+    params["red"] = to_yaml(hsv_config_.red);
+    params["blue"] = to_yaml(hsv_config_.blue);
+    params["line"] = to_yaml(hsv_config_.line);
+
+    root["ui_node"]["ros__parameters"]["hsv"] = params;
+
+    std::ofstream fout(file_path.toStdString());
+    fout << root;
+    fout.close();
+    return true;
+  }
+  catch (const std::exception &e)
+  {
+    QMessageBox::critical(this, "save error", e.what());
+    return false;
+  }
+}
+
+bool MainWindow::load_yaml(const QString &file_path)
+{
+  try
+  {
+    YAML::Node root = YAML::LoadFile(file_path.toStdString());
+    YAML::Node params = root["ui_node"]["ros__parameters"]["hsv"];
+
+    if (!params)
+    {
+      QMessageBox::warning(this, "load error", "invalid yaml format");
+      return false;
     }
-    return hsv_config_.red;
+
+    from_yaml(params["red"], hsv_config_.red);
+    from_yaml(params["blue"], hsv_config_.blue);
+    from_yaml(params["line"], hsv_config_.line);
+
+    queue_full_config_to_widgets();
+    return true;
+  }
+  catch (const std::exception &e)
+  {
+    QMessageBox::critical(this, "load error", e.what());
+    return false;
+  }
 }
 
-const HSVRange &MainWindow::currentHSV() const
+void MainWindow::on_spinBox_h_low_valueChanged(int value)
 {
-    switch (current_target_) {
-    case VisionTarget::Red:
-        return hsv_config_.red;
-    case VisionTarget::Blue:
-        return hsv_config_.blue;
-    case VisionTarget::Line:
-        return hsv_config_.line;
-    }
-    return hsv_config_.red;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(value, current_hsv().h_high, current_hsv().s_low, current_hsv().s_high, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::syncBufferToUi()
+void MainWindow::on_spinBox_s_low_valueChanged(int value)
 {
-    suppress_ui_sync_ = true;
-    const HSVRange &hsv = currentHSV();
-
-    ui->slider_h_low->setValue(hsv.h_low);
-    ui->slider_h_high->setValue(hsv.h_high);
-    ui->slider_s_low->setValue(hsv.s_low);
-    ui->slider_s_high->setValue(hsv.s_high);
-    ui->slider_v_low->setValue(hsv.v_low);
-    ui->slider_v_high->setValue(hsv.v_high);
-
-    ui->spinBox_h_low->setValue(hsv.h_low);
-    ui->spinBox_h_high->setValue(hsv.h_high);
-    ui->spinBox_s_low->setValue(hsv.s_low);
-    ui->spinBox_s_high->setValue(hsv.s_high);
-    ui->spinBox_v_low->setValue(hsv.v_low);
-    ui->spinBox_v_high->setValue(hsv.v_high);
-    suppress_ui_sync_ = false;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, value, current_hsv().s_high, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::syncUiToBuffer()
+void MainWindow::on_spinBox_v_low_valueChanged(int value)
 {
-    if (suppress_ui_sync_) {
-        return;
-    }
-
-    HSVRange &hsv = currentHSV();
-    hsv.h_low = ui->slider_h_low->value();
-    hsv.h_high = ui->slider_h_high->value();
-    hsv.s_low = ui->slider_s_low->value();
-    hsv.s_high = ui->slider_s_high->value();
-    hsv.v_low = ui->slider_v_low->value();
-    hsv.v_high = ui->slider_v_high->value();
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, current_hsv().s_low, current_hsv().s_high, value, current_hsv().v_high);
 }
 
-void MainWindow::setCurrentTarget(VisionTarget target)
+void MainWindow::on_spinBox_h_high_valueChanged(int value)
 {
-    current_target_ = target;
-    syncBufferToUi();
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, value, current_hsv().s_low, current_hsv().s_high, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::setRangeToZero(HSVRange &range)
+void MainWindow::on_spinBox_s_high_valueChanged(int value)
 {
-    range = HSVRange{};
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, current_hsv().s_low, value, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::on_spinBox_h_low_valueChanged(int h_low)
+void MainWindow::on_spinBox_v_high_valueChanged(int value)
 {
-    if (suppress_ui_sync_) return;
-    ui->slider_h_low->setValue(h_low);
-    currentHSV().h_low = h_low;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, current_hsv().s_low, current_hsv().s_high, current_hsv().v_low, value);
 }
 
-void MainWindow::on_spinBox_s_low_valueChanged(int s_low)
+void MainWindow::on_slider_h_low_valueChanged(int value)
 {
-    if (suppress_ui_sync_) return;
-    ui->slider_s_low->setValue(s_low);
-    currentHSV().s_low = s_low;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(value, current_hsv().h_high, current_hsv().s_low, current_hsv().s_high, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::on_spinBox_v_low_valueChanged(int v_low)
+void MainWindow::on_slider_s_low_valueChanged(int value)
 {
-    if (suppress_ui_sync_) return;
-    ui->slider_v_low->setValue(v_low);
-    currentHSV().v_low = v_low;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, value, current_hsv().s_high, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::on_spinBox_h_high_valueChanged(int h_high)
+void MainWindow::on_slider_v_low_valueChanged(int value)
 {
-    if (suppress_ui_sync_) return;
-    ui->slider_h_high->setValue(h_high);
-    currentHSV().h_high = h_high;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, current_hsv().s_low, current_hsv().s_high, value, current_hsv().v_high);
 }
 
-void MainWindow::on_spinBox_s_high_valueChanged(int s_high)
+void MainWindow::on_slider_h_high_valueChanged(int value)
 {
-    if (suppress_ui_sync_) return;
-    ui->slider_s_high->setValue(s_high);
-    currentHSV().s_high = s_high;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, value, current_hsv().s_low, current_hsv().s_high, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::on_spinBox_v_high_valueChanged(int v_high)
+void MainWindow::on_slider_s_high_valueChanged(int value)
 {
-    if (suppress_ui_sync_) return;
-    ui->slider_v_high->setValue(v_high);
-    currentHSV().v_high = v_high;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, current_hsv().s_low, value, current_hsv().v_low, current_hsv().v_high);
 }
 
-void MainWindow::on_slider_h_low_valueChanged(int h_low)
+void MainWindow::on_slider_v_high_valueChanged(int value)
 {
-    if (suppress_ui_sync_) return;
-    ui->spinBox_h_low->setValue(h_low);
-    currentHSV().h_low = h_low;
-}
-
-void MainWindow::on_slider_s_low_valueChanged(int s_low)
-{
-    if (suppress_ui_sync_) return;
-    ui->spinBox_s_low->setValue(s_low);
-    currentHSV().s_low = s_low;
-}
-
-void MainWindow::on_slider_v_low_valueChanged(int v_low)
-{
-    if (suppress_ui_sync_) return;
-    ui->spinBox_v_low->setValue(v_low);
-    currentHSV().v_low = v_low;
-}
-
-void MainWindow::on_slider_h_high_valueChanged(int h_high)
-{
-    if (suppress_ui_sync_) return;
-    ui->spinBox_h_high->setValue(h_high);
-    currentHSV().h_high = h_high;
-}
-
-void MainWindow::on_slider_s_high_valueChanged(int s_high)
-{
-    if (suppress_ui_sync_) return;
-    ui->spinBox_s_high->setValue(s_high);
-    currentHSV().s_high = s_high;
-}
-
-void MainWindow::on_slider_v_high_valueChanged(int v_high)
-{
-    if (suppress_ui_sync_) return;
-    ui->spinBox_v_high->setValue(v_high);
-    currentHSV().v_high = v_high;
+  if (suppress_ui_sync_)
+    return;
+  queue_value_change(current_hsv().h_low, current_hsv().h_high, current_hsv().s_low, current_hsv().s_high, current_hsv().v_low, value);
 }
 
 void MainWindow::on_radioButton_red_clicked()
 {
-    setCurrentTarget(VisionTarget::Red);
+  current_target_ = VisionTarget::red;
+  queue_current_target_to_widgets();
 }
 
 void MainWindow::on_radioButton_blue_clicked()
 {
-    setCurrentTarget(VisionTarget::Blue);
+  current_target_ = VisionTarget::blue;
+  queue_current_target_to_widgets();
 }
 
 void MainWindow::on_radioButton_line_clicked()
 {
-    setCurrentTarget(VisionTarget::Line);
-}
-
-void MainWindow::on_pushButton_set0_clicked()
-{
-    setRangeToZero(currentHSV());
-    syncBufferToUi();
-}
-
-void MainWindow::on_pushButton_yolo_clicked()
-{
+  current_target_ = VisionTarget::line;
+  queue_current_target_to_widgets();
 }
 
 void MainWindow::on_pushButton_save_clicked()
 {
-    QString default_dir = QDir::homePath() + "/colcon_ws/src/vision_tune/config";
-    QDir().mkpath(default_dir);
-    QString file_path = QFileDialog::getSaveFileName(
-        this,
-        "Save HSV YAML",
-        default_dir + "/hsv_preset.yaml",
-        "YAML Files (*.yaml *.yml)");
+  const QString path = QDir::homePath() + "/ros2_ws/src/vision_tune/config/";
+  QDir().mkpath(path);
 
-    if (file_path.isEmpty()) {
-        return;
-    }
-    if (!file_path.endsWith(".yaml", Qt::CaseInsensitive) &&
-        !file_path.endsWith(".yml", Qt::CaseInsensitive)) {
-        file_path += ".yaml";
-    }
-    saveYaml(file_path);
+  QString file_path = QFileDialog::getSaveFileName(
+      this,
+      "save hsv yaml",
+      path + "vision_hsv.yaml",
+      "yaml files (*.yaml *.yml)");
+
+  if (file_path.isEmpty())
+  {
+    return;
+  }
+
+  if (!file_path.endsWith(".yaml", Qt::CaseInsensitive) &&
+      !file_path.endsWith(".yml", Qt::CaseInsensitive))
+  {
+    file_path += ".yaml";
+  }
+
+  if (save_yaml(file_path))
+  {
+    QMessageBox::information(this, "save", "yaml saved");
+  }
 }
 
 void MainWindow::on_pushButton_load_clicked()
 {
-    QString default_dir = QDir::homePath() + "/colcon_ws/src/vision_tune/config";
-    QDir().mkpath(default_dir);
-    QString file_path = QFileDialog::getOpenFileName(
-        this,
-        "Load HSV YAML",
-        default_dir,
-        "YAML Files (*.yaml *.yml)");
+  const QString path = QDir::homePath() + "/ros2_ws/src/vision_tune/config/";
+  QDir().mkpath(path);
 
-    if (file_path.isEmpty()) {
-        return;
-    }
-    loadYaml(file_path);
+  const QString file_path = QFileDialog::getOpenFileName(
+      this,
+      "load hsv yaml",
+      path,
+      "yaml files (*.yaml *.yml)");
+
+  if (file_path.isEmpty())
+  {
+    return;
+  }
+
+  if (load_yaml(file_path))
+  {
+    QMessageBox::information(this, "load", "yaml loaded");
+  }
 }
 
-bool MainWindow::saveYaml(const QString &file_path)
+void MainWindow::on_pushButton_set0_clicked()
 {
-    try {
-        YAML::Node root;
-        YAML::Node params;
-        params["red"] = toYaml(hsv_config_.red);
-        params["blue"] = toYaml(hsv_config_.blue);
-        params["line"] = toYaml(hsv_config_.line);
-        root["vision_tune"]["ros__parameters"] = params;
-
-        std::ofstream fout(file_path.toStdString());
-        fout << root;
-        return true;
-    } catch (const std::exception &e) {
-        QMessageBox::critical(this, "Save Error", e.what());
-        return false;
-    }
-}
-
-bool MainWindow::loadYaml(const QString &file_path)
-{
-    try {
-        YAML::Node root = YAML::LoadFile(file_path.toStdString());
-        YAML::Node params = root["vision_tune"]["ros__parameters"];
-        if (!params) {
-            QMessageBox::warning(this, "Load Error", "Invalid YAML format");
-            return false;
-        }
-
-        fromYaml(params["red"], hsv_config_.red);
-        fromYaml(params["blue"], hsv_config_.blue);
-        fromYaml(params["line"], hsv_config_.line);
-        syncBufferToUi();
-        return true;
-    } catch (const std::exception &e) {
-        QMessageBox::critical(this, "Load Error", e.what());
-        return false;
-    }
-}
-
-void MainWindow::updateResult(const vision_tune::msg::ProcessResult &msg)
-{
-    ui->label_detected->setText(msg.detected ? "true" : "false");
-    ui->label_center_x->setText(QString::number(msg.center_x));
-    ui->label_center_y->setText(QString::number(msg.center_y));
-    ui->label_area->setText(QString::number(msg.area));
+  set_range_to_zero(hsv_config_.red);
+  set_range_to_zero(hsv_config_.blue);
+  set_range_to_zero(hsv_config_.line);
+  queue_full_config_to_widgets();
 }

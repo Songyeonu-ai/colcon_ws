@@ -195,7 +195,7 @@ PanTiltCamera::on_activate(const rclcpp_lifecycle::State &)
   pan_tilt_status_pub_->on_activate();
 
   timer_ = this->create_wall_timer(std::chrono::milliseconds(1000 / (int)fps), [this]()
-                                   {
+                                  {
     if (camera_ && camera_->streaming) {
       cv::Mat frame = camera_->m_image;
       std_msgs::msg::Header header;

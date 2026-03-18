@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QPixmap>
+#include <mutex>
+
+#include <opencv2/opencv.hpp>
 
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
@@ -13,30 +16,56 @@ class MainWindow;
 
 class UiNode : public QObject, public rclcpp::Node
 {
-    Q_OBJECT
+  Q_OBJECT
 
 public:
-    explicit UiNode(MainWindow *window);
+  std::chrono::nanoseconds cal_period(double hz);
+  explicit UiNode(MainWindow *window);
 
 Q_SIGNALS:
-    void rawImageReceived(const QPixmap &pixmap);
-    void resultImageReceived(const QPixmap &pixmap);
+  void raw_image_received(const QPixmap &pixmap);
+  void result_image_received(const QPixmap &pixmap);
+  void bird_image_received(const QPixmap &pixmap);
 
 private:
-    void publishTuning();
-    void resultCallback(const vision_tune::msg::ProcessResult::SharedPtr msg);
-    void rawImageCallback(const sensor_msgs::msg::Image::SharedPtr msg);
-    void resultImageCallback(const sensor_msgs::msg::Image::SharedPtr msg);
+  void publish_tuning();
+  void result_callback(const vision_tune::msg::ProcessResult::SharedPtr msg);
+  void raw_image_callback(const sensor_msgs::msg::Image::SharedPtr msg);
+  void result_image_callback(const sensor_msgs::msg::Image::SharedPtr msg);
+  void bird_image_callback(const sensor_msgs::msg::Image::SharedPtr msg);
+  void declare_parameters();
+  void get_parameters();
+  void ui_tick();
 
-    MainWindow *window_;
+  MainWindow *window_;
 
-    rclcpp::Publisher<vision_tune::msg::TuningValue>::SharedPtr tuning_pub_;
+  rclcpp::Publisher<vision_tune::msg::TuningValue>::SharedPtr tuning_pub_;
 
-    rclcpp::Subscription<vision_tune::msg::ProcessResult>::SharedPtr result_sub_;
-    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr raw_image_sub_;
-    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr result_image_sub_;
+  rclcpp::Subscription<vision_tune::msg::ProcessResult>::SharedPtr result_sub_;
+  rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr raw_image_sub_;
+  rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr result_image_sub_;
+  rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr bird_image_sub_;
 
-    rclcpp::TimerBase::SharedPtr timer_;
+  rclcpp::TimerBase::SharedPtr ui_timer_;
+
+  std::mutex data_mutex_;
+
+  cv::Mat latest_raw_mat_;
+  cv::Mat latest_result_mat_;
+  cv::Mat latest_bird_mat_;
+  vision_tune::msg::ProcessResult latest_result_msg_;
+
+  bool raw_dirty_ = false;
+  bool result_image_dirty_ = false;
+  bool result_msg_dirty_ = false;
+  bool bird_image_dirty_ = false;
+
+  std::string result_topic_;
+  std::string raw_image_topic_;
+  std::string result_image_topic_;
+  std::string tuning_topic_;
+  std::string bird_image_topic_;
+  double node_hz_ = 15.0;
 };
 
 #endif

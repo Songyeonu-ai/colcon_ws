@@ -7,148 +7,294 @@
 #include <QPixmap>
 
 #include <cv_bridge/cv_bridge.h>
-#include <opencv2/opencv.hpp>
 
 UiNode::UiNode(MainWindow *window)
     : QObject(),
-    rclcpp::Node("ui_node"),
-    window_(window)
+      rclcpp::Node("ui_node"),
+      window_(window)
 {
-    tuning_pub_ = this->create_publisher<vision_tune::msg::TuningValue>(
-        "/vision/tuning", 10);
+  declare_parameters();
+  get_parameters();
+  tuning_pub_ = this->create_publisher<vision_tune::msg::TuningValue>(
+      tuning_topic_, 1);
 
-    result_sub_ = this->create_subscription<vision_tune::msg::ProcessResult>(
-        "/vision/result",
-        10,
-        std::bind(&UiNode::resultCallback, this, std::placeholders::_1));
+  result_sub_ = this->create_subscription<vision_tune::msg::ProcessResult>(
+      result_topic_,
+      1,
+      std::bind(&UiNode::result_callback, this, std::placeholders::_1));
 
-    raw_image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
-        "/camera1/camera/image_raw",
-        10,
-        std::bind(&UiNode::rawImageCallback, this, std::placeholders::_1));
+  raw_image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
+      raw_image_topic_,
+      1,
+      std::bind(&UiNode::raw_image_callback, this, std::placeholders::_1));
 
-    result_image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
-        "/vision/result_image",
-        10,
-        std::bind(&UiNode::resultImageCallback, this, std::placeholders::_1));
+  result_image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
+      result_image_topic_,
+      1,
+      std::bind(&UiNode::result_image_callback, this, std::placeholders::_1));
 
-    timer_ = this->create_wall_timer(
-        std::chrono::milliseconds(33),
-        std::bind(&UiNode::publishTuning, this));
+  bird_image_sub_ = this->create_subscription<sensor_msgs::msg::Image>(
+      bird_image_topic_,
+      1,
+      std::bind(&UiNode::bird_image_callback, this, std::placeholders::_1));
+
+  ui_timer_ = this->create_wall_timer(
+      cal_period(node_hz_),
+      std::bind(&UiNode::ui_tick, this));
 }
 
-void UiNode::publishTuning()
+std::chrono::nanoseconds UiNode::cal_period(double hz) // hz계산
 {
-    const HSVConfig &cfg = window_->getHSVConfig();
+  if (hz <= 0.0)
+  {
+    return std::chrono::milliseconds(100);
+  }
 
-    vision_tune::msg::TuningValue msg;
-
-    msg.red_h_low = cfg.red.h_low;
-    msg.red_h_high = cfg.red.h_high;
-    msg.red_s_low = cfg.red.s_low;
-    msg.red_s_high = cfg.red.s_high;
-    msg.red_v_low = cfg.red.v_low;
-    msg.red_v_high = cfg.red.v_high;
-
-    msg.blue_h_low = cfg.blue.h_low;
-    msg.blue_h_high = cfg.blue.h_high;
-    msg.blue_s_low = cfg.blue.s_low;
-    msg.blue_s_high = cfg.blue.s_high;
-    msg.blue_v_low = cfg.blue.v_low;
-    msg.blue_v_high = cfg.blue.v_high;
-
-    msg.line_h_low = cfg.line.h_low;
-    msg.line_h_high = cfg.line.h_high;
-    msg.line_s_low = cfg.line.s_low;
-    msg.line_s_high = cfg.line.s_high;
-    msg.line_v_low = cfg.line.v_low;
-    msg.line_v_high = cfg.line.v_high;
-
-    tuning_pub_->publish(msg);
+  return std::chrono::duration_cast<std::chrono::nanoseconds>(
+      std::chrono::duration<double>(1.0 / hz));
 }
 
-void UiNode::resultCallback(const vision_tune::msg::ProcessResult::SharedPtr msg)
+void UiNode::declare_parameters()
 {
-    window_->updateResult(*msg);
+  declare_parameter<std::string>("topic.result_topic", "/vision/result");
+  declare_parameter<std::string>("topic.raw_image_topic", "/camera1/camera/compressed_image");
+  declare_parameter<std::string>("topic.result_image_topic", "/vision/result_image");
+  declare_parameter<std::string>("topic.tuning_topic", "/vision/tuning");
+  declare_parameter<std::string>("topic.bird_image_topic", "/vision/bird_image");
+
+  declare_parameter<double>("node_hz", 15.0);
 }
 
-void UiNode::rawImageCallback(const sensor_msgs::msg::Image::SharedPtr msg)
+void UiNode::get_parameters()
 {
-    try
-    {
-        cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
-
-        QImage qimg(
-            frame.data,
-            frame.cols,
-            frame.rows,
-            static_cast<int>(frame.step),
-            QImage::Format_BGR888);
-
-        QPixmap pixmap = QPixmap::fromImage(qimg.copy());
-        emit rawImageReceived(pixmap);
-    }
-    catch (const cv_bridge::Exception &e)
-    {
-        RCLCPP_ERROR(this->get_logger(), "raw image cv_bridge exception: %s", e.what());
-    }
+  get_parameter("topic.result_topic", result_topic_);
+  get_parameter("topic.raw_image_topic", raw_image_topic_);
+  get_parameter("topic.result_image_topic", result_image_topic_);
+  get_parameter("topic.tuning_topic", tuning_topic_);
+  get_parameter("topic.bird_image_topic", bird_image_topic_);
+  get_parameter("node_hz", node_hz_);
 }
 
-void UiNode::resultImageCallback(const sensor_msgs::msg::Image::SharedPtr msg)
+void UiNode::publish_tuning()
 {
-    try
-    {
-        cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
+  const HSVConfig &cfg = window_->get_hsv_config();
 
-        QImage qimg(
-            frame.data,
-            frame.cols,
-            frame.rows,
-            static_cast<int>(frame.step),
-            QImage::Format_BGR888);
+  vision_tune::msg::TuningValue msg;
 
-        QPixmap pixmap = QPixmap::fromImage(qimg.copy());
-        emit resultImageReceived(pixmap);
-    }
-    catch (const cv_bridge::Exception &e)
+  msg.selected_target = static_cast<int>(window_->get_current_target());
+
+  msg.red_h_low = cfg.red.h_low;
+  msg.red_h_high = cfg.red.h_high;
+  msg.red_s_low = cfg.red.s_low;
+  msg.red_s_high = cfg.red.s_high;
+  msg.red_v_low = cfg.red.v_low;
+  msg.red_v_high = cfg.red.v_high;
+
+  msg.blue_h_low = cfg.blue.h_low;
+  msg.blue_h_high = cfg.blue.h_high;
+  msg.blue_s_low = cfg.blue.s_low;
+  msg.blue_s_high = cfg.blue.s_high;
+  msg.blue_v_low = cfg.blue.v_low;
+  msg.blue_v_high = cfg.blue.v_high;
+
+  msg.line_h_low = cfg.line.h_low;
+  msg.line_h_high = cfg.line.h_high;
+  msg.line_s_low = cfg.line.s_low;
+  msg.line_s_high = cfg.line.s_high;
+  msg.line_v_low = cfg.line.v_low;
+  msg.line_v_high = cfg.line.v_high;
+
+  tuning_pub_->publish(msg);
+}
+
+void UiNode::result_callback(const vision_tune::msg::ProcessResult::SharedPtr msg)
+{
+  std::lock_guard<std::mutex> lock(data_mutex_);
+  latest_result_msg_ = *msg;
+  result_msg_dirty_ = true;
+}
+
+void UiNode::raw_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
+{
+  try
+  {
+    cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
+
+    std::lock_guard<std::mutex> lock(data_mutex_);
+    latest_raw_mat_ = frame.clone();
+    raw_dirty_ = true;
+  }
+  catch (const cv_bridge::Exception &e)
+  {
+    RCLCPP_ERROR(this->get_logger(), "raw image cv_bridge exception: %s", e.what());
+  }
+}
+
+void UiNode::result_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
+{
+  try
+  {
+    cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
+
+    std::lock_guard<std::mutex> lock(data_mutex_);
+    latest_result_mat_ = frame.clone();
+    result_image_dirty_ = true;
+  }
+  catch (const cv_bridge::Exception &e)
+  {
+    RCLCPP_ERROR(this->get_logger(), "result image cv_bridge exception: %s", e.what());
+  }
+}
+
+void UiNode::bird_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
+{
+  try
+  {
+    cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
+
+    std::lock_guard<std::mutex> lock(data_mutex_);
+    latest_bird_mat_ = frame.clone();
+    bird_image_dirty_ = true;
+  }
+  catch (const cv_bridge::Exception &e)
+  {
+    RCLCPP_ERROR(this->get_logger(), "bird image cv_bridge exception: %s", e.what());
+  }
+}
+
+void UiNode::ui_tick()
+{
+  cv::Mat raw_mat;
+  cv::Mat result_mat;
+  cv::Mat bird_mat;
+  vision_tune::msg::ProcessResult result_msg;
+
+  bool raw_dirty = false;
+  bool result_image_dirty = false;
+  bool result_msg_dirty = false;
+  bool bird_image_dirty = false;
+
+  {
+    std::lock_guard<std::mutex> lock(data_mutex_);
+
+    if (raw_dirty_)
     {
-        RCLCPP_ERROR(this->get_logger(), "result image cv_bridge exception: %s", e.what());
+      raw_mat = latest_raw_mat_.clone();
+      raw_dirty = true;
+      raw_dirty_ = false;
     }
+
+    if (result_image_dirty_)
+    {
+      result_mat = latest_result_mat_.clone();
+      result_image_dirty = true;
+      result_image_dirty_ = false;
+    }
+
+    if (result_msg_dirty_)
+    {
+      result_msg = latest_result_msg_;
+      result_msg_dirty = true;
+      result_msg_dirty_ = false;
+    }
+
+    if (bird_image_dirty_)
+    {
+      bird_mat = latest_bird_mat_.clone();
+      bird_image_dirty = true;
+      bird_image_dirty_ = false;
+    }
+  }
+
+  if (raw_dirty && !raw_mat.empty())
+  {
+    QImage qimg(
+        raw_mat.data,
+        raw_mat.cols,
+        raw_mat.rows,
+        static_cast<int>(raw_mat.step),
+        QImage::Format_BGR888);
+
+    emit raw_image_received(QPixmap::fromImage(qimg.copy()));
+  }
+
+  if (result_image_dirty && !result_mat.empty())
+  {
+    QImage qimg(
+        result_mat.data,
+        result_mat.cols,
+        result_mat.rows,
+        static_cast<int>(result_mat.step),
+        QImage::Format_BGR888);
+
+    emit result_image_received(QPixmap::fromImage(qimg.copy()));
+  }
+
+  if (bird_image_dirty && !bird_mat.empty())
+  {
+    QImage qimg(
+        bird_mat.data,
+        bird_mat.cols,
+        bird_mat.rows,
+        static_cast<int>(bird_mat.step),
+        QImage::Format_BGR888);
+
+    emit bird_image_received(QPixmap::fromImage(qimg.copy()));
+  }
+
+  if (result_msg_dirty)
+  {
+    window_->update_result(result_msg);
+  }
+
+  publish_tuning();
 }
 
 int main(int argc, char **argv)
 {
-    rclcpp::init(argc, argv);
-    QApplication app(argc, argv);
+  rclcpp::init(argc, argv);
+  QApplication app(argc, argv);
 
-    MainWindow window;
-    window.show();
+  MainWindow window;
+  window.show();
 
-    auto node = std::make_shared<UiNode>(&window);
+  auto node = std::make_shared<UiNode>(&window);
 
-    QObject::connect(node.get(), &UiNode::rawImageReceived,
-                    &window, &MainWindow::updateRawImage);
+  QObject::connect(
+      node.get(),
+      &UiNode::raw_image_received,
+      &window,
+      &MainWindow::update_raw_image);
 
-    QObject::connect(node.get(), &UiNode::resultImageReceived,
-                    &window, &MainWindow::updateResultImage);
+  QObject::connect(
+      node.get(),
+      &UiNode::result_image_received,
+      &window,
+      &MainWindow::update_result_image);
 
-    QTimer ros_timer;
-    QObject::connect(&ros_timer, &QTimer::timeout, [&]()
-                    {
+  QObject::connect(
+      node.get(),
+      &UiNode::bird_image_received,
+      &window,
+      &MainWindow::update_bird_image);
+
+  QTimer ros_spin_timer;
+  QObject::connect(&ros_spin_timer, &QTimer::timeout, [&]()
+                   {
         if (rclcpp::ok()) {
             rclcpp::spin_some(node);
         } });
-    ros_timer.start(10);
+  ros_spin_timer.start(10);
 
-    QObject::connect(&app, &QApplication::aboutToQuit, [&]()
-                    { ros_timer.stop(); });
+  QObject::connect(&app, &QApplication::aboutToQuit, [&]()
+                   { ros_spin_timer.stop(); });
 
-    int ret = app.exec();
+  int ret = app.exec();
 
-    if (rclcpp::ok())
-    {
-        rclcpp::shutdown();
-    }
+  if (rclcpp::ok())
+  {
+    rclcpp::shutdown();
+  }
 
-    return ret;
+  return ret;
 }

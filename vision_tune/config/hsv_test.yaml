@@ -1,23 +1,45 @@
-vision_tune:
+ui_node:
   ros__parameters:
-    red:
-      h_low: 50
-      h_high: 0
-      s_low: 0
-      s_high: 30
-      v_low: 10
-      v_high: 0
-    blue:
-      h_low: 182
-      h_high: 0
-      s_low: 0
-      s_high: 155
-      v_low: 95
-      v_high: 0
-    line:
-      h_low: 142
-      h_high: 0
-      s_low: 0
-      s_high: 63
-      v_low: 0
-      v_high: 0
+    hsv:
+      red:
+        h_low: 50
+        h_high: 0
+        s_low: 0
+        s_high: 30
+        v_low: 10
+        v_high: 0
+      blue:
+        h_low: 182
+        h_high: 0
+        s_low: 0
+        s_high: 155
+        v_low: 95
+        v_high: 0
+      line:
+        h_low: 142
+        h_high: 0
+        s_low: 0
+        s_high: 63
+        v_low: 0
+        v_high: 0
+    topic:
+      result_topic: "/vision/result"
+      raw_image_topic: "/camera1/camera/compressed_image"
+      result_image_topic: "/vision/result_image"
+      tuning_topic: "/vision/tuning"
+      brid_image_topic: "/vision/bird_image"
+    node_hz: 15.0
+
+process_node:
+  ros__parameters:
+    topic:
+      input_topic: "/camera1/camera/image_raw"
+      result_topic: "/vision/result"
+      result_image_topic: "/vision/result_image"
+      tuning_topic: "/vision/tuning"
+      brid_image_topic: "/vision/bird_image"
+    node_hz: 30.0
+
+pan_tilt_camera_node_camera1:
+  ros__parameters:
+    node_hz: 15.0
