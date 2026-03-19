@@ -18,6 +18,12 @@ def generate_launch_description():
         'camera_info_config.yaml'
     )
 
+    param_dir = os.path.join(
+        get_package_share_directory('vision_tune'),
+        'config',
+        'ui_config.yaml'
+    )
+
     with open(config_dir, 'r') as file:
         config_params = yaml.safe_load(file)
         camera_name = config_params['/**']['ros__parameters']['camera_name']
@@ -37,7 +43,7 @@ def generate_launch_description():
         executable='process_node',
         name='process_node',
         output='screen',
-        parameters=[config_dir]
+        parameters=[param_dir]
     )
 
     ui_node = Node(
@@ -45,7 +51,7 @@ def generate_launch_description():
         executable='ui_node',
         name='ui_node',
         output='screen',
-        parameters=[config_dir]
+        parameters=[param_dir]
     )
 
     return LaunchDescription([

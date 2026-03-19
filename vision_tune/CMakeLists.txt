@@ -30,6 +30,15 @@ find_package(Qt5 REQUIRED COMPONENTS Widgets Core Gui)
 find_package(OpenCV REQUIRED)
 find_package(yaml-cpp REQUIRED) #yaml 파일로 save하기 위함
 
+include_directories(
+  include
+  ${OpenCV_INCLUDE_DIRS}
+)
+
+add_library(vision_tune_vision_utils
+  src/utils/vision_utils.cpp
+)
+
 # =========================
 # Messages
 # =========================
@@ -92,7 +101,9 @@ target_include_directories(process_node PUBLIC
 )
 
 target_link_libraries(process_node
+  vision_tune_vision_utils
   ${cpp_typesupport_target}
+  ${OpenCV_LIBS}
 )
 
 # =========================
@@ -119,6 +130,7 @@ target_include_directories(ui_node PUBLIC
 )
 
 target_link_libraries(ui_node
+  vision_tune_vision_utils
   Qt5::Widgets
   Qt5::Core
   Qt5::Gui
@@ -144,6 +156,10 @@ install(DIRECTORY ui
 
 install(DIRECTORY config
   DESTINATION share/${PROJECT_NAME}
+)
+
+install(DIRECTORY include/
+  DESTINATION include/
 )
 
 ament_export_dependencies(rosidl_default_runtime)

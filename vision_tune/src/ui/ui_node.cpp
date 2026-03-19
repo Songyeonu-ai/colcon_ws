@@ -1,5 +1,6 @@
 #include "vision_tune/ui/ui_node.hpp"
 #include "vision_tune/ui/main_window.hpp"
+#include "vision_tune/utils/common_utils.hpp"
 
 #include <QApplication>
 #include <QTimer>
@@ -15,6 +16,8 @@ UiNode::UiNode(MainWindow *window)
 {
   declare_parameters();
   get_parameters();
+  window_->set_ui_update_hz(ui_apply_hz_);
+
   tuning_pub_ = this->create_publisher<vision_tune::msg::TuningValue>(
       tuning_topic_, 1);
 
@@ -39,22 +42,11 @@ UiNode::UiNode(MainWindow *window)
       std::bind(&UiNode::bird_image_callback, this, std::placeholders::_1));
 
   ui_timer_ = this->create_wall_timer(
-      cal_period(node_hz_),
-      std::bind(&UiNode::ui_tick, this));
+      vision_tune::utils::hz_to_period(node_hz_),
+      std::bind(&UiNode::ui_tick, this)); // yaml에서 토픽/주기 설정
 }
 
-std::chrono::nanoseconds UiNode::cal_period(double hz) // hz계산
-{
-  if (hz <= 0.0)
-  {
-    return std::chrono::milliseconds(100);
-  }
-
-  return std::chrono::duration_cast<std::chrono::nanoseconds>(
-      std::chrono::duration<double>(1.0 / hz));
-}
-
-void UiNode::declare_parameters()
+void UiNode::declare_parameters() // ui_config.yaml
 {
   declare_parameter<std::string>("topic.result_topic", "/vision/result");
   declare_parameter<std::string>("topic.raw_image_topic", "/camera1/camera/compressed_image");
@@ -63,6 +55,7 @@ void UiNode::declare_parameters()
   declare_parameter<std::string>("topic.bird_image_topic", "/vision/bird_image");
 
   declare_parameter<double>("node_hz", 15.0);
+  declare_parameter<double>("ui_apply_hz", 15.0);
 }
 
 void UiNode::get_parameters()
@@ -73,11 +66,12 @@ void UiNode::get_parameters()
   get_parameter("topic.tuning_topic", tuning_topic_);
   get_parameter("topic.bird_image_topic", bird_image_topic_);
   get_parameter("node_hz", node_hz_);
+  get_parameter("ui_apply_hz", ui_apply_hz_);
 }
 
 void UiNode::publish_tuning()
 {
-  const HSVConfig &cfg = window_->get_hsv_config();
+  const vision_tune::utils::hsv_config &cfg = window_->get_hsv_config();
 
   vision_tune::msg::TuningValue msg;
 
@@ -115,7 +109,7 @@ void UiNode::result_callback(const vision_tune::msg::ProcessResult::SharedPtr ms
 }
 
 void UiNode::raw_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
-{
+{ // 버퍼에 저장만하고 실제 처리는 ui_tick
   try
   {
     cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
@@ -131,7 +125,7 @@ void UiNode::raw_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
 }
 
 void UiNode::result_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
-{
+{ // 버퍼에 저장만하고 실제 처리는 ui_tick
   try
   {
     cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
@@ -147,7 +141,7 @@ void UiNode::result_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
 }
 
 void UiNode::bird_image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
-{
+{ // 버퍼에 저장만하고 실제 처리는 ui_tick
   try
   {
     cv::Mat frame = cv_bridge::toCvCopy(msg, "bgr8")->image;
@@ -204,8 +198,9 @@ void UiNode::ui_tick()
       bird_image_dirty = true;
       bird_image_dirty_ = false;
     }
-  }
+  } // 업데이트 확인
 
+  //--------------------UI 업데이트는 mainwindow에서, 여기는 emit으로 신호-------------------
   if (raw_dirty && !raw_mat.empty())
   {
     QImage qimg(
@@ -241,6 +236,7 @@ void UiNode::ui_tick()
 
     emit bird_image_received(QPixmap::fromImage(qimg.copy()));
   }
+  //---------------------------------------------------------------------
 
   if (result_msg_dirty)
   {

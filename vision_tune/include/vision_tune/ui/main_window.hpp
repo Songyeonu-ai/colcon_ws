@@ -11,6 +11,7 @@
 
 #include <fstream>
 #include "vision_tune/msg/process_result.hpp"
+#include "vision_tune/utils/config_utils.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui
@@ -18,23 +19,6 @@ namespace Ui
   class MainWindow;
 }
 QT_END_NAMESPACE
-
-struct HSVRange
-{
-  int h_low = 0;
-  int h_high = 0;
-  int s_low = 0;
-  int s_high = 0;
-  int v_low = 0;
-  int v_high = 0;
-};
-
-struct HSVConfig
-{
-  HSVRange red;
-  HSVRange blue;
-  HSVRange line;
-};
 
 enum class VisionTarget
 {
@@ -51,13 +35,14 @@ public:
   explicit MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
 
-  const HSVConfig &get_hsv_config() const;
-  HSVConfig &get_hsv_config_mutable();
+  const vision_tune::utils::hsv_config &get_hsv_config() const;
+  vision_tune::utils::hsv_config &get_hsv_config_mutable();
   VisionTarget get_current_target() const;
 
   void update_result(const vision_tune::msg::ProcessResult &msg);
   bool save_yaml(const QString &file_path);
   bool load_yaml(const QString &file_path);
+  void set_ui_update_hz(double hz);
 
 public Q_SLOTS:
   void on_spinBox_h_low_valueChanged(int value);
@@ -87,13 +72,13 @@ public Q_SLOTS:
   void update_bird_image(const QPixmap &pixmap);
 
 private Q_SLOTS:
-  void apply_pending_ui();
+  void apply_ui_tick();
 
 private:
-  HSVRange &current_hsv();
-  const HSVRange &current_hsv() const;
+  vision_tune::utils::hsv_range &current_hsv();
+  const vision_tune::utils::hsv_range &current_hsv() const;
 
-  static void set_range_to_zero(HSVRange &range);
+  void set_range_to_zero(vision_tune::utils::hsv_range &range);
   void queue_value_change(int h_low, int h_high, int s_low, int s_high, int v_low, int v_high);
   void queue_current_target_to_widgets();
   void queue_full_config_to_widgets();
@@ -101,10 +86,9 @@ private:
   Ui::MainWindow *ui;
   QLabel *get_current_result_label();
 
-  HSVConfig hsv_config_{};
+  vision_tune::utils::hsv_config hsv_config_{};
+  vision_tune::utils::hsv_config pending_widget_config_{};
   VisionTarget current_target_ = VisionTarget::red;
-
-  HSVConfig pending_widget_config_{};
   VisionTarget pending_widget_target_ = VisionTarget::red;
   bool pending_widget_dirty_ = false;
   bool suppress_ui_sync_ = false;
@@ -119,6 +103,7 @@ private:
   bool pending_bird_image_dirty_ = false;
 
   QTimer *ui_apply_timer_ = nullptr;
+  double ui_update_hz_ = 15.0;
 };
 
 #endif

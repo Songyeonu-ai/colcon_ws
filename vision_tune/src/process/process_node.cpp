@@ -1,18 +1,10 @@
 #include "vision_tune/process/process_node.hpp"
+#include "vision_tune/utils/vision_utils.hpp"
+#include "vision_tune/utils/common_utils.hpp"
 
-static hsv_range get_selected_hsv(const hsv_config &cfg, vision_target target)
-{
-  switch (target)
-  {
-  case vision_target::red:
-    return cfg.red;
-  case vision_target::blue:
-    return cfg.blue;
-  case vision_target::line:
-    return cfg.line;
-  }
-  return cfg.red;
-}
+static vision_tune::utils::hsv_range get_selected_hsv(
+    const vision_tune::utils::hsv_config &cfg,
+    vision_target target);
 
 ProcessNode::ProcessNode()
     : Node("process_node")
@@ -40,22 +32,11 @@ ProcessNode::ProcessNode()
       bird_image_topic, 1);
 
   timer_ = this->create_wall_timer(
-      cal_period(node_hz_),
+      vision_tune::utils::hz_to_period(node_hz_), // yaml에서 토픽/주기 설정
       std::bind(&ProcessNode::process_tick, this));
 }
 
-std::chrono::nanoseconds ProcessNode::cal_period(double hz) // hz계산
-{
-  if (hz <= 0.0)
-  {
-    return std::chrono::milliseconds(100);
-  }
-
-  return std::chrono::duration_cast<std::chrono::nanoseconds>(
-      std::chrono::duration<double>(1.0 / hz));
-}
-
-void ProcessNode::declare_parameters()
+void ProcessNode::declare_parameters() // ui_config.yaml
 {
   declare_parameter<std::string>("topic.input_topic", "/camera1/camera/image_raw");
   declare_parameter<std::string>("topic.tuning_topic", "/vision/tuning");
@@ -76,7 +57,8 @@ void ProcessNode::get_parameters()
 }
 
 void ProcessNode::tuning_callback(const vision_tune::msg::TuningValue::SharedPtr msg)
-{
+{ // ui에서 hsv값이 변경될 때마다 업데이트
+  RCLCPP_INFO(this->get_logger(), "tuning_callback called");
   std::lock_guard<std::mutex> lock(data_mutex_);
 
   hsv_config_.red.h_low = msg->red_h_low;
@@ -105,7 +87,7 @@ void ProcessNode::tuning_callback(const vision_tune::msg::TuningValue::SharedPtr
 }
 
 void ProcessNode::image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
-{
+{ // 버퍼에 저장만하고 실제 처리는 process_tick
   RCLCPP_INFO(this->get_logger(), "image_callback called");
   try
   {
@@ -121,140 +103,99 @@ void ProcessNode::image_callback(const sensor_msgs::msg::Image::SharedPtr msg)
   }
 }
 
-cv::Mat ProcessNode::make_bird_view(const cv::Mat &frame)
-{
-  if (frame.empty())
-  {
-    return cv::Mat();
-  }
-
-  // 원본 이미지에서 변환할 4개 점
-  std::vector<cv::Point2f> src_points;
-  src_points.emplace_back(500.0f, 400.0f);
-  src_points.emplace_back(780.0f, 400.0f);
-  src_points.emplace_back(200.0f, 700.0f);
-  src_points.emplace_back(1080.0f, 700.0f);
-
-  // bird view 결과 이미지에서 대응될 4개 점
-  int output_width = 640;
-  int output_height = 480;
-
-  std::vector<cv::Point2f> dst_points;
-  dst_points.emplace_back(0.0f, 0.0f);
-  dst_points.emplace_back(static_cast<float>(output_width - 1), 0.0f);
-  dst_points.emplace_back(0.0f, static_cast<float>(output_height - 1));
-  dst_points.emplace_back(static_cast<float>(output_width - 1), static_cast<float>(output_height - 1));
-
-  cv::Mat transform_matrix = cv::getPerspectiveTransform(src_points, dst_points);
-
-  cv::Mat bird_view;
-  cv::warpPerspective(
-      frame,
-      bird_view,
-      transform_matrix,
-      cv::Size(output_width, output_height));
-
-  return bird_view;
-}
-
 void ProcessNode::process_tick()
 {
   RCLCPP_INFO(this->get_logger(), "process_tick called");
-  cv::Mat raw_mat;
-  hsv_config cfg;
-  vision_target selected_target;
 
-  bool raw_ready = false;
+  cv::Mat raw_mat;
+  vision_tune::utils::hsv_config cfg;
+  vision_target selected_target;
 
   {
     std::lock_guard<std::mutex> lock(data_mutex_);
 
     if ((!raw_dirty_ && !tuning_dirty_) || latest_raw_mat_.empty())
     {
-      RCLCPP_WARN(this->get_logger(), "process_tick return: raw_dirty=%d tuning_dirty=%d empty=%d",
-            raw_dirty_, tuning_dirty_, latest_raw_mat_.empty());
+      RCLCPP_WARN(
+          this->get_logger(),
+          "process_tick return: raw_dirty=%d tuning_dirty=%d empty=%d",
+          raw_dirty_,
+          tuning_dirty_,
+          latest_raw_mat_.empty());
       return;
     }
+
     raw_mat = latest_raw_mat_.clone();
     cfg = hsv_config_;
     selected_target = selected_target_;
     raw_dirty_ = false;
     tuning_dirty_ = false;
-    raw_ready = true;
   }
 
-  if (!raw_ready)
-  {
-    RCLCPP_WARN(this->get_logger(), "process_tick return: raw_dirty=%d tuning_dirty=%d empty=%d",
-            raw_dirty_, tuning_dirty_, latest_raw_mat_.empty());
-    return;
-  }
+  // ========================= bird view =========================
+  std::vector<cv::Point2f> src_points = {
+      {500.0f, 400.0f},
+      {780.0f, 400.0f},
+      {200.0f, 700.0f},
+      {1080.0f, 700.0f}};
 
-  // =========================
-  // bird view
-  // =========================
-  cv::Mat bird_view = make_bird_view(raw_mat);
+  cv::Mat bird_view = vision_tune::utils::make_bird_view(raw_mat, src_points, 640, 480);
+
   if (bird_view.empty())
   {
-    RCLCPP_WARN(this->get_logger(), "process_tick return: raw_dirty=%d tuning_dirty=%d empty=%d",
-            raw_dirty_, tuning_dirty_, latest_raw_mat_.empty());
+    RCLCPP_WARN(this->get_logger(), "bird_view is empty");
+    return;
+  }
+  // ============================================================
+
+  // ========================= selected target =========================
+  vision_tune::utils::hsv_range selected_hsv =
+      get_selected_hsv(cfg, selected_target);
+
+  cv::Mat source_img = raw_mat;
+  if (selected_target == vision_target::line)
+  {
+    source_img = bird_view;
+  }
+
+  cv::Mat mask = vision_tune::utils::make_hsv_mask(source_img, selected_hsv);
+
+  if (mask.empty())
+  {
+    RCLCPP_WARN(this->get_logger(), "mask is empty");
     return;
   }
 
-  cv::Mat bird_img;
-  cv::cvtColor(bird_view, bird_img, cv::COLOR_BGR2HSV);
+  auto detection = vision_tune::utils::find_largest_blob(mask);
 
-  // =========================
-  // 현재 선택된 색만 디버그
-  // =========================
-  hsv_range selected_hsv = get_selected_hsv(cfg, selected_target);
-
-  cv::Mat hsv_img;
-  cv::Mat before_img = raw_mat;
-  if (selected_target == vision_target::line)
-  {
-    before_img = bird_view;
-  }
-  cv::cvtColor(before_img, hsv_img, cv::COLOR_BGR2HSV);
-
-  cv::Scalar lower(
-      selected_hsv.h_low,
-      selected_hsv.s_low,
-      selected_hsv.v_low);
-
-  cv::Scalar upper(
-      selected_hsv.h_high,
-      selected_hsv.s_high,
-      selected_hsv.v_high);
-
-  cv::Mat mask; // 마스크
-  cv::inRange(hsv_img, lower, upper, mask);
-
-  cv::Mat result_mat; // 결과 이미지
+  // result_image는 바이너리 마스크를 3채널로 바꾼 화면
+  cv::Mat result_mat;
   cv::cvtColor(mask, result_mat, cv::COLOR_GRAY2BGR);
 
   vision_tune::msg::ProcessResult result_msg;
-  result_msg.detected = cv::countNonZero(mask) > 0;
-  result_msg.center_x = 0.0f;
-  result_msg.center_y = 0.0f;
-  result_msg.area = static_cast<float>(cv::countNonZero(mask));
+  result_msg.detected = detection.detected;
+  result_msg.center_x = detection.center_x;
+  result_msg.center_y = detection.center_y;
+  result_msg.area = detection.area;
+  // ==================================================================
 
-  auto img_msg = cv_bridge::CvImage(
-                     std_msgs::msg::Header(), "bgr8", result_mat)
-                     .toImageMsg();
+  // ========================= publish =========================
+  auto result_img_msg =
+      cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", result_mat).toImageMsg();
 
-  auto bird_msg = cv_bridge::CvImage(
-                      std_msgs::msg::Header(), "bgr8", bird_view)
-                      .toImageMsg();
+  auto bird_img_msg =
+      cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", bird_view).toImageMsg();
 
-  img_msg->header.stamp = this->now();
-  bird_msg->header.stamp = this->now();
-  img_msg->header.frame_id = "camera_frame";
-  bird_msg->header.frame_id = "bird_frame";
+  result_img_msg->header.stamp = this->now();
+  bird_img_msg->header.stamp = this->now();
 
-  result_image_pub_->publish(*img_msg);
-  bird_image_pub_->publish(*bird_msg);
+  result_img_msg->header.frame_id = "result_frame";
+  bird_img_msg->header.frame_id = "bird_frame";
+
+  result_image_pub_->publish(*result_img_msg);
+  bird_image_pub_->publish(*bird_img_msg);
   result_pub_->publish(result_msg);
+  // ==========================================================
 }
 
 int main(int argc, char **argv)
@@ -263,4 +204,18 @@ int main(int argc, char **argv)
   rclcpp::spin(std::make_shared<ProcessNode>());
   rclcpp::shutdown();
   return 0;
+}
+
+static vision_tune::utils::hsv_range get_selected_hsv(const vision_tune::utils::hsv_config &cfg, vision_target target)
+{
+  switch (target)
+  {
+  case vision_target::red:
+    return cfg.red;
+  case vision_target::blue:
+    return cfg.blue;
+  case vision_target::line:
+    return cfg.line;
+  }
+  return cfg.red;
 }

@@ -1,37 +1,8 @@
 #include "vision_tune/ui/main_window.hpp"
+#include "vision_tune/utils/common_utils.hpp"
 #include "ui_main_window.h"
 
 #include <QDir>
-
-namespace
-{
-  YAML::Node to_yaml(const HSVRange &hsv)
-  {
-    YAML::Node node;
-    node["h_low"] = hsv.h_low;
-    node["h_high"] = hsv.h_high;
-    node["s_low"] = hsv.s_low;
-    node["s_high"] = hsv.s_high;
-    node["v_low"] = hsv.v_low;
-    node["v_high"] = hsv.v_high;
-    return node;
-  }
-
-  bool from_yaml(const YAML::Node &node, HSVRange &hsv)
-  {
-    if (!node)
-    {
-      return false;
-    }
-    hsv.h_low = node["h_low"].as<int>();
-    hsv.h_high = node["h_high"].as<int>();
-    hsv.s_low = node["s_low"].as<int>();
-    hsv.s_high = node["s_high"].as<int>();
-    hsv.v_low = node["v_low"].as<int>();
-    hsv.v_high = node["v_high"].as<int>();
-    return true;
-  }
-} // namespace
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent),
@@ -42,12 +13,13 @@ MainWindow::MainWindow(QWidget *parent)
   ui->setupUi(this);
 
   ui_apply_timer_ = new QTimer(this);
-  ui_apply_timer_->setInterval(66); // about 15 Hz
-  connect(ui_apply_timer_, &QTimer::timeout, this, &MainWindow::apply_pending_ui);
-  ui_apply_timer_->start();
+  connect(ui_apply_timer_, &QTimer::timeout,
+          this, &MainWindow::apply_ui_tick);
+
+  set_ui_update_hz(15.0);
 
   queue_full_config_to_widgets();
-  apply_pending_ui();
+  apply_ui_tick();
 }
 
 MainWindow::~MainWindow()
@@ -55,57 +27,28 @@ MainWindow::~MainWindow()
   delete ui;
 }
 
-const HSVConfig &MainWindow::get_hsv_config() const
+void MainWindow::set_ui_update_hz(double hz)
 {
-  return hsv_config_;
-}
+  ui_update_hz_ = hz;
 
-HSVConfig &MainWindow::get_hsv_config_mutable()
-{
-  return hsv_config_;
-}
-
-VisionTarget MainWindow::get_current_target() const
-{
-  return current_target_;
-}
-
-HSVRange &MainWindow::current_hsv()
-{
-  switch (current_target_)
+  if (ui_apply_timer_ == nullptr)
   {
-  case VisionTarget::red:
-    return hsv_config_.red;
-  case VisionTarget::blue:
-    return hsv_config_.blue;
-  case VisionTarget::line:
-    return hsv_config_.line;
+    return;
   }
-  return hsv_config_.red;
+
+  ui_apply_timer_->stop();
+  ui_apply_timer_->start(vision_tune::utils::hz_to_msec(ui_update_hz_));
 }
 
-const HSVRange &MainWindow::current_hsv() const
+//=========================UI 업데이트 관련=========================
+void MainWindow::set_range_to_zero(vision_tune::utils::hsv_range &range)
 {
-  switch (current_target_)
-  {
-  case VisionTarget::red:
-    return hsv_config_.red;
-  case VisionTarget::blue:
-    return hsv_config_.blue;
-  case VisionTarget::line:
-    return hsv_config_.line;
-  }
-  return hsv_config_.red;
-}
-
-void MainWindow::set_range_to_zero(HSVRange &range)
-{
-  range = HSVRange{};
+  range = vision_tune::utils::hsv_range{};
 }
 
 void MainWindow::queue_value_change(int h_low, int h_high, int s_low, int s_high, int v_low, int v_high)
 {
-  HSVRange &hsv = current_hsv();
+  vision_tune::utils::hsv_range &hsv = current_hsv();
   hsv.h_low = h_low;
   hsv.h_high = h_high;
   hsv.s_low = s_low;
@@ -143,14 +86,14 @@ QLabel *MainWindow::get_current_result_label()
     return ui->label_red;
   }
 }
-
-void MainWindow::apply_pending_ui()
+// ui업데이트 tick함수
+void MainWindow::apply_ui_tick()
 {
   if (pending_widget_dirty_)
   {
     suppress_ui_sync_ = true;
 
-    const HSVRange *hsv = nullptr;
+    const vision_tune::utils::hsv_range *hsv = nullptr;
     switch (pending_widget_target_)
     {
     case VisionTarget::red:
@@ -270,6 +213,8 @@ void MainWindow::update_bird_image(const QPixmap &pixmap)
   pending_bird_image_dirty_ = true;
 }
 
+//===================파일 저장 함수=======================
+
 bool MainWindow::save_yaml(const QString &file_path)
 {
   try
@@ -277,9 +222,9 @@ bool MainWindow::save_yaml(const QString &file_path)
     YAML::Node root;
     YAML::Node params;
 
-    params["red"] = to_yaml(hsv_config_.red);
-    params["blue"] = to_yaml(hsv_config_.blue);
-    params["line"] = to_yaml(hsv_config_.line);
+    params["red"] = vision_tune::utils::to_yaml(hsv_config_.red);
+    params["blue"] = vision_tune::utils::to_yaml(hsv_config_.blue);
+    params["line"] = vision_tune::utils::to_yaml(hsv_config_.line);
 
     root["ui_node"]["ros__parameters"]["hsv"] = params;
 
@@ -308,9 +253,9 @@ bool MainWindow::load_yaml(const QString &file_path)
       return false;
     }
 
-    from_yaml(params["red"], hsv_config_.red);
-    from_yaml(params["blue"], hsv_config_.blue);
-    from_yaml(params["line"], hsv_config_.line);
+    vision_tune::utils::from_yaml(params["red"], hsv_config_.red);
+    vision_tune::utils::from_yaml(params["blue"], hsv_config_.blue);
+    vision_tune::utils::from_yaml(params["line"], hsv_config_.line);
 
     queue_full_config_to_widgets();
     return true;
@@ -321,6 +266,7 @@ bool MainWindow::load_yaml(const QString &file_path)
     return false;
   }
 }
+//=========================UI 이벤트 핸들러=========================
 
 void MainWindow::on_spinBox_h_low_valueChanged(int value)
 {
@@ -480,4 +426,45 @@ void MainWindow::on_pushButton_set0_clicked()
   set_range_to_zero(hsv_config_.blue);
   set_range_to_zero(hsv_config_.line);
   queue_full_config_to_widgets();
+}
+
+//=================hsv관련====================
+const vision_tune::utils::hsv_config &MainWindow::get_hsv_config() const
+{
+  return hsv_config_;
+}
+
+VisionTarget MainWindow::get_current_target() const
+{
+  return current_target_;
+}
+
+vision_tune::utils::hsv_range &MainWindow::current_hsv()
+{
+  switch (current_target_)
+  {
+  case VisionTarget::red:
+    return hsv_config_.red;
+  case VisionTarget::blue:
+    return hsv_config_.blue;
+  case VisionTarget::line:
+    return hsv_config_.line;
+  }
+
+  return hsv_config_.red;
+}
+
+const vision_tune::utils::hsv_range &MainWindow::current_hsv() const
+{
+  switch (current_target_)
+  {
+  case VisionTarget::red:
+    return hsv_config_.red;
+  case VisionTarget::blue:
+    return hsv_config_.blue;
+  case VisionTarget::line:
+    return hsv_config_.line;
+  }
+
+  return hsv_config_.red;
 }

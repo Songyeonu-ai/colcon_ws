@@ -19,7 +19,6 @@ class UiNode : public QObject, public rclcpp::Node
   Q_OBJECT
 
 public:
-  std::chrono::nanoseconds cal_period(double hz);
   explicit UiNode(MainWindow *window);
 
 Q_SIGNALS:
@@ -66,6 +65,7 @@ private:
   std::string tuning_topic_;
   std::string bird_image_topic_;
   double node_hz_ = 15.0;
+  double ui_apply_hz_ = 15.0;
 };
 
 #endif

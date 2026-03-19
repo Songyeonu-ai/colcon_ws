@@ -29,6 +29,7 @@ ui_node:
       tuning_topic: "/vision/tuning"
       brid_image_topic: "/vision/bird_image"
     node_hz: 15.0
+    ui_apply_hz: 15.0
 
 process_node:
   ros__parameters:
@@ -40,6 +41,6 @@ process_node:
       brid_image_topic: "/vision/bird_image"
     node_hz: 30.0
 
-pan_tilt_camera_node_camera1:
+pan_tilt_camera_node_camera1: #d만들어뒀는데 지금은 안쓰는중
   ros__parameters:
     node_hz: 15.0

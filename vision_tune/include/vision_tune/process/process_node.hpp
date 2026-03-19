@@ -12,23 +12,8 @@
 
 #include "vision_tune/msg/tuning_value.hpp"
 #include "vision_tune/msg/process_result.hpp"
+#include "vision_tune/utils/config_utils.hpp"
 
-struct hsv_range
-{
-  int h_low = 0;
-  int h_high = 0;
-  int s_low = 0;
-  int s_high = 0;
-  int v_low = 0;
-  int v_high = 0;
-};
-
-struct hsv_config
-{
-  hsv_range red;
-  hsv_range blue;
-  hsv_range line;
-};
 
 enum class vision_target
 {
@@ -39,9 +24,8 @@ enum class vision_target
 class ProcessNode : public rclcpp::Node
 {
 public:
-  std::chrono::nanoseconds cal_period(double hz);
   ProcessNode();
-  hsv_config hsv_config_;
+  vision_tune::utils::hsv_config hsv_config_;
   vision_target selected_target_ = vision_target::red;
   bool tuning_dirty_ = false;
 
@@ -51,7 +35,6 @@ private:
   void process_tick();
   void declare_parameters();
   void get_parameters();
-  cv::Mat make_bird_view(const cv::Mat &frame);
 
   rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr image_sub_;
   rclcpp::Subscription<vision_tune::msg::TuningValue>::SharedPtr tuning_sub_;
